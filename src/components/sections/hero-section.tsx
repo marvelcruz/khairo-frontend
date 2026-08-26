@@ -92,7 +92,7 @@ export function HeroSection() {
               {cmsText(
                 content,
                 "hero-subheading",
-                "A medically supervised weight-loss program built for women's biology — real meal plans, a private support community, and results that last. Over 700 women have already started."
+                "At Khairo Diet Clinic, we move beyond generic diets. We listen to your story, understand your body, and craft a science-backed nutrition plan that fits your life and delivers lasting results — real meal plans, a private support community, and results that last. Over 700 women have already started."
               )}
             </motion.p>
 

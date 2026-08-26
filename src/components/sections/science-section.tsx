@@ -9,7 +9,7 @@ const FACTS = [
   {
     question: "Did you know that exercise produces a molecule that biologically quiets your hunger neurons?",
     caption:
-      "It's called Lac-Phe. It explains why movement suppresses appetite in a way restriction never can. Movement is medicine — not a debt you pay for eating.",
+      "It's called Lac-Phe. It explains why movement suppresses appetite in a way restriction never can. Your Path to Vibrant Health, Personalized for You.",
     accent: "Lac-Phe",
   },
   {
