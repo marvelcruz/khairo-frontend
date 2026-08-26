@@ -51,7 +51,7 @@ export function Footer() {
             </Link>
             <p className="text-mist text-sm leading-relaxed mb-6">
               A medically supervised weight-loss program built for women&apos;s
-              biology. Movement is medicine.
+              biology. 
             </p>
             {/* Social */}
             <div className="flex flex-wrap items-center gap-3">
