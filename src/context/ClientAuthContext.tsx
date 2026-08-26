@@ -130,8 +130,7 @@ const ClientAuthContext =
   );
 
 const API =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5001/api";
+  "https://khairo-backend.onrender.com/api";
 
 type ApiError = Error & {
   code?: string;

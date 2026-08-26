@@ -15,7 +15,7 @@ import {
 import { useClientAuth } from "../../../context/ClientAuthContext";
 import { ApiError } from "../../../lib/api";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const API_BASE = "https://khairo-backend.onrender.com/api";
 
 export default function ClientLoginPage() {
   const { login } = useClientAuth();
