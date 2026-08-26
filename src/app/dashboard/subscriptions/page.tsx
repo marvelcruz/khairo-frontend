@@ -242,7 +242,7 @@ export default function SubscriptionsPage() {
               onClick={() => setStatus(value)}
               className={`min-h-10 whitespace-nowrap rounded-full px-4 text-xs font-semibold ${
                 status === value
-                  ? "bg-pink-500 text-white"
+                  ? "bg-emerald-500 text-white"
                   : "border border-[var(--theme-border)] text-[var(--theme-text-secondary)]"
               }`}
             >

@@ -179,7 +179,7 @@ const STAGE_META: Record<
 > = {
   new: {
     label: "New Lead",
-    badge: "bg-pink-500/10 text-pink-300 border-emerald-600/20",
+    badge: "bg-emerald-500/10 text-pink-300 border-emerald-600/20",
     dot: "bg-pink-400",
     border: "border-t-pink-400/50",
   },

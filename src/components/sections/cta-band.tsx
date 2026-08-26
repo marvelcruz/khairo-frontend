@@ -60,7 +60,7 @@ export function CTABand() {
           variants={fadeUp}
           className="text-lg text-pure-white/80 leading-relaxed mb-10 max-w-[520px] mx-auto"
         >
-          {cmsText(content, "cta-body", "Join 700+ women who stopped dieting and started living.")}
+          {cmsText(content, "cta-body", "At Khairo Diet Clinic, we move beyond generic diets. We listen to your story, understand your body, and craft a science-backed nutrition plan that fits your life and delivers lasting results.")}
         </motion.p>
 
         <motion.div

@@ -266,7 +266,7 @@ export function CatalogueWorkspace({
             <button
               type="button"
               onClick={openCreate}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-pink-500 px-4 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-white hover:bg-pink-400"
             >
               <Plus className="h-4 w-4" />
               Add item
@@ -291,7 +291,7 @@ export function CatalogueWorkspace({
       {editor && canManage && (
         <form
           onSubmit={saveItem}
-          className="rounded-xl border border-emerald-600/30 bg-pink-500/5 p-4 sm:p-5"
+          className="rounded-xl border border-emerald-600/30 bg-emerald-500/5 p-4 sm:p-5"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
@@ -459,7 +459,7 @@ export function CatalogueWorkspace({
           <button
             type="submit"
             disabled={saving}
-            className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-pink-500 px-5 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-500 px-5 py-2 text-sm font-semibold text-white disabled:opacity-50"
           >
             {saving ? "Saving..." : editor.id ? "Save changes" : "Create item"}
           </button>
@@ -485,7 +485,7 @@ export function CatalogueWorkspace({
               onClick={() => setStatus(value)}
               className={`min-h-10 whitespace-nowrap rounded-full px-4 text-xs font-semibold capitalize ${
                 status === value
-                  ? "bg-pink-500 text-white"
+                  ? "bg-emerald-500 text-white"
                   : "border border-[var(--theme-border)] text-[var(--theme-text-secondary)]"
               }`}
             >

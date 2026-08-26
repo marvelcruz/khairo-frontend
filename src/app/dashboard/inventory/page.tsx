@@ -245,7 +245,7 @@ export default function InventoryPage() {
 
         <Link
           href="/dashboard/supplements"
-          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-pink-500 px-4 text-sm font-semibold text-white hover:bg-pink-400"
+          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-500 px-4 text-sm font-semibold text-white hover:bg-pink-400"
         >
           Manage stock
         </Link>
