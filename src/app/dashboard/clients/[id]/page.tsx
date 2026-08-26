@@ -44,6 +44,15 @@ type DailyLog = {
   logDate: string;
   weightKg?: number;
   calories?: number;
+  calorieCalculation?: {
+    gender?: string;
+    age?: number;
+    heightCm?: number;
+    weightKg?: number;
+    activityLevel?: string;
+    tdeeKcal?: number;
+    updatedAt?: string;
+  };
   waterMl?: number;
   steps?: number;
   workoutDone?: boolean;
@@ -457,6 +466,46 @@ export default function ClientDetailPage() {
           )}
         </div>
       </div>
+
+      {client.calorieCalculation && (
+        <div className="rounded-sm border border-[var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
+          <p className="font-medium text-white">Fitness &amp; Calorie Intake</p>
+          <p className="mt-1 text-sm text-[var(--theme-text-secondary)]">
+            Calculated daily calorie needs based on client's personal data.
+          </p>
+          <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Estimated calories</p>
+              <p className="text-xl font-bold text-white">{client.calorieCalculation.tdeeKcal ?? "—"} kcal/day</p>
+            </div>
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Gender</p>
+              <p className="text-white capitalize">{client.calorieCalculation.gender ?? "—"}</p>
+            </div>
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Age</p>
+              <p className="text-white">{client.calorieCalculation.age ?? "—"} years</p>
+            </div>
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Height</p>
+              <p className="text-white">{client.calorieCalculation.heightCm ?? "—"} cm</p>
+            </div>
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Weight</p>
+              <p className="text-white">{client.calorieCalculation.weightKg ?? "—"} kg</p>
+            </div>
+            <div>
+              <p className="text-[var(--theme-text-secondary)]">Activity level</p>
+              <p className="text-white">{client.calorieCalculation.activityLevel ?? "—"}</p>
+            </div>
+            {client.calorieCalculation.updatedAt && (
+              <div className="col-span-2 text-xs text-[var(--theme-text-secondary)]">
+                Last updated {new Date(client.calorieCalculation.updatedAt).toLocaleString()}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <ClientSessions clientId={id as string} />
 
