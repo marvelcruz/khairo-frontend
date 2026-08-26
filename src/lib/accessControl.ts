@@ -100,6 +100,10 @@ const ROUTE_TO_PERMISSION: Record<string, string> = {
 };
 
 function routeMatches(route: string, base: string): boolean {
+  // The home route should not catch every /dashboard/* subroute.
+  if (base === "/dashboard") {
+    return route === "/dashboard";
+  }
   return route === base || route.startsWith(base + "/");
 }
 
