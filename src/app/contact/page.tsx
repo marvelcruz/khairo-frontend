@@ -114,13 +114,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-ui font-semibold text-sm text-ink-black">Facebook</p>
-                    <p className="text-xs text-ink-black/50">Khairo Diet Clinic</p>
+                    <p className="text-xs text-ink-black/50">KhairoDietClinic</p>
                   </div>
                 </a>
               </div>
 
               <p className="text-xs text-ink-black/40 mt-6">
-                Khairo Diet Clinic operates fully online. We do not have a physical office — all support is delivered remotely via WhatsApp and our private community.
+                KhairoDietClinic operates fully online. We do not have a physical office — all support is delivered remotely via WhatsApp and our private community.
               </p>
             </div>
 

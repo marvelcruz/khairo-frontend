@@ -9,7 +9,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 export const metadata: Metadata = {
   title: "About Our Mission",
   description:
-    "The story behind Khairo Diet Clinic — a medically supervised weight-loss program built because women deserved better than programs that ignored their biology.",
+    "The story behind KhairoDietClinic — a medically supervised weight-loss program built because women deserved better than programs that ignored their biology.",
 };
 
 const VALUES = [
@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1509099896299-af46ad97ff57?w=1600&q=80&auto=format"
-            alt="Khairo Diet Clinic community of African women"
+            alt="KhairoDietClinic community of African women"
             fill
             className="object-cover opacity-20"
             priority
@@ -76,7 +76,7 @@ export default function AboutPage() {
                 Women were being failed by programs that weren&apos;t built for them.
               </h2>
               <p className="text-ink-black/75 leading-relaxed mb-5 text-[1.05rem]">
-                Khairo Diet Clinic began with a simple observation: most weight-loss programs were built on research done primarily on men, then handed to women and called &ldquo;effective.&rdquo; But women&apos;s hormones, hunger cycles, and metabolism work differently. The results — and the shame when those programs didn&apos;t work — were predictable.
+                KhairoDietClinic began with a simple observation: most weight-loss programs were built on research done primarily on men, then handed to women and called &ldquo;effective.&rdquo; But women&apos;s hormones, hunger cycles, and metabolism work differently. The results — and the shame when those programs didn&apos;t work — were predictable.
               </p>
               <p className="text-ink-black/75 leading-relaxed text-[1.05rem]">
                 The program launched with a small cohort of women in Lagos. Within weeks, the community was growing — not from ads, but from word of mouth. Women who had &ldquo;failed every diet&rdquo; were reporting real change. The difference was biology, not willpower.
@@ -86,7 +86,7 @@ export default function AboutPage() {
               <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/5]">
                 <Image
                   src="https://images.unsplash.com/photo-1603503363848-6952525df449?w=700&q=85&auto=format"
-                  alt="Khairo Diet Clinic founder and coach Ada"
+                  alt="KhairoDietClinic founder and coach Ada"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -134,7 +134,7 @@ export default function AboutPage() {
               700+ women who stopped fighting their bodies.
             </h2>
             <p className="text-mist leading-relaxed">
-              The Khairo Diet Clinic community is one of the program&apos;s most powerful tools. It&apos;s private, women-only, and built into every plan.
+              The KhairoDietClinic community is one of the program&apos;s most powerful tools. It&apos;s private, women-only, and built into every plan.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -147,7 +147,7 @@ export default function AboutPage() {
               <div key={i} className="relative rounded-[1.25rem] overflow-hidden aspect-square">
                 <Image
                   src={src}
-                  alt="Khairo Diet Clinic community member"
+                  alt="KhairoDietClinic community member"
                   fill
                   className="object-cover"
                   sizes="25vw"

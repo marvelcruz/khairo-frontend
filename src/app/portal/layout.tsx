@@ -212,7 +212,7 @@ function PortalShell({
       <div className="flex min-h-[100svh] items-center justify-center bg-[var(--theme-page)] px-4">
         <div className="w-full max-w-md rounded-2xl border border-amber-500/20 bg-amber-500/[0.04] p-6 text-center">
           <p className="text-sm font-semibold text-white">
-            Khairo Diet Clinic is temporarily unable to connect
+            KhairoDietClinic is temporarily unable to connect
           </p>
 
           <p className="mt-2 text-sm leading-6 text-zinc-500">

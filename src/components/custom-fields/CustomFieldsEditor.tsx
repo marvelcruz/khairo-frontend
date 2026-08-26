@@ -128,7 +128,7 @@ export default function CustomFieldsEditor({
       <div className="flex items-center justify-between gap-3">
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--theme-text-muted)]">{title}</h3>
-          {!compact && <p className="mt-1 text-xs text-[var(--theme-text-muted)]">Khairo Diet Clinic-specific information configured by Admin.</p>}
+          {!compact && <p className="mt-1 text-xs text-[var(--theme-text-muted)]">KhairoDietClinic-specific information configured by Admin.</p>}
         </div>
         {canEdit && !editing && (
           <button type="button" onClick={() => { setDraft(values); setEditing(true); setError(""); }} className="inline-flex h-8 items-center gap-1.5 rounded-md px-2.5 text-xs font-semibold text-[var(--theme-text-secondary)] transition hover:bg-[var(--theme-surface-hover)] hover:text-white">

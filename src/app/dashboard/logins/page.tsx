@@ -211,7 +211,7 @@ export default function LoginsPage() {
         <div>
           <h1 className="text-2xl font-medium text-white">Staff logins</h1>
           <p className="mt-1 text-sm text-[var(--theme-text-secondary)]">
-            Who can sign in to the Khairo Diet Clinic dashboard, and as which role.
+            Who can sign in to the KhairoDietClinic dashboard, and as which role.
           </p>
         </div>
 

@@ -83,7 +83,7 @@ export function ClientSupplements() {
           </p>
 
           <p className="mt-1 text-xs leading-relaxed text-zinc-600">
-            Supplements assigned to your Khairo Diet Clinic plan will appear here.
+            Supplements assigned to your KhairoDietClinic plan will appear here.
           </p>
         </div>
       ) : (

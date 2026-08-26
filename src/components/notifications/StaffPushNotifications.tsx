@@ -99,7 +99,7 @@ export default function StaffPushNotifications() {
         <Bell className="mt-0.5 shrink-0 text-[#0d9488]" size={18} />
         <div>
           <p className="text-sm font-semibold text-[var(--theme-text)]">
-            Get instant Khairo Diet Clinic alerts
+            Get instant KhairoDietClinic alerts
           </p>
           <p className="mt-1 text-xs leading-5 text-[var(--theme-text-secondary)]">
             Enable notifications so assigned leads can reach you immediately.

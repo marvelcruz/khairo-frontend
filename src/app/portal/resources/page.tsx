@@ -18,7 +18,7 @@ const RESOURCES = [
       "Travelling during your program",
     category: "Travel",
     body:
-      "Plan the basics before you leave: meals you can reliably choose, water, movement, any Khairo Diet Clinic supplies you need, and how you will complete your normal check-in while away.",
+      "Plan the basics before you leave: meals you can reliably choose, water, movement, any KhairoDietClinic supplies you need, and how you will complete your normal check-in while away.",
   },
   {
     title:
@@ -61,7 +61,7 @@ export default function ResourcesPage() {
         </div>
 
         <h1 className="mt-2 text-3xl font-semibold text-white">
-          Khairo Diet Clinic help for real life
+          KhairoDietClinic help for real life
         </h1>
 
         <p className="mt-2 max-w-2xl text-sm text-zinc-500">

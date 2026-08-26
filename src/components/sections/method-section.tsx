@@ -45,7 +45,7 @@ export function MethodSection() {
   return (
     <section
       className="bg-ink-black py-16 sm:py-20 lg:py-32 relative overflow-hidden"
-      aria-label="The Khairo Diet Clinic Method"
+      aria-label="The KhairoDietClinic Method"
     >
       {/* Halftone subtle */}
       <div className="absolute inset-0 halftone opacity-50 pointer-events-none" aria-hidden />
@@ -53,7 +53,7 @@ export function MethodSection() {
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="mb-14 lg:mb-16">
           <SectionHeader
-            eyebrow={cmsText(content, "method-eyebrow", "The Khairo Diet Clinic Method")}
+            eyebrow={cmsText(content, "method-eyebrow", "The KhairoDietClinic Method")}
             title={cmsText(content, "method-title", "Four things working<br/>together. That's the difference.")}
             subtitle={cmsText(content, "method-subtitle", "This isn't a diet plan. It's a system built around your biology, your accountability, and your life.")}
           />

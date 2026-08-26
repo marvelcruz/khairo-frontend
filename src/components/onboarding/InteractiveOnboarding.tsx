@@ -100,7 +100,7 @@ const PUBLIC_PORTAL_PATHS = new Set([
 const CLIENT_FULL: TourStep[] = [
   {
     id: "client-home",
-    title: "Your Khairo Diet Clinic home",
+    title: "Your KhairoDietClinic home",
     description:
       "This is your personal starting point. It brings your program, progress and support together.",
     instruction:
@@ -113,7 +113,7 @@ const CLIENT_FULL: TourStep[] = [
     description:
       "Your Plan shows the meals, guidance and activities prepared for you.",
     instruction:
-      "Open My Plan and see what Khairo Diet Clinic has prepared for you today.",
+      "Open My Plan and see what KhairoDietClinic has prepared for you today.",
     href: "/portal/plan",
   },
   {
@@ -129,7 +129,7 @@ const CLIENT_FULL: TourStep[] = [
     id: "client-messages",
     title: "Stay connected",
     description:
-      "Messages is where you communicate with the Khairo Diet Clinic team supporting you.",
+      "Messages is where you communicate with the KhairoDietClinic team supporting you.",
     instruction:
       "Open Messages so you know where to come when you need support.",
     href: "/portal/messages",
@@ -138,7 +138,7 @@ const CLIENT_FULL: TourStep[] = [
     id: "client-book",
     title: "Appointments",
     description:
-      "Use Book to view or arrange sessions with your Khairo Diet Clinic team.",
+      "Use Book to view or arrange sessions with your KhairoDietClinic team.",
     instruction:
       "Open Book and see how appointments work. Nothing will be booked automatically.",
     href: "/portal/book",
@@ -149,21 +149,21 @@ const CLIENT_FULL: TourStep[] = [
     description:
       "Important documents shared with you are kept together here.",
     instruction:
-      "Open Documents and see where your Khairo Diet Clinic documents live.",
+      "Open Documents and see where your KhairoDietClinic documents live.",
     href: "/portal/documents",
   },
   {
     id: "client-resources",
     title: "Resources",
     description:
-      "Resources gives you useful Khairo Diet Clinic information without having to search for it.",
+      "Resources gives you useful KhairoDietClinic information without having to search for it.",
     instruction:
       "Open Resources and explore what is available to you.",
     href: "/portal/resources",
   },
   {
     id: "client-settings",
-    title: "Make Khairo Diet Clinic yours",
+    title: "Make KhairoDietClinic yours",
     description:
       "Settings is where you manage your account preferences.",
     instruction:
@@ -176,7 +176,7 @@ const CLIENT_PREVIEW: TourStep[] = [
   CLIENT_FULL[0],
   {
     id: "client-preview-resources",
-    title: "Explore Khairo Diet Clinic resources",
+    title: "Explore KhairoDietClinic resources",
     description:
       "Your preview account gives you a place to learn more while your full program access is being prepared.",
     instruction:
@@ -195,7 +195,7 @@ const STAFF_TOURS: Record<
       id: "admin-dashboard",
       title: "Your command centre",
       description:
-        "The dashboard gives you the operational picture of Khairo Diet Clinic.",
+        "The dashboard gives you the operational picture of KhairoDietClinic.",
       instruction:
         "Open Dashboard and review the information waiting for your attention.",
       href: "/dashboard",
@@ -213,7 +213,7 @@ const STAFF_TOURS: Record<
       id: "admin-clients",
       title: "Clients",
       description:
-        "Clients brings together the people currently moving through Khairo Diet Clinic.",
+        "Clients brings together the people currently moving through KhairoDietClinic.",
       instruction:
         "Open Clients and see how client records are organized.",
       href: "/dashboard/clients",
@@ -240,7 +240,7 @@ const STAFF_TOURS: Record<
       id: "admin-messages",
       title: "Messages",
       description:
-        "Messages keeps permitted client conversations inside the Khairo Diet Clinic workflow.",
+        "Messages keeps permitted client conversations inside the KhairoDietClinic workflow.",
       instruction:
         "Open Messages and see how conversations are organized.",
       href: "/dashboard/messages",
@@ -260,7 +260,7 @@ const STAFF_TOURS: Record<
       id: "growth-buddies",
       title: "Growth — Buddy System",
       description:
-        "Buddy System helps organize Khairo Diet Clinic buddy relationships and activity.",
+        "Buddy System helps organize KhairoDietClinic buddy relationships and activity.",
       instruction:
         "Open Buddy System and explore how buddy relationships are managed.",
       href: "/dashboard/buddies",
@@ -278,7 +278,7 @@ const STAFF_TOURS: Record<
       id: "growth-templates",
       title: "Growth — Message Templates",
       description:
-        "Message Templates provides reusable communication for common Khairo Diet Clinic workflows.",
+        "Message Templates provides reusable communication for common KhairoDietClinic workflows.",
       instruction:
         "Open Message Templates and see how reusable messages are organized.",
       href: "/dashboard/templates",
@@ -307,7 +307,7 @@ const STAFF_TOURS: Record<
       id: "admin-audit",
       title: "Admin — Audit Trail",
       description:
-        "Audit Trail provides visibility into important recorded activity in Khairo Diet Clinic.",
+        "Audit Trail provides visibility into important recorded activity in KhairoDietClinic.",
       instruction:
         "Open Audit Trail and see how activity is tracked.",
       href: "/dashboard/audit",
@@ -316,7 +316,7 @@ const STAFF_TOURS: Record<
       id: "admin-staff",
       title: "Admin — Staff",
       description:
-        "Staff is where authorized administrators manage Khairo Diet Clinic team members.",
+        "Staff is where authorized administrators manage KhairoDietClinic team members.",
       instruction:
         "Open Staff and explore the team-management workspace.",
       href: "/dashboard/staff",
@@ -325,7 +325,7 @@ const STAFF_TOURS: Record<
       id: "admin-logins",
       title: "Admin — Logins",
       description:
-        "Logins gives administrators visibility into the accounts used to access Khairo Diet Clinic.",
+        "Logins gives administrators visibility into the accounts used to access KhairoDietClinic.",
       instruction:
         "Open Logins and see how access accounts are organized.",
       href: "/dashboard/accounts",
@@ -334,7 +334,7 @@ const STAFF_TOURS: Record<
       id: "admin-custom-fields",
       title: "Admin — Custom Fields",
       description:
-        "Custom Fields lets Khairo Diet Clinic capture additional structured information where needed.",
+        "Custom Fields lets KhairoDietClinic capture additional structured information where needed.",
       instruction:
         "Open Custom Fields and explore how additional fields are managed.",
       href: "/dashboard/custom-fields",
@@ -343,7 +343,7 @@ const STAFF_TOURS: Record<
       id: "admin-forms",
       title: "Admin — Form Builder",
       description:
-        "Form Builder is where reusable Khairo Diet Clinic forms are created and managed.",
+        "Form Builder is where reusable KhairoDietClinic forms are created and managed.",
       instruction:
         "Open Form Builder and see how forms are organized.",
       href: "/dashboard/forms",
@@ -370,7 +370,7 @@ const STAFF_TOURS: Record<
       id: "admin-business-configuration",
       title: "Admin — Business Configuration",
       description:
-        "Business Configuration contains settings that control how Khairo Diet Clinic operates.",
+        "Business Configuration contains settings that control how KhairoDietClinic operates.",
       instruction:
         "Open Business Configuration and explore the available settings.",
       href: "/dashboard/business-configuration",
@@ -397,7 +397,7 @@ const STAFF_TOURS: Record<
       id: "admin-projects-tasks",
       title: "Admin — Projects & Tasks",
       description:
-        "Projects & Tasks helps the Khairo Diet Clinic team coordinate internal operational work.",
+        "Projects & Tasks helps the KhairoDietClinic team coordinate internal operational work.",
       instruction:
         "Open Projects & Tasks and see how internal work is organized.",
       href: "/dashboard/projects-tasks",
@@ -529,7 +529,7 @@ const STAFF_TOURS: Record<
       id: "action-centre",
       title: "Action Centre",
       description:
-        "Action Centre watches Khairo Diet Clinic for work that is overdue, stuck or requires attention.",
+        "Action Centre watches KhairoDietClinic for work that is overdue, stuck or requires attention.",
       instruction:
         "Open Action Centre to see what needs attention and the recommended next action.",
       href: "/dashboard/action-centre",
@@ -550,7 +550,7 @@ const STAFF_TOURS: Record<
       id: "doctor-dashboard",
       title: "Your clinical starting point",
       description:
-        "The dashboard gives you a focused view of the Khairo Diet Clinic work available to your role.",
+        "The dashboard gives you a focused view of the KhairoDietClinic work available to your role.",
       instruction:
         "Open Dashboard and see your current overview.",
       href: "/dashboard",
@@ -589,7 +589,7 @@ const STAFF_TOURS: Record<
       id: "sales-dashboard",
       title: "Your sales overview",
       description:
-        "The dashboard gives you the Khairo Diet Clinic activity relevant to your role.",
+        "The dashboard gives you the KhairoDietClinic activity relevant to your role.",
       instruction:
         "Open Dashboard and review your current overview.",
       href: "/dashboard",
@@ -616,7 +616,7 @@ const STAFF_TOURS: Record<
       id: "action-centre",
       title: "Action Centre",
       description:
-        "Action Centre watches Khairo Diet Clinic for work that is overdue, stuck or requires attention.",
+        "Action Centre watches KhairoDietClinic for work that is overdue, stuck or requires attention.",
       instruction:
         "Open Action Centre to see what needs attention and the recommended next action.",
       href: "/dashboard/action-centre",
@@ -1262,7 +1262,7 @@ export default function InteractiveOnboarding() {
           type="button"
           onClick={restart}
           className="fixed bottom-20 right-4 z-[90] flex h-11 items-center gap-2 rounded-full border border-[var(--theme-border)] bg-[var(--theme-surface)] px-4 text-xs font-semibold text-[var(--theme-text)] shadow-lg transition hover:bg-[var(--theme-surface-hover)] md:bottom-5"
-          aria-label="Open Khairo Diet Clinic guide"
+          aria-label="Open KhairoDietClinic guide"
         >
           <Compass
             size={15}
@@ -1294,7 +1294,7 @@ export default function InteractiveOnboarding() {
               </div>
 
               <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-[#0d9488]">
-                Khairo Diet Clinic interactive guide
+                KhairoDietClinic interactive guide
               </p>
 
               <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -1302,7 +1302,7 @@ export default function InteractiveOnboarding() {
               </h2>
 
               <p className="mt-3 text-sm leading-6 text-[var(--theme-text-secondary)]">
-                There is a lot you can do in Khairo Diet Clinic, so we will not make you read a long manual. We will show you around the real app and let you try each section yourself.
+                There is a lot you can do in KhairoDietClinic, so we will not make you read a long manual. We will show you around the real app and let you try each section yourself.
               </p>
 
               <div className="mt-5 rounded-2xl border border-[var(--theme-border-soft)] bg-[var(--theme-surface-soft)] p-4">

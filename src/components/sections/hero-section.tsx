@@ -154,7 +154,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-ink-black/60 via-transparent to-transparent z-10" aria-hidden />
               <Image
                 src={cmsText(content, "hero-image", "https://images.unsplash.com/photo-1550259979-ed79b48d2a30?w=900&q=85&auto=format")}
-                alt={cmsText(content, "hero-image-alt", "Confident Black woman exercising in gym — Khairo Diet Clinic member")}
+                alt={cmsText(content, "hero-image-alt", "Confident Black woman exercising in gym — KhairoDietClinic member")}
                 fill
                 className="object-cover object-center"
                 priority

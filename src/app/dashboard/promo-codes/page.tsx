@@ -142,7 +142,7 @@ export default function PromoCodesPage() {
       <header>
         <h1 className="text-2xl font-semibold text-white">Promo Codes</h1>
         <p className="mt-1 text-sm text-[var(--theme-text-secondary)]">
-          Create and manage discount codes for Khairo Diet Clinic.
+          Create and manage discount codes for KhairoDietClinic.
         </p>
       </header>
 

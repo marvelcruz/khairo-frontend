@@ -541,7 +541,7 @@ export function ProgressPhotos() {
               className="mt-0.5 accent-[#0d9488]"
             />
 
-            This is a private progress photo stored in my Khairo Diet Clinic account.
+            This is a private progress photo stored in my KhairoDietClinic account.
           </label>
 
           {error && (

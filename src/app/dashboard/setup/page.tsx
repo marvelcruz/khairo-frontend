@@ -23,13 +23,13 @@ const SETUP_LINKS: SetupLink[] = [
   {
     href: "/dashboard/accounts",
     title: "Staff Access",
-    description: "Add Khairo Diet Clinic team members and choose Staff or Doctor access.",
+    description: "Add KhairoDietClinic team members and choose Staff or Doctor access.",
     icon: Users,
   },
   {
     href: "/dashboard/products-services",
     title: "Products & Services",
-    description: "Manage what Khairo Diet Clinic sells, including services, packages and memberships.",
+    description: "Manage what KhairoDietClinic sells, including services, packages and memberships.",
     icon: Boxes,
   },
   {
@@ -40,14 +40,14 @@ const SETUP_LINKS: SetupLink[] = [
   },
   {
     href: "/dashboard/business-configuration",
-    title: "Khairo Diet Clinic Settings",
-    description: "Manage Khairo Diet Clinic contact details and operating settings.",
+    title: "KhairoDietClinic Settings",
+    description: "Manage KhairoDietClinic contact details and operating settings.",
     icon: Settings,
   },
   {
     href: "/dashboard/launch-readiness",
     title: "System Check",
-    description: "Check that the important Khairo Diet Clinic systems are ready and healthy.",
+    description: "Check that the important KhairoDietClinic systems are ready and healthy.",
     icon: ShieldCheck,
   },
 ];
@@ -58,18 +58,18 @@ export default function SetupPage() {
       <header>
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0d9488]">
           <CheckCircle2 size={14} />
-          Khairo Diet Clinic
+          KhairoDietClinic
         </div>
         <h1 className="mt-2 text-3xl font-semibold text-white">Setup</h1>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--theme-text-secondary)]">
-          Manage the Khairo Diet Clinic accounts and settings your team uses. Nothing here requires technical setup from staff.
+          Manage the KhairoDietClinic accounts and settings your team uses. Nothing here requires technical setup from staff.
         </p>
       </header>
 
       <section className="rounded-2xl border border-[var(--theme-border)] bg-[var(--theme-surface)] p-5 sm:p-6">
         <ConnectionsHub
-          title="Khairo Diet Clinic Connections"
-          description="Connect Khairo Diet Clinic’s Gmail and social accounts. Click Connect, sign in normally, and approve access."
+          title="KhairoDietClinic Connections"
+          description="Connect KhairoDietClinic’s Gmail and social accounts. Click Connect, sign in normally, and approve access."
         />
       </section>
 

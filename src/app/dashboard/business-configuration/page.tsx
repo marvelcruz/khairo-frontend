@@ -95,7 +95,7 @@ type BusinessSettingsResponse = {
 
 const DEFAULTS: BusinessSettings = {
   profile: {
-    displayName: "Khairo Diet Clinic",
+    displayName: "KhairoDietClinic",
     legalName: "",
     email: "",
     phone: "",
@@ -112,10 +112,10 @@ const DEFAULTS: BusinessSettings = {
   },
   branding: {
     primaryColor: "#EC008C",
-    publicName: "Khairo Diet Clinic",
+    publicName: "KhairoDietClinic",
   },
   communication: {
-    senderName: "Khairo Diet Clinic",
+    senderName: "KhairoDietClinic",
     replyToEmail: "",
     whatsappNumber: "",
     supportPhone: "",
@@ -145,7 +145,7 @@ const DEFAULTS: BusinessSettings = {
     winBackThresholdDays: 30,
     winBackOfferType: "percentage",
     winBackOfferValue: 15,
-    winBackMessage: "We miss you! Here is a special offer to rejoin Khairo Diet Clinic.",
+    winBackMessage: "We miss you! Here is a special offer to rejoin KhairoDietClinic.",
     oneClickRenewalEnabled: false,
     giftCardsEnabled: false,
     upsellsEnabled: false,
@@ -389,7 +389,7 @@ export default function BusinessConfigurationPage() {
           </h1>
 
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--theme-text-secondary)]">
-            Manage Khairo Diet Clinic business identity,
+            Manage KhairoDietClinic business identity,
             regional defaults, branding,
             communication preferences and
             organisation-wide operational defaults.
@@ -411,7 +411,7 @@ export default function BusinessConfigurationPage() {
       </div>
 
       <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm leading-6 text-amber-100/80">
-        These values are now saved in the Khairo Diet Clinic
+        These values are now saved in the KhairoDietClinic
         Business Settings record. Existing modules that
         still use their own established currency,
         timezone, branding, email or appointment defaults

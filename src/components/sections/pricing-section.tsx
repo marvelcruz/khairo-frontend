@@ -138,7 +138,7 @@ export function PricingSection() {
     <section
       className="bg-ink-black py-16 sm:py-20 lg:py-32 relative overflow-hidden"
       id="pricing"
-      aria-label="Khairo Diet Clinic pricing plans"
+      aria-label="KhairoDietClinic pricing plans"
     >
       <div className="absolute inset-0 halftone opacity-40 pointer-events-none" aria-hidden />
 

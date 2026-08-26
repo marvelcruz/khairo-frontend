@@ -87,7 +87,7 @@ export default function ClientActivatePage() {
 
         <section className="rounded-[24px] border border-white/10 bg-[var(--theme-surface)] p-5 shadow-2xl sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">Secure activation</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight">Activate your Khairo Diet Clinic account</h1>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight">Activate your KhairoDietClinic account</h1>
 
           {activated ? (
             <div className="mt-6">
@@ -95,13 +95,13 @@ export default function ClientActivatePage() {
                 Your account is active. The activation link cannot be used again.
               </p>
               <Link href="/portal/login" className="mt-4 flex h-12 items-center justify-center rounded-full bg-[#0d9488] text-sm font-semibold">
-                Sign in to Khairo Diet Clinic
+                Sign in to KhairoDietClinic
               </Link>
             </div>
           ) : token ? (
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-500">
-                This secure link verified access to the email on your Khairo Diet Clinic record. Choose the password you will use to sign in.
+                This secure link verified access to the email on your KhairoDietClinic record. Choose the password you will use to sign in.
               </p>
 
               <form onSubmit={activate} className="mt-6 space-y-4">
@@ -144,7 +144,7 @@ export default function ClientActivatePage() {
           ) : (
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-500">
-                Already enrolled with Khairo Diet Clinic? Enter the email address on your client record. We will send a one-time activation link that expires in 24 hours.
+                Already enrolled with KhairoDietClinic? Enter the email address on your client record. We will send a one-time activation link that expires in 24 hours.
               </p>
 
               <form onSubmit={requestActivation} className="mt-6 space-y-4">

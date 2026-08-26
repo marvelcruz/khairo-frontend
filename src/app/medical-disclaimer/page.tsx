@@ -8,7 +8,7 @@ export default function MedicalDisclaimerPage() {
 
         <div className="mt-8 space-y-8 text-sm leading-7 text-zinc-300">
           <p>
-            Khairo Diet Clinic is not a medical provider. The information and services provided through the Khairo Diet Clinic platform, website, and portal are for general wellness and weight-management purposes only.
+            KhairoDietClinic is not a medical provider. The information and services provided through the KhairoDietClinic platform, website, and portal are for general wellness and weight-management purposes only.
           </p>
           <p>
             No content on this platform should be interpreted as medical advice, diagnosis, or treatment. You should consult a qualified healthcare professional before beginning any weight-loss, nutrition, or exercise program.

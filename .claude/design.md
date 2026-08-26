@@ -1,7 +1,7 @@
-# Khairo Diet Clinic — Premium Website Design Brief (Stitch AI) · ELABORATED EDITION
+# KhairoDietClinic — Premium Website Design Brief (Stitch AI) · ELABORATED EDITION
 
 **Prepared for:** Senior UI/UX Designer
-**Project:** Marketing + lead-generation website for Khairo Diet Clinic — a medically supervised online weight-loss program for women
+**Project:** Marketing + lead-generation website for KhairoDietClinic — a medically supervised online weight-loss program for women
 **Deliverable:** Multi-page, premium, advanced-animated, mobile-first responsive website
 **Brand source of truth:** Attached "Did You Know? / Lac-Phe" graphic — magenta-on-black, halftone texture, bold condensed type, rounded speech bubble
 
@@ -11,7 +11,7 @@
 
 ## 1. Brand Foundation
 
-Khairo Diet Clinic is a women-only, medically supervised weight-loss coaching brand. Voice = **science-backed, warm, empowering, anti-shame** (per the graphic's *"Movement is medicine — not a debt you pay for eating"*). Premium health-tech polish (Whoop / Oura / Future), never discount-flyer.
+KhairoDietClinic is a women-only, medically supervised weight-loss coaching brand. Voice = **science-backed, warm, empowering, anti-shame** (per the graphic's *"Movement is medicine — not a debt you pay for eating"*). Premium health-tech polish (Whoop / Oura / Future), never discount-flyer.
 
 **Message pillars:** Medically supervised · Accountability & support community (women only) · Personalized meal plans · 700+ women helped · Biology-first education ("Lac-Phe", hunger neurons, hormones).
 
@@ -81,7 +81,7 @@ Scale (desktop / mobile): H1 80/40px · H2 52/32px · H3 30/24px · body-lg 19/1
 
 ---
 
-#### Section 4 — The Khairo Diet Clinic Method (4 pillars)
+#### Section 4 — The KhairoDietClinic Method (4 pillars)
 **Purpose:** Explain the offer as a system.
 **Layout:** Dark section. Section header centered (eyebrow + H2 + 1-line intro, 64px below to grid). 4 cards in a row (desktop, 4-col, 24px gap, each 280px tall, charcoal, 24px radius); 2×2 on tablet; vertical stack mobile. Each card: magenta line-icon (48px) top, H3 title, 2-line body, hover lifts 8px with magenta glow.
 **Copy:**
@@ -188,7 +188,7 @@ Inclusions use mint checkmarks; excluded use mist dash.
 ---
 
 #### Section 13 — Footer
-**Layout:** Dark, halftone, 3-col + brand block. Giant Khairo Diet Clinic wordmark (Clash, 120px, 6% white outline as texture). Columns: Explore / Program / Connect. Newsletter inline field + magenta submit. Bottom bar: phone `+234 906 138 2720`, IG, FB, © + legal links.
+**Layout:** Dark, halftone, 3-col + brand block. Giant KhairoDietClinic wordmark (Clash, 120px, 6% white outline as texture). Columns: Explore / Program / Connect. Newsletter inline field + magenta submit. Bottom bar: phone `+234 906 138 2720`, IG, FB, © + legal links.
 **Motion:** Wordmark parallax drift; link hover = magenta slide-underline.
 
 **Persistent:** Floating WhatsApp FAB (bottom-right, 64px, magenta, pulse ring). Mobile sticky bottom bar: **Apply Now** (full-width magenta, 56px).
@@ -196,7 +196,7 @@ Inclusions use mint checkmarks; excluded use mist dash.
 ---
 
 ### 5.2 THE PROGRAM (detail page)
-**Layout:** Hero (compact, 60vh) → sticky left sub-nav (5 anchors) + right content column. Sections: What's included · Week-by-week structure (timeline, magenta nodes) · How it's different (comparison table — Khairo Diet Clinic vs typical diet, mint vs mist checks) · Who it's for / not for (2-col) · Expectations · Pricing recap → Apply CTA.
+**Layout:** Hero (compact, 60vh) → sticky left sub-nav (5 anchors) + right content column. Sections: What's included · Week-by-week structure (timeline, magenta nodes) · How it's different (comparison table — KhairoDietClinic vs typical diet, mint vs mist checks) · Who it's for / not for (2-col) · Expectations · Pricing recap → Apply CTA.
 **Copy highlights:** Comparison table rows `[PH]`: Medical oversight ✓/✗ · Personalized meal plan ✓/generic · Community ✓/✗ · Sustainable approach ✓/restriction. Week-by-week `[PH: 12-week outline]`.
 
 ### 5.3 RESULTS / SUCCESS STORIES
@@ -233,4 +233,4 @@ Desktop + mobile frames for all 8 page types · full component library (buttons 
 
 ---
 
-*All `[PH]` items (pricing, coach name/credentials, real testimonials, exact stats, transformation imagery, week-by-week outline) must be supplied by Khairo Diet Clinic before launch. Site is structured for a WhatsApp-first conversion flow (matching the existing sales channel) with the Science/Lab hub addressing current search-visibility gaps.*
+*All `[PH]` items (pricing, coach name/credentials, real testimonials, exact stats, transformation imagery, week-by-week outline) must be supplied by KhairoDietClinic before launch. Site is structured for a WhatsApp-first conversion flow (matching the existing sales channel) with the Science/Lab hub addressing current search-visibility gaps.*

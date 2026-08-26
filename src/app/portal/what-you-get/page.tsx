@@ -73,7 +73,7 @@ const FEATURES = [
     icon: MessageCircle,
     title: "Communication",
     items: [
-      "Receive messages from the Khairo Diet Clinic team",
+      "Receive messages from the KhairoDietClinic team",
       "Get helpful service emails",
       "Receive WhatsApp reminders where consent is given",
       "See important announcements in the portal",
@@ -94,7 +94,7 @@ const FEATURES = [
     title: "Resources & Support",
     items: [
       "Access program documents",
-      "Get help from the Khairo Diet Clinic team",
+      "Get help from the KhairoDietClinic team",
       "Contact support via WhatsApp",
       "Find answers to common questions",
     ],
@@ -117,15 +117,15 @@ export default function WhatYouGetPage() {
       <header className="overflow-hidden rounded-[30px] border border-[#0d9488]/20 bg-gradient-to-br from-zinc-900 via-zinc-900 to-[#0d9488]/10 p-6 sm:p-8 lg:p-10">
         <p className="inline-flex items-center gap-2 rounded-full bg-[#0d9488]/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">
           <Sparkles size={14} />
-          Inside Your Khairo Diet Clinic
+          Inside Your KhairoDietClinic
         </p>
 
         <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-5xl">
-          What you get as a Khairo Diet Clinic client
+          What you get as a KhairoDietClinic client
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-          A simple overview of the tools, structure, and support available inside your Khairo Diet Clinic client portal.
+          A simple overview of the tools, structure, and support available inside your KhairoDietClinic client portal.
         </p>
       </header>
 

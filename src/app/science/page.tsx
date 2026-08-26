@@ -7,7 +7,7 @@ import { CTABand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "Science & The Lab",
   description:
-    "Biology-first education from Khairo Diet Clinic — understand Lac-Phe, hunger hormones, women's metabolism, and why restriction backfires.",
+    "Biology-first education from KhairoDietClinic — understand Lac-Phe, hunger hormones, women's metabolism, and why restriction backfires.",
 };
 
 const ARTICLES = [
@@ -217,7 +217,7 @@ export default function SciencePage() {
             Science is just the beginning.
           </h2>
           <p className="text-mist leading-relaxed mb-6">
-            Understanding your biology is powerful. Having a medical team apply it to your specific body? That&apos;s what Khairo Diet Clinic is.
+            Understanding your biology is powerful. Having a medical team apply it to your specific body? That&apos;s what KhairoDietClinic is.
           </p>
           <Link
             href="/pricing#apply"

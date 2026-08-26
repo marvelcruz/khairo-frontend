@@ -9,7 +9,7 @@ import { cmsText, useWebsiteContent } from "@/components/website/WebsiteContentP
 const FAQS = [
   {
     q: "Is this safe — is it really medically supervised?",
-    a: "Yes. Every Khairo Diet Clinic program is overseen by a trained health professional who reviews your intake form, monitors your progress, and can adjust your plan based on how your body responds. It's not a generic diet — it's a guided health journey.",
+    a: "Yes. Every KhairoDietClinic program is overseen by a trained health professional who reviews your intake form, monitors your progress, and can adjust your plan based on how your body responds. It's not a generic diet — it's a guided health journey.",
   },
   {
     q: "Do I have to exercise a lot?",
@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "What if I've tried every diet and failed before?",
-    a: "That's exactly who this is for. Most programs fail women because they're built around restriction, not biology. Khairo Diet Clinic addresses the hormonal and metabolic reasons weight loss stalls — so this time, it's different.",
+    a: "That's exactly who this is for. Most programs fail women because they're built around restriction, not biology. KhairoDietClinic addresses the hormonal and metabolic reasons weight loss stalls — so this time, it's different.",
   },
   {
     q: "What do I actually get in the meal plan?",

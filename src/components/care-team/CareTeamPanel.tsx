@@ -250,7 +250,7 @@ export default function CareTeamPanel({ clientId }: { clientId: string }) {
               <p className="text-sm text-[var(--theme-text-secondary)]">No portal messages yet.</p>
             ) : snapshot.messages.slice(0, 10).map((message) => (
               <div key={message._id} className="rounded-sm bg-[var(--theme-input)] p-3">
-                <p className="text-xs text-[var(--theme-text-secondary)]">{message.senderType === "client" ? snapshot.client.fullName : message.senderName || "Khairo Diet Clinic team"} · {new Date(message.createdAt).toLocaleString()}</p>
+                <p className="text-xs text-[var(--theme-text-secondary)]">{message.senderType === "client" ? snapshot.client.fullName : message.senderName || "KhairoDietClinic team"} · {new Date(message.createdAt).toLocaleString()}</p>
                 <p className="mt-1 text-sm text-[var(--theme-text)]">{message.body}</p>
               </div>
             ))}

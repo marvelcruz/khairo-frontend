@@ -97,7 +97,7 @@ export default function DocumentsPage() {
         </p>
 
         <h1 className="mt-1 text-3xl font-semibold text-white">
-          Your Khairo Diet Clinic records
+          Your KhairoDietClinic records
         </h1>
 
         <p className="mt-2 text-sm text-zinc-500">

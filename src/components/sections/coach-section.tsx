@@ -22,7 +22,7 @@ export function CoachSection() {
   return (
     <section
       className="bg-off-white py-16 sm:py-20 lg:py-32 overflow-hidden"
-      aria-label="Meet your Khairo Diet Clinic coach"
+      aria-label="Meet your KhairoDietClinic coach"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -37,7 +37,7 @@ export function CoachSection() {
             <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/5] max-h-[560px] glow-magenta">
               <Image
                 src={cmsText(content, "coach-image", "https://images.unsplash.com/photo-1603503363848-6952525df449?w=700&q=85&auto=format")}
-                alt={cmsText(content, "coach-image-alt", "Khairo Diet Clinic Coach Ada — fitness and wellness expert")}
+                alt={cmsText(content, "coach-image-alt", "KhairoDietClinic Coach Ada — fitness and wellness expert")}
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 42vw"
@@ -82,14 +82,14 @@ export function CoachSection() {
               variants={fadeUp}
               className="text-ink-black/75 leading-relaxed mb-5 text-[1.05rem]"
             >
-              {cmsText(content, "coach-bio-1", "After years of watching women struggle with programs built for men's biology, Coach Ada created Khairo Diet Clinic with a single goal: a program that works with how women's bodies actually function. Hormones, hunger signals, metabolism — all of it factored in from day one.")}
+              {cmsText(content, "coach-bio-1", "After years of watching women struggle with programs built for men's biology, Coach Ada created KhairoDietClinic with a single goal: a program that works with how women's bodies actually function. Hormones, hunger signals, metabolism — all of it factored in from day one.")}
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="text-ink-black/75 leading-relaxed mb-8 text-[1.05rem]"
             >
-              {cmsText(content, "coach-bio-2", "More than 700 women have completed Khairo Diet Clinic under her medical guidance. The program isn't about perfection — it's about building a relationship with your body that lasts.")}
+              {cmsText(content, "coach-bio-2", "More than 700 women have completed KhairoDietClinic under her medical guidance. The program isn't about perfection — it's about building a relationship with your body that lasts.")}
             </motion.p>
 
             {/* Credential chips */}

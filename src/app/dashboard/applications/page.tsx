@@ -251,7 +251,7 @@ function QualificationModal({
           </label>
 
           <label className="block">
-            <span className="text-xs font-medium text-white">Are you ready to speak with a Khairo Diet Clinic team member about the next step?</span>
+            <span className="text-xs font-medium text-white">Are you ready to speak with a KhairoDietClinic team member about the next step?</span>
             <select
               value={readyToSpeak}
               onChange={(event) => setReadyToSpeak(event.target.value as ReadyToSpeak | "")}

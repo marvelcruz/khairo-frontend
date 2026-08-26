@@ -66,7 +66,7 @@ export default function ClientResetPasswordPage() {
                 Your password has been updated. This recovery link cannot be used again.
               </p>
               <Link href="/portal/login" className="mt-4 flex h-12 items-center justify-center rounded-full bg-[#0d9488] text-sm font-semibold">
-                Sign in to Khairo Diet Clinic
+                Sign in to KhairoDietClinic
               </Link>
             </div>
           ) : (

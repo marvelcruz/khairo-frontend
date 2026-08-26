@@ -113,7 +113,7 @@ export default function HelpPage() {
 
         {sent && (
           <div className="mt-3 rounded-xl bg-emerald-500/10 p-3 text-sm text-emerald-400">
-            Your message has been sent to Khairo Diet Clinic.
+            Your message has been sent to KhairoDietClinic.
           </div>
         )}
 
@@ -126,7 +126,7 @@ export default function HelpPage() {
         >
           {sending
             ? "Sending..."
-            : "Send to Khairo Diet Clinic"}
+            : "Send to KhairoDietClinic"}
         </button>
       </form>
 

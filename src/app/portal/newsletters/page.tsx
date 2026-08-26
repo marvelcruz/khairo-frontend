@@ -36,7 +36,7 @@ export default function PortalNewslettersPage() {
           ← Back
         </button>
         {(selected.logoUrl || DEFAULT_LOGO_URL) ? (
-          <img src={selected.logoUrl} alt="Khairo Diet Clinic logo" className="mb-4 h-12 w-auto object-contain" />
+          <img src={selected.logoUrl} alt="KhairoDietClinic logo" className="mb-4 h-12 w-auto object-contain" />
         ) : (
           <div className="mb-4 flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-[#0d9488] text-sm font-bold text-white">F</span>
@@ -56,8 +56,8 @@ export default function PortalNewslettersPage() {
 
   return (
     <div className="mx-auto max-w-3xl pb-24 pt-2 md:pb-12">
-      <h1 className="text-3xl font-semibold text-white">Khairo Diet Clinic News</h1>
-      <p className="mt-2 text-sm text-zinc-400">Updates, tips, and announcements from the Khairo Diet Clinic team.</p>
+      <h1 className="text-3xl font-semibold text-white">KhairoDietClinic News</h1>
+      <p className="mt-2 text-sm text-zinc-400">Updates, tips, and announcements from the KhairoDietClinic team.</p>
 
       <div className="mt-6 space-y-4">
         {loading ? (
@@ -72,7 +72,7 @@ export default function PortalNewslettersPage() {
           >
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
                 {(n.logoUrl || DEFAULT_LOGO_URL) ? (
-                  <img src={n.logoUrl} alt="Khairo Diet Clinic" className="h-6 w-auto object-contain" />
+                  <img src={n.logoUrl} alt="KhairoDietClinic" className="h-6 w-auto object-contain" />
                 ) : (
                   <span className="grid h-6 w-6 place-items-center rounded-full bg-[#0d9488] text-xs font-bold">F</span>
                 )}

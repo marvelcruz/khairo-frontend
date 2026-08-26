@@ -14,7 +14,7 @@ import { CTABand } from "@/components/sections/cta-band";
 import { WebsiteContentProvider } from "@/components/website/WebsiteContentProvider";
 
 export const metadata: Metadata = {
-  title: "Khairo Diet Clinic — Medically Supervised Weight Loss for Women",
+  title: "KhairoDietClinic — Medically Supervised Weight Loss for Women",
 };
 
 export default function HomePage() {

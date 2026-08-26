@@ -170,7 +170,7 @@ export default function SubscriptionsPage() {
     <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-5 sm:px-6 sm:py-6">
       <ProductsServicesHeader
         title="Subscriptions"
-        description="Real customer subscription relationships created and maintained by Khairo Diet Clinic payment and activation workflows."
+        description="Real customer subscription relationships created and maintained by KhairoDietClinic payment and activation workflows."
         badge="Connected"
       />
 

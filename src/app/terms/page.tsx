@@ -9,13 +9,13 @@ export default function TermsPage() {
         <div className="mt-8 space-y-10 text-sm leading-7 text-zinc-300">
           <section>
             <h2 className="text-xl font-semibold text-white">1. Agreement</h2>
-            <p>By accessing or using Khairo Diet Clinic, you agree to these Terms and our Privacy Policy.</p>
+            <p>By accessing or using KhairoDietClinic, you agree to these Terms and our Privacy Policy.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white">2. Services</h2>
             <p>
-              Khairo Diet Clinic provides weight-loss program onboarding, coaching tools, client portal access, consultation scheduling, payment processing, and related services. Khairo Diet Clinic does not provide medical advice. Medical review and clearance are provided by licensed clinicians where applicable.
+              KhairoDietClinic provides weight-loss program onboarding, coaching tools, client portal access, consultation scheduling, payment processing, and related services. KhairoDietClinic does not provide medical advice. Medical review and clearance are provided by licensed clinicians where applicable.
             </p>
           </section>
 
@@ -43,21 +43,21 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-white">6. Acceptable Use</h2>
             <p>
-              You agree not to misuse the platform, attempt unauthorized access, upload harmful content, or use Khairo Diet Clinic in a way that violates applicable law or the rights of others.
+              You agree not to misuse the platform, attempt unauthorized access, upload harmful content, or use KhairoDietClinic in a way that violates applicable law or the rights of others.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white">7. Medical Disclaimer</h2>
             <p>
-              Khairo Diet Clinic content is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before beginning any weight-loss program.
+              KhairoDietClinic content is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before beginning any weight-loss program.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white">8. Limitation of Liability</h2>
             <p>
-              Khairo Diet Clinic is provided on an “as is” and “as available” basis. To the maximum extent permitted by law, Khairo Diet Clinic and its team are not liable for indirect, incidental, or consequential damages.
+              KhairoDietClinic is provided on an “as is” and “as available” basis. To the maximum extent permitted by law, KhairoDietClinic and its team are not liable for indirect, incidental, or consequential damages.
             </p>
           </section>
 
@@ -68,7 +68,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-xl font-semibold text-white">10. Contact</h2>
-            <p>Questions about these Terms may be sent through the Khairo Diet Clinic contact page or WhatsApp support.</p>
+            <p>Questions about these Terms may be sent through the KhairoDietClinic contact page or WhatsApp support.</p>
           </section>
         </div>
       </div>

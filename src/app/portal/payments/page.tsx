@@ -105,7 +105,7 @@ export default function PaymentsPage() {
       setRenewalError(
         error instanceof Error
           ? error.message
-          : "We could not start your renewal. Please contact Khairo Diet Clinic support."
+          : "We could not start your renewal. Please contact KhairoDietClinic support."
       );
       setRenewing(false);
     }
@@ -158,15 +158,15 @@ export default function PaymentsPage() {
               </p>
               <h2 className="mt-2 text-xl font-semibold text-white">
                 {renewalState.reactivation
-                  ? "Start a new Khairo Diet Clinic journey"
-                  : "Keep your Khairo Diet Clinic access active"}
+                  ? "Start a new KhairoDietClinic journey"
+                  : "Keep your KhairoDietClinic access active"}
               </h2>
               <p className="mt-2 text-sm leading-6 text-zinc-500">
                 {renewalState.reactivation
                   ? "Your previous progress stays on your record. A new program cycle begins only after your renewal payment is verified."
                   : renewalState.daysUntilEnd !== null
                     ? `Your current paid period ${renewalState.accessStopped ? "has ended" : `ends in ${Math.max(0, renewalState.daysUntilEnd)} day${renewalState.daysUntilEnd === 1 ? "" : "s"}`}. Renewing early will not remove remaining paid days.`
-                    : "Renew securely to continue your Khairo Diet Clinic access."}
+                    : "Renew securely to continue your KhairoDietClinic access."}
               </p>
             </div>
 

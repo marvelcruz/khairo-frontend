@@ -35,14 +35,14 @@ export const viewport:
 
 export const metadata:
   Metadata = {
-  title: "Khairo Diet Clinic",
+  title: "KhairoDietClinic",
   description: "...",
 
   appleWebApp: {
     capable: true,
     statusBarStyle:
       "black-translucent",
-    title: "Khairo Diet Clinic",
+    title: "KhairoDietClinic",
   },
 
   formatDetection: {

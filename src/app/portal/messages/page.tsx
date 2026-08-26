@@ -95,11 +95,11 @@ export default function MessagesPage() {
         </p>
 
         <h1 className="mt-1 text-3xl font-semibold text-white">
-          Talk to Khairo Diet Clinic
+          Talk to KhairoDietClinic
         </h1>
 
         <p className="mt-2 text-sm text-zinc-500">
-          Ask a question here and keep the conversation with your Khairo Diet Clinic team in one place.
+          Ask a question here and keep the conversation with your KhairoDietClinic team in one place.
         </p>
       </header>
 

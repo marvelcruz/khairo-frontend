@@ -248,7 +248,7 @@ export function CatalogueWorkspace({
         <div>
           <h2 className="text-lg font-semibold text-white">{title}</h2>
           <p className="mt-1 text-sm text-[var(--theme-text-muted)]">
-            Live catalogue data from the Khairo Diet Clinic backend.
+            Live catalogue data from the KhairoDietClinic backend.
           </p>
         </div>
 

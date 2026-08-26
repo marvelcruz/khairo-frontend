@@ -301,7 +301,7 @@ export default function ActionCentrePage() {
           </h1>
 
           <p className="mt-1 max-w-3xl text-sm leading-6 text-[var(--theme-text-muted)]">
-            Khairo Diet Clinic watches for work
+            KhairoDietClinic watches for work
             that is overdue, stuck or
             needs human attention and
             tells the team what to do

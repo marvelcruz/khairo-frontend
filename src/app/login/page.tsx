@@ -63,7 +63,7 @@ function LoginForm() {
 
         <div className="rounded-sm border border-white/10 bg-neutral-900 p-6 shadow-2xl sm:p-8">
           <h1 className="text-2xl font-medium text-white">Staff sign in</h1>
-          <p className="mt-1 text-sm text-white/60">Khairo Diet Clinic Admin Portal</p>
+          <p className="mt-1 text-sm text-white/60">KhairoDietClinic Admin Portal</p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
@@ -120,7 +120,7 @@ function LoginForm() {
                 <p className="text-sm font-medium text-red-400">{error}</p>
                 {errorCode === "DEACTIVATED" ? (
                   <p className="mt-2 text-xs leading-5 text-white/60">
-                    Contact a Khairo Diet Clinic administrator to reactivate your staff account.
+                    Contact a KhairoDietClinic administrator to reactivate your staff account.
                   </p>
                 ) : (
                   <Link

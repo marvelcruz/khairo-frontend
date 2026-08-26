@@ -4,7 +4,7 @@ import { Shield, FileText, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Legal & Privacy",
-  description: "Khairo Diet Clinic Privacy Policy, Terms & Conditions, and Medical Disclaimer.",
+  description: "KhairoDietClinic Privacy Policy, Terms & Conditions, and Medical Disclaimer.",
 };
 
 export default function LegalPage() {
@@ -48,11 +48,11 @@ export default function LegalPage() {
                 <h2 className="font-display text-3xl text-ink-black">Privacy Policy</h2>
               </div>
               <div className="space-y-5 text-[0.95rem]">
-                <p>Khairo Diet Clinic (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website or program services.</p>
+                <p>KhairoDietClinic (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website or program services.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Information We Collect</h3>
                 <p>We collect information you provide directly — including your name, phone number, email address, health history, and goals — when you apply or contact us. We also collect usage data automatically through standard web analytics.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">How We Use Your Information</h3>
-                <p>Your information is used solely to deliver and improve the Khairo Diet Clinic program, communicate with you, and provide medical oversight. We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+                <p>Your information is used solely to deliver and improve the KhairoDietClinic program, communicate with you, and provide medical oversight. We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Data Security</h3>
                 <p>We implement industry-standard security measures to protect your data. All communications containing personal health information are handled privately via WhatsApp or direct message.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Your Rights</h3>
@@ -69,15 +69,15 @@ export default function LegalPage() {
                 <h2 className="font-display text-3xl text-ink-black">Terms & Conditions</h2>
               </div>
               <div className="space-y-5 text-[0.95rem]">
-                <p>By accessing the Khairo Diet Clinic website or enrolling in any Khairo Diet Clinic program, you agree to these Terms & Conditions.</p>
+                <p>By accessing the KhairoDietClinic website or enrolling in any KhairoDietClinic program, you agree to these Terms & Conditions.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Program Eligibility</h3>
-                <p>Khairo Diet Clinic programs are designed exclusively for adult women (18+). By enrolling, you confirm that you are a woman aged 18 or older.</p>
+                <p>KhairoDietClinic programs are designed exclusively for adult women (18+). By enrolling, you confirm that you are a woman aged 18 or older.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Payment & Refunds</h3>
                 <p>All program fees are due at the start of each cycle. Refunds may be considered on a case-by-case basis within the first 7 days of program commencement. Contact us directly to discuss.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Intellectual Property</h3>
-                <p>All content, meal plans, and materials provided through Khairo Diet Clinic are proprietary. You may not reproduce, share, or distribute them without written consent.</p>
+                <p>All content, meal plans, and materials provided through KhairoDietClinic are proprietary. You may not reproduce, share, or distribute them without written consent.</p>
                 <h3 className="font-ui font-bold text-sm uppercase tracking-wider text-ink-black mt-6 mb-2">Limitation of Liability</h3>
-                <p>Khairo Diet Clinic provides wellness guidance and program support. We are not liable for outcomes that result from failure to follow program guidelines, underlying medical conditions not disclosed at enrollment, or individual variation in results.</p>
+                <p>KhairoDietClinic provides wellness guidance and program support. We are not liable for outcomes that result from failure to follow program guidelines, underlying medical conditions not disclosed at enrollment, or individual variation in results.</p>
               </div>
             </div>
 
@@ -91,11 +91,11 @@ export default function LegalPage() {
               </div>
               <div className="bg-rose-50 border border-rose-200 rounded-[1.5rem] p-6 mb-6">
                 <p className="text-rose-800 text-sm leading-relaxed font-medium">
-                  <strong>Important:</strong> The information and guidance provided through Khairo Diet Clinic programs is for general wellness purposes and should not be treated as a substitute for professional medical advice, diagnosis, or treatment.
+                  <strong>Important:</strong> The information and guidance provided through KhairoDietClinic programs is for general wellness purposes and should not be treated as a substitute for professional medical advice, diagnosis, or treatment.
                 </p>
               </div>
               <div className="space-y-5 text-[0.95rem]">
-                <p>While Khairo Diet Clinic programs are designed with medical guidance and oversight, every participant&apos;s health situation is unique. Always consult your personal physician or qualified healthcare provider before starting any weight-loss program, particularly if you have existing medical conditions, are pregnant or breastfeeding, or are taking prescription medications.</p>
+                <p>While KhairoDietClinic programs are designed with medical guidance and oversight, every participant&apos;s health situation is unique. Always consult your personal physician or qualified healthcare provider before starting any weight-loss program, particularly if you have existing medical conditions, are pregnant or breastfeeding, or are taking prescription medications.</p>
                 <p>Results shown on this website are from individual program participants and are not typical. Weight loss outcomes depend on many factors including adherence to the program, individual metabolism, underlying health conditions, and lifestyle factors outside the program.</p>
                 <p>Claims of &ldquo;medically supervised&rdquo; refer to program oversight by a trained health professional. This does not constitute a doctor-patient relationship or replace the care of your personal physician.</p>
                 <p>If you experience any adverse effects during the program — including but not limited to dizziness, unusual fatigue, chest pain, or extreme hunger — discontinue the program and seek medical attention immediately.</p>

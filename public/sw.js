@@ -7,7 +7,7 @@ self.addEventListener("push", (event) => {
     data = {};
   }
 
-  const title = data.title || "Khairo Diet Clinic";
+  const title = data.title || "KhairoDietClinic";
   const options = {
     body: data.body || "You have a new notification.",
     icon: "/icon.svg",

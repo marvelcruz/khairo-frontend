@@ -9,14 +9,14 @@ import {
   useState,
 } from "react";
 
-export type Khairo Diet ClinicTheme =
+export type KhairoDietClinicTheme =
   | "light"
   | "dark";
 
 type ThemeContextValue = {
-  theme: Khairo Diet ClinicTheme;
+  theme: KhairoDietClinicTheme;
   setTheme: (
-    theme: Khairo Diet ClinicTheme
+    theme: KhairoDietClinicTheme
   ) => void;
   toggleTheme: () => void;
 };
@@ -30,7 +30,7 @@ const ThemeContext =
   );
 
 function appliedTheme():
-  Khairo Diet ClinicTheme {
+  KhairoDietClinicTheme {
   if (
     typeof document ===
     "undefined"
@@ -47,7 +47,7 @@ function appliedTheme():
 }
 
 function applyTheme(
-  theme: Khairo Diet ClinicTheme
+  theme: KhairoDietClinicTheme
 ) {
   const root =
     document.documentElement;
@@ -80,7 +80,7 @@ export function ThemeProvider({
     theme,
     setThemeState,
   ] =
-    useState<Khairo Diet ClinicTheme>(
+    useState<KhairoDietClinicTheme>(
       "dark"
     );
 
@@ -167,7 +167,7 @@ export function ThemeProvider({
     useCallback(
       (
         next:
-          Khairo Diet ClinicTheme
+          KhairoDietClinicTheme
       ) => {
         localStorage.setItem(
           STORAGE_KEY,

@@ -53,7 +53,7 @@ export function HowItWorksSection() {
   return (
     <section
       className="bg-off-white py-16 sm:py-20 lg:py-32 overflow-hidden"
-      aria-label="How Khairo Diet Clinic works"
+      aria-label="How KhairoDietClinic works"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="mb-16">

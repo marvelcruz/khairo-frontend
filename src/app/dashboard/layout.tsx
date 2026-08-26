@@ -68,7 +68,7 @@ const NAV_GROUPS: NavGroup[] = [
       { href: "/dashboard/orders", label: "Orders", icon: Boxes },
       { href: "/dashboard/broadcast", label: "Send a Message", icon: MessageSquare },
       { href: "/dashboard/accounts", label: "Staff Access", icon: Users },
-      { href: "/dashboard/business-configuration", label: "Khairo Diet Clinic Settings", icon: Settings },
+      { href: "/dashboard/business-configuration", label: "KhairoDietClinic Settings", icon: Settings },
       { href: "/dashboard/workflows", label: "Automations", icon: Settings },
       { href: "/dashboard/custom-fields", label: "Extra Fields", icon: Settings },
       { href: "/dashboard/forms", label: "Forms", icon: Settings },

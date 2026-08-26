@@ -38,7 +38,7 @@ export function ScienceSection() {
   return (
     <section
       className="bg-ink-black py-16 sm:py-20 lg:py-32 relative overflow-hidden"
-      aria-label="Science facts from Khairo Diet Clinic"
+      aria-label="Science facts from KhairoDietClinic"
     >
       {/* Heavy halftone */}
       <div className="absolute inset-0 halftone opacity-70 pointer-events-none" aria-hidden />

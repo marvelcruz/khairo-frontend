@@ -573,7 +573,7 @@ export default function ProjectsTasksPage() {
 
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--theme-text-secondary)]">
             Organize internal
-            Khairo Diet Clinic work, assign
+            KhairoDietClinic work, assign
             ownership and track
             progress without mixing
             operational projects with

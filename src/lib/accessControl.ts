@@ -109,7 +109,7 @@ export function canAccessRoute(
 ): boolean {
   if (!user) return false;
 
-  // Khairo Diet Clinic currently exposes only two dashboard access profiles. Staff have
+  // KhairoDietClinic currently exposes only two dashboard access profiles. Staff have
   // full business access. Doctor is deliberately restricted to clinical work.
   if (normalizeAccessProfile(user) === "staff") {
     return true;

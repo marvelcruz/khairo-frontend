@@ -84,7 +84,7 @@ export default function BuddiesPage() {
   const getWhatsAppLink = (client: BuddyClient) => {
     const phone = (client.phone || "").replace(/\D/g, "");
     const first = (client.fullName || "").split(" ")[0];
-    const text = encodeURIComponent(`Hi ${first}!  Welcome to Khairo Diet Clinic! I'm your buddy and I'm here to help you get started.`);
+    const text = encodeURIComponent(`Hi ${first}!  Welcome to KhairoDietClinic! I'm your buddy and I'm here to help you get started.`);
     return `https://wa.me/${phone}?text=${text}`;
   };
 

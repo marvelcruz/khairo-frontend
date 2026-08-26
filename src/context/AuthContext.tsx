@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       } else {
         setUser(null);
         setError(
-          "Khairo Diet Clinic could not verify your session because the server is temporarily unavailable."
+          "KhairoDietClinic could not verify your session because the server is temporarily unavailable."
         );
       }
     } finally {

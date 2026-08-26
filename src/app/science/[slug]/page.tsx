@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { slug } = await params;
   return {
     title: `Article — ${slug.replace(/-/g, " ")}`,
-    description: "Biology-first education from Khairo Diet Clinic.",
+    description: "Biology-first education from KhairoDietClinic.",
   };
 }
 
@@ -54,7 +54,7 @@ export default async function ArticlePage({
               6 min read
             </span>
             <span>·</span>
-            <span>Khairo Diet Clinic Science</span>
+            <span>KhairoDietClinic Science</span>
           </div>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default async function ArticlePage({
               <p className="font-display text-xl text-pure-white leading-relaxed">
                 &ldquo;Understanding your biology is the single most powerful thing you can do before starting any weight-loss program.&rdquo;
               </p>
-              <p className="text-mist text-sm mt-3">— Khairo Diet Clinic Medical Team</p>
+              <p className="text-mist text-sm mt-3">— KhairoDietClinic Medical Team</p>
             </div>
 
             <p className="text-ink-black/80 leading-relaxed text-[1.05rem] mb-5">
@@ -91,7 +91,7 @@ export default async function ArticlePage({
             </p>
 
             <p className="text-ink-black/80 leading-relaxed text-[1.05rem] mb-5">
-              At Khairo Diet Clinic, every program recommendation is grounded in this evidence. We don&apos;t follow trends — we follow your biology.
+              At KhairoDietClinic, every program recommendation is grounded in this evidence. We don&apos;t follow trends — we follow your biology.
             </p>
 
             <h2 className="font-display text-2xl text-ink-black mt-10 mb-4">
@@ -105,13 +105,13 @@ export default async function ArticlePage({
               What this means for your program
             </h2>
             <p className="text-ink-black/80 leading-relaxed text-[1.05rem] mb-5">
-              At Khairo Diet Clinic, meal timing, food composition, and even the type of movement we recommend are calibrated to work with your hormonal cycle — not against it. This isn&apos;t about being gentle or lowering expectations. It&apos;s about being precise.
+              At KhairoDietClinic, meal timing, food composition, and even the type of movement we recommend are calibrated to work with your hormonal cycle — not against it. This isn&apos;t about being gentle or lowering expectations. It&apos;s about being precise.
             </p>
 
             <div className="bg-rose-tint rounded-2xl p-6 my-8 not-prose">
               <p className="font-ui font-semibold text-magenta text-xs uppercase tracking-wider mb-2">Key Takeaway</p>
               <p className="text-ink-black/80 text-sm leading-relaxed">
-                Weight loss that works for women must account for hormonal fluctuation, metabolic adaptation, and the psychological effects of restriction. Khairo Diet Clinic does all three.
+                Weight loss that works for women must account for hormonal fluctuation, metabolic adaptation, and the psychological effects of restriction. KhairoDietClinic does all three.
               </p>
             </div>
           </div>

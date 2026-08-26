@@ -67,7 +67,7 @@ export default function PublicFormPage() {
             <header className="border-b border-white/10 bg-gradient-to-br from-white/[0.055] to-transparent p-6 sm:p-8 lg:p-10">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white/75">
                 <ShieldCheck size={14} className="text-[#ff4db2]" />
-                Secure Khairo Diet Clinic form
+                Secure KhairoDietClinic form
               </div>
 
               <h1 style={{ color: "#ffffff" }} className="max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -76,7 +76,7 @@ export default function PublicFormPage() {
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
                 {form.description ||
-                  "Tell us a little about yourself and what you would like Khairo Diet Clinic to help you achieve. This should take about 2 minutes."}
+                  "Tell us a little about yourself and what you would like KhairoDietClinic to help you achieve. This should take about 2 minutes."}
               </p>
 
               <p className="mt-3 text-xs text-white/45">
@@ -91,7 +91,7 @@ export default function PublicFormPage() {
         )}
 
         <p className="mt-5 text-center text-xs text-white/40">
-          Khairo Diet Clinic · Secure form submission
+          KhairoDietClinic · Secure form submission
         </p>
       </div>
     </main>

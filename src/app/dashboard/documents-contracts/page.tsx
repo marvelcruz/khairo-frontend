@@ -286,7 +286,7 @@ export default function DocumentsContractsPage() {
             reusable forms, and see which
             document capabilities are
             currently available in
-            Khairo Diet Clinic.
+            KhairoDietClinic.
           </p>
         </div>
 
@@ -636,7 +636,7 @@ export default function DocumentsContractsPage() {
             <div className="flex flex-col gap-3 border-b border-[var(--theme-border)] px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-[var(--theme-text-secondary)]">
-                  Reusable Khairo Diet Clinic forms
+                  Reusable KhairoDietClinic forms
                 </p>
                 <p className="mt-1 text-xs text-[var(--theme-text-muted)]">
                   Forms are created,
@@ -745,7 +745,7 @@ export default function DocumentsContractsPage() {
                   </h2>
 
                   <p className="mt-2 text-sm leading-6 text-[var(--theme-text-secondary)]">
-                    Khairo Diet Clinic currently
+                    KhairoDietClinic currently
                     supports reusable
                     forms and documents
                     or form links shared
@@ -778,7 +778,7 @@ export default function DocumentsContractsPage() {
       <div className="rounded-xl border border-[var(--theme-border)] bg-[var(--theme-input)] px-4 py-3 text-xs leading-5 text-[var(--theme-text-muted)]">
         Client-shared items shown here
         come from the same records used
-        by the Khairo Diet Clinic client portal.
+        by the KhairoDietClinic client portal.
         This screen does not create a
         second document repository.
       </div>

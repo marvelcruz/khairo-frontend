@@ -37,7 +37,7 @@ export default function StaffForgotPasswordPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">Secure recovery</p>
           <h1 className="mt-2 text-2xl font-semibold">Reset your staff password</h1>
           <p className="mt-2 text-sm leading-6 text-white/55">
-            Enter your staff email. If an active account exists, Khairo Diet Clinic will email a one-time reset link that expires in 30 minutes.
+            Enter your staff email. If an active account exists, KhairoDietClinic will email a one-time reset link that expires in 30 minutes.
           </p>
 
           <form onSubmit={submit} className="mt-6 space-y-4">

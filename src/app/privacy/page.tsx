@@ -10,7 +10,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-white">1. Who We Are</h2>
             <p>
-              Khairo Diet Clinic provides a weight-loss program and client portal. This policy explains how we collect, use, share, and protect your personal information.
+              KhairoDietClinic provides a weight-loss program and client portal. This policy explains how we collect, use, share, and protect your personal information.
             </p>
           </section>
 
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-white">6. Sharing</h2>
             <p>
-              We do not sell personal information. We may share information with trusted service providers who help us deliver Khairo Diet Clinic, including payment processors, email providers, hosting services, and clinical platforms where applicable.
+              We do not sell personal information. We may share information with trusted service providers who help us deliver KhairoDietClinic, including payment processors, email providers, hosting services, and clinical platforms where applicable.
             </p>
           </section>
 
@@ -84,14 +84,14 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-white">9. Security</h2>
             <p>
-              Khairo Diet Clinic uses role-based access controls, secure session tokens, HTTPS, and protected storage. However, no online system is 100% secure.
+              KhairoDietClinic uses role-based access controls, secure session tokens, HTTPS, and protected storage. However, no online system is 100% secure.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white">10. Contact</h2>
             <p>
-              For privacy requests or questions, contact the Khairo Diet Clinic team through WhatsApp or the contact page.
+              For privacy requests or questions, contact the KhairoDietClinic team through WhatsApp or the contact page.
             </p>
           </section>
         </div>

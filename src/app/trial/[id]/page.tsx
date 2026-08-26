@@ -73,7 +73,7 @@ export default function TrialRegistrationPage() {
                   {event.location && <span className="flex flex-wrap items-center gap-1.5"><MapPin size={14} /> {event.location}</span>}
                   <span className="flex flex-wrap items-center gap-1.5"><Users size={14} /> {spotsLeft} spots left</span>
                 </div>
-                <p className="text-white/60 mt-4 text-sm">Experience Khairo Diet Clinic risk-free. Meet your coach, see the plan, and decide if we&apos;re right for you.</p>
+                <p className="text-white/60 mt-4 text-sm">Experience KhairoDietClinic risk-free. Meet your coach, see the plan, and decide if we&apos;re right for you.</p>
               </div>
 
               {isFull ? (
@@ -102,7 +102,7 @@ export default function TrialRegistrationPage() {
               <div className="text-5xl mb-4"></div>
               <h2 className="text-2xl font-bold text-white mb-2">You&apos;re in!</h2>
               <p className="text-white/70 mb-6">We&apos;ve sent details to {form.email}. See you at the trial!</p>
-              <a href="/pricing" className="inline-block rounded-full bg-[#0d9488] px-6 py-3 text-sm font-medium text-white hover:bg-teal-700">View Khairo Diet Clinic programs</a>
+              <a href="/pricing" className="inline-block rounded-full bg-[#0d9488] px-6 py-3 text-sm font-medium text-white hover:bg-teal-700">View KhairoDietClinic programs</a>
             </div>
           )}
         </div>

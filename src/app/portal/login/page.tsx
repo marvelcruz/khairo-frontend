@@ -67,24 +67,24 @@ export default function ClientLoginPage() {
         <div className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1fr_430px]">
           <section className="hidden lg:block">
             <p className="inline-flex items-center gap-2 rounded-full border border-[#0d9488]/20 bg-[#0d9488]/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">
-              <Sparkles size={14} /> Your Khairo Diet Clinic
+              <Sparkles size={14} /> Your KhairoDietClinic
             </p>
             <h1 className="mt-6 max-w-xl text-5xl font-semibold leading-[1.05] tracking-[-0.04em]">
               Your plan, progress and support in one place.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-500">
-              Sign in securely to continue your Khairo Diet Clinic journey.
+              Sign in securely to continue your KhairoDietClinic journey.
             </p>
             <div className="mt-8 flex items-start gap-3 text-sm text-zinc-400">
               <ShieldCheck size={20} className="mt-0.5 shrink-0 text-[#0d9488]" />
-              <p>Account recovery and first-time activation now use one-time links sent to the email on your Khairo Diet Clinic account.</p>
+              <p>Account recovery and first-time activation now use one-time links sent to the email on your KhairoDietClinic account.</p>
             </div>
           </section>
 
           <section className="mx-auto w-full max-w-[430px] rounded-[24px] border border-white/10 bg-[var(--theme-surface)] p-5 shadow-2xl sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">Client sign in</p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight">Welcome back</h2>
-            <p className="mt-2 text-sm leading-6 text-zinc-500">Sign in to continue your Khairo Diet Clinic journey.</p>
+            <p className="mt-2 text-sm leading-6 text-zinc-500">Sign in to continue your KhairoDietClinic journey.</p>
 
             <form onSubmit={submit} className="mt-6 space-y-5">
               <label className="block">
@@ -149,7 +149,7 @@ export default function ClientLoginPage() {
               )}
 
               <button disabled={loading} className="h-12 w-full rounded-full bg-[#0d9488] text-sm font-semibold shadow-[0_10px_35px_rgba(236,0,140,0.18)] disabled:opacity-60">
-                {loading ? "Signing in…" : "Sign in to Khairo Diet Clinic"}
+                {loading ? "Signing in…" : "Sign in to KhairoDietClinic"}
               </button>
             </form>
 

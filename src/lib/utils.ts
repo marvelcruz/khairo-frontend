@@ -63,6 +63,6 @@ export const slideLeft = {
 
 export const WHATSAPP_NUMBER = "2349061382720";
 export const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hi! I'm interested in the Khairo Diet Clinic weight-loss program. Can you tell me more?"
+  "Hi! I'm interested in the KhairoDietClinic weight-loss program. Can you tell me more?"
 );
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;

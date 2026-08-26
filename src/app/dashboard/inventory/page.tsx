@@ -165,12 +165,12 @@ export default function InventoryPage() {
     <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-5 sm:px-6 sm:py-6">
       <ProductsServicesHeader
         title="Inventory"
-        description="Live operational stock from the existing Khairo Diet Clinic Supplements inventory system."
+        description="Live operational stock from the existing KhairoDietClinic Supplements inventory system."
         badge="Connected"
       />
 
       <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm leading-6 text-amber-200">
-        Supplements is the current stock authority. Stock adjustments and physical counts remain in the existing Supplements workflow so Khairo Diet Clinic maintains one inventory balance and one audit trail.
+        Supplements is the current stock authority. Stock adjustments and physical counts remain in the existing Supplements workflow so KhairoDietClinic maintains one inventory balance and one audit trail.
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">

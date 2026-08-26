@@ -7,7 +7,7 @@ import { StatBand } from "@/components/sections/stat-band";
 export const metadata: Metadata = {
   title: "Results",
   description:
-    "Real stories, real transformations. See how 700+ women have changed their lives with Khairo Diet Clinic's medically supervised weight-loss program.",
+    "Real stories, real transformations. See how 700+ women have changed their lives with KhairoDietClinic's medically supervised weight-loss program.",
 };
 
 const STORIES = [
@@ -19,7 +19,7 @@ const STORIES = [
     program: "Plus Program",
     stars: 5,
     story:
-      "I had tried every diet imaginable. Keto, intermittent fasting, juice cleanses — I did them all and kept ending up back where I started, or worse. Khairo Diet Clinic was different because it explained the why. Understanding Lac-Phe and how my hunger hormones actually work changed everything. I stopped fighting my body and started working with it.",
+      "I had tried every diet imaginable. Keto, intermittent fasting, juice cleanses — I did them all and kept ending up back where I started, or worse. KhairoDietClinic was different because it explained the why. Understanding Lac-Phe and how my hunger hormones actually work changed everything. I stopped fighting my body and started working with it.",
     before: "https://images.unsplash.com/photo-1569925444984-9e2e5fc3d1fb?w=400&q=80&auto=format",
     after: "https://images.unsplash.com/photo-1550259979-ed79b48d2a30?w=400&q=80&auto=format",
   },
@@ -78,7 +78,7 @@ export default function ResultsPage() {
             Real, lasting change.
           </h1>
           <p className="text-mist text-lg max-w-xl leading-relaxed">
-            Every story here is from a real woman in the Khairo Diet Clinic program.
+            Every story here is from a real woman in the KhairoDietClinic program.
             Individual results vary.
           </p>
         </div>
@@ -155,7 +155,7 @@ export default function ResultsPage() {
                 <div className="flex flex-wrap items-center gap-2">
                   <BadgeCheck size={16} className="text-magenta" aria-hidden />
                   <span className="text-xs text-magenta font-ui font-medium uppercase tracking-wide">
-                    Verified Khairo Diet Clinic participant
+                    Verified KhairoDietClinic participant
                   </span>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function ResultsPage() {
         </div>
 
         <p className="text-center text-xs text-ink-black/40 mt-12 max-w-md mx-auto px-4 sm:px-6">
-          Individual results vary. All stories above are from real Khairo Diet Clinic participants. Results shown are not typical and depend on adherence, individual biology, and lifestyle factors.
+          Individual results vary. All stories above are from real KhairoDietClinic participants. Results shown are not typical and depend on adherence, individual biology, and lifestyle factors.
         </p>
       </section>
 

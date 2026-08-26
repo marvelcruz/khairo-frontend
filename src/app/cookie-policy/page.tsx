@@ -8,7 +8,7 @@ export default function CookiePolicyPage() {
 
         <div className="mt-8 space-y-8 text-sm leading-7 text-zinc-300">
           <p>
-            Khairo Diet Clinic uses cookies and similar technologies to keep you signed in, remember your preferences, and understand how the platform is used.
+            KhairoDietClinic uses cookies and similar technologies to keep you signed in, remember your preferences, and understand how the platform is used.
           </p>
           <p>
             We may use essential cookies required for the website to function, and analytics cookies to improve performance. We do not use advertising cookies to sell your data.

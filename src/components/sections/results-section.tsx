@@ -50,7 +50,7 @@ export function ResultsSection() {
   return (
     <section
       className="bg-off-white py-16 sm:py-20 lg:py-32 overflow-hidden"
-      aria-label="Khairo Diet Clinic results and transformations"
+      aria-label="KhairoDietClinic results and transformations"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="mb-8 sm:mb-14">
@@ -80,7 +80,7 @@ export function ResultsSection() {
                 <div className="relative overflow-hidden">
                   <Image
                     src={result.before}
-                    alt={`${result.name} before Khairo Diet Clinic program`}
+                    alt={`${result.name} before KhairoDietClinic program`}
                     fill
                     className="object-cover grayscale"
                     sizes="(max-width: 768px) 50vw, 20vw"
@@ -92,7 +92,7 @@ export function ResultsSection() {
                 <div className="relative overflow-hidden">
                   <Image
                     src={result.after}
-                    alt={`${result.name} after Khairo Diet Clinic program`}
+                    alt={`${result.name} after KhairoDietClinic program`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 20vw"

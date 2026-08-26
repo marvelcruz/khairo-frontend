@@ -27,7 +27,7 @@ const PROGRAMS = [
     name: "Core",
     weeks: 8,
     description:
-      "A focused 8-week Khairo Diet Clinic journey.",
+      "A focused 8-week KhairoDietClinic journey.",
   },
   {
     key: "plus",
@@ -41,7 +41,7 @@ const PROGRAMS = [
     name: "VIP",
     weeks: 12,
     description:
-      "The most supported Khairo Diet Clinic journey.",
+      "The most supported KhairoDietClinic journey.",
   },
 ];
 
@@ -120,7 +120,7 @@ function PreviewExperience() {
     <div className="space-y-8">
       {client.onboarding && (
         <section className="rounded-[24px] border border-white/10 bg-[var(--theme-surface)] p-5 sm:p-6">
-          <h2 className="text-xl font-semibold text-white">Welcome to Khairo Diet Clinic</h2>
+          <h2 className="text-xl font-semibold text-white">Welcome to KhairoDietClinic</h2>
           <p className="mt-1 text-sm text-zinc-400">Complete these first steps to get the most from your journey.</p>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -151,15 +151,15 @@ function PreviewExperience() {
             <Sparkles
               size={14}
             />
-            Your Khairo Diet Clinic Preview
+            Your KhairoDietClinic Preview
           </p>
 
           <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-5xl">
-            See what your Khairo Diet Clinic journey could look like.
+            See what your KhairoDietClinic journey could look like.
           </h1>
 
           <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            Explore the tools, structure and support available to subscribed Khairo Diet Clinic clients. Nothing here promises a particular result — it shows how the experience works.
+            Explore the tools, structure and support available to subscribed KhairoDietClinic clients. Nothing here promises a particular result — it shows how the experience works.
           </p>
         </div>
       </section>
@@ -168,7 +168,7 @@ function PreviewExperience() {
 
       <section>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0d9488]">
-          Inside Khairo Diet Clinic
+          Inside KhairoDietClinic
         </p>
 
         <h2 className="mt-1 text-2xl font-semibold">
@@ -204,7 +204,7 @@ function PreviewExperience() {
               icon:
                 MessageCircle,
               title:
-                "Khairo Diet Clinic Support",
+                "KhairoDietClinic Support",
               body:
                 "Keep appointments, guidance and support together in your portal.",
             },
@@ -257,7 +257,7 @@ function PreviewExperience() {
         </p>
 
         <h2 className="mt-1 text-2xl font-semibold">
-          Start your Khairo Diet Clinic program
+          Start your KhairoDietClinic program
         </h2>
 
         <p className="mt-2 text-sm text-zinc-500">
@@ -382,7 +382,7 @@ function CompletedExperience() {
         </p>
 
         <h1 className="mt-2 max-w-3xl text-4xl font-semibold tracking-tight text-white">
-          You completed your Khairo Diet Clinic journey.
+          You completed your KhairoDietClinic journey.
         </h1>
 
         <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-400">
@@ -401,7 +401,7 @@ function CompletedExperience() {
             href="/portal/payments"
             className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-zinc-300"
           >
-            Continue with Khairo Diet Clinic
+            Continue with KhairoDietClinic
           </Link>
         </div>
       </section>
@@ -428,7 +428,7 @@ function ActiveToday() {
   const program =
     client.program ===
     "not_sure"
-      ? "Khairo Diet Clinic"
+      ? "KhairoDietClinic"
       : client.program
           .charAt(0)
           .toUpperCase() +
@@ -448,7 +448,7 @@ function ActiveToday() {
             </h1>
 
             <p className="mt-2 text-sm text-zinc-400">
-              Here is where you are in your Khairo Diet Clinic journey today.
+              Here is where you are in your KhairoDietClinic journey today.
             </p>
           </div>
 
@@ -622,7 +622,7 @@ export default function ClientPortalPage() {
           </h1>
 
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-500">
-            Your previous Khairo Diet Clinic history remains available. Reactivate your subscription to resume new tracking, appointments and active-program features.
+            Your previous KhairoDietClinic history remains available. Reactivate your subscription to resume new tracking, appointments and active-program features.
           </p>
 
           <Link

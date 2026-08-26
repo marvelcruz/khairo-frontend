@@ -211,7 +211,7 @@ export default function SettingsPage() {
               />
 
               <p className="mt-1 text-[11px] text-zinc-600">
-                Contact Khairo Diet Clinic if you need to change your login email.
+                Contact KhairoDietClinic if you need to change your login email.
               </p>
             </label>
           </div>
@@ -223,7 +223,7 @@ export default function SettingsPage() {
           </h2>
 
           <p className="mt-1 text-sm text-zinc-500">
-            Share your Khairo Diet Clinic referral code with friends.
+            Share your KhairoDietClinic referral code with friends.
           </p>
 
           <div className="mt-4 rounded-xl border border-[#0d9488]/20 bg-[#0d9488]/5 p-4">

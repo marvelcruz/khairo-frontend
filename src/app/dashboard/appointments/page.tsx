@@ -65,10 +65,10 @@ function googleCalUrl(s: Session) {
   const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
   const params = new URLSearchParams({
     action: "TEMPLATE",
-    text: `Khairo Diet Clinic ${s.sessionType} session - ${s.isTeam ? s.title || "Team meeting" : s.client?.fullName || "Client"}`,
+    text: `KhairoDietClinic ${s.sessionType} session - ${s.isTeam ? s.title || "Team meeting" : s.client?.fullName || "Client"}`,
     dates: `${fmt(start)}/${fmt(end)}`,
     details: `Session type: ${s.sessionType}${s.zoomLink ? " | Zoom: " + s.zoomLink : ""}${s.note ? " | Note: " + s.note : ""}`,
-    location: s.zoomLink || "Khairo Diet Clinic Studio",
+    location: s.zoomLink || "KhairoDietClinic Studio",
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }

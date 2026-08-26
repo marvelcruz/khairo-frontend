@@ -44,7 +44,7 @@ export default function PricingPage() {
       });
 
     const message = encodeURIComponent(
-      `Hi Khairo Diet Clinic! I just filled out the application.\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nGoals: ${selected.join(", ")}\n\n${form.notes ? `Notes: ${form.notes}` : ""}`
+      `Hi KhairoDietClinic! I just filled out the application.\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nGoals: ${selected.join(", ")}\n\n${form.notes ? `Notes: ${form.notes}` : ""}`
     );
 
     const whatsappBaseUrl = WHATSAPP_URL.split("?")[0];

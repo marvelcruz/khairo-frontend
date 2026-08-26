@@ -115,11 +115,11 @@ function RegisterForm() {
 
         <div className="mt-8 rounded-[26px] border border-white/10 bg-[var(--theme-surface)] p-5 shadow-2xl sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#0d9488]">
-            Free Khairo Diet Clinic Account
+            Free KhairoDietClinic Account
           </p>
 
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">
-            See what your Khairo Diet Clinic journey could look like.
+            See what your KhairoDietClinic journey could look like.
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-zinc-500">
@@ -130,7 +130,7 @@ function RegisterForm() {
             {[
               "Preview your future dashboard",
               "See how progress tracking works",
-              "Explore Khairo Diet Clinic programs",
+              "Explore KhairoDietClinic programs",
               "Subscribe only when you are ready",
             ].map(
               (item) => (

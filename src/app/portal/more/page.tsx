@@ -31,7 +31,7 @@ const ITEMS = [
       "/portal/messages",
     label: "Messages",
     description:
-      "Questions and replies from your Khairo Diet Clinic team.",
+      "Questions and replies from your KhairoDietClinic team.",
     icon: MessageCircle,
   },
   {
@@ -40,7 +40,7 @@ const ITEMS = [
     label:
       "Learn & Resources",
     description:
-      "Simple guidance for everyday Khairo Diet Clinic situations.",
+      "Simple guidance for everyday KhairoDietClinic situations.",
     icon: BookOpen,
   },
   {
@@ -67,7 +67,7 @@ const ITEMS = [
     label:
       "Profile & Reminders",
     description:
-      "Update your details and choose how Khairo Diet Clinic reminds you.",
+      "Update your details and choose how KhairoDietClinic reminds you.",
     icon: Settings,
   },
   {

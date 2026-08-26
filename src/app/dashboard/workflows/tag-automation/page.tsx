@@ -217,7 +217,7 @@ export default function TagAutomationPage() {
           <div>
             <h2 className="text-sm font-semibold text-white">Automatic system tags</h2>
             <p className="mt-1 text-xs leading-5 text-[var(--theme-text-muted)]">
-              Khairo Diet Clinic manages these tags itself. They describe meaningful facts or operational states rather than duplicating the pipeline stage.
+              KhairoDietClinic manages these tags itself. They describe meaningful facts or operational states rather than duplicating the pipeline stage.
             </p>
           </div>
         </div>

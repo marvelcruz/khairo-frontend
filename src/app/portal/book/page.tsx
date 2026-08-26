@@ -155,7 +155,7 @@ export default function PortalAppointmentsPage() {
         setNote("");
 
         setSuccess(
-          "Your preferred time has been sent. Your Khairo Diet Clinic team will confirm the appointment."
+          "Your preferred time has been sent. Your KhairoDietClinic team will confirm the appointment."
         );
 
         await loadSessions();
@@ -221,7 +221,7 @@ export default function PortalAppointmentsPage() {
           View upcoming sessions
           or request a preferred
           appointment time with
-          your Khairo Diet Clinic team.
+          your KhairoDietClinic team.
         </p>
       </header>
 
@@ -240,7 +240,7 @@ export default function PortalAppointmentsPage() {
             date and time. This is
             a request, not an
             instant booking. Your
-            Khairo Diet Clinic team will
+            KhairoDietClinic team will
             confirm the final
             appointment.
           </p>
@@ -308,7 +308,7 @@ export default function PortalAppointmentsPage() {
                   )
                 }
                 rows={4}
-                placeholder="Optional note for your Khairo Diet Clinic team"
+                placeholder="Optional note for your KhairoDietClinic team"
                 className="w-full resize-y rounded-xl border border-white/10 bg-black/25 px-3.5 py-3 text-sm text-white outline-none focus:border-[#0d9488]"
               />
             </label>
@@ -377,7 +377,7 @@ export default function PortalAppointmentsPage() {
               <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-zinc-500">
                 Request a preferred
                 time and your
-                Khairo Diet Clinic team will
+                KhairoDietClinic team will
                 confirm the
                 appointment with
                 you.

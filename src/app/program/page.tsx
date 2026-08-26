@@ -7,7 +7,7 @@ import { PricingSection } from "@/components/sections/pricing-section";
 export const metadata: Metadata = {
   title: "The Program",
   description:
-    "Everything included in the Khairo Diet Clinic weight-loss program — meal plans, medical oversight, community, and a week-by-week guide to your transformation.",
+    "Everything included in the KhairoDietClinic weight-loss program — meal plans, medical oversight, community, and a week-by-week guide to your transformation.",
 };
 
 const WEEKS = [
@@ -57,7 +57,7 @@ export default function ProgramPage() {
         />
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
           <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-4">
-            The Khairo Diet Clinic Program
+            The KhairoDietClinic Program
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,80px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6 max-w-3xl">
             A program built for how your body actually works.
@@ -126,20 +126,20 @@ export default function ProgramPage() {
       <section className="bg-off-white py-14 sm:py-20 lg:py-28">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <SectionHeader eyebrow="The Difference" title="Khairo Diet Clinic vs. the typical diet." light />
+            <SectionHeader eyebrow="The Difference" title="KhairoDietClinic vs. the typical diet." light />
           </div>
           <div className="max-w-[600px] mx-auto">
             <div className="rounded-[1.5rem] overflow-hidden border border-black/8">
               <div className="grid grid-cols-3 bg-ink-black text-pure-white">
                 <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider col-span-1">Feature</div>
-                <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-magenta">Khairo Diet Clinic</div>
+                <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-magenta">KhairoDietClinic</div>
                 <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-mist">Typical Diet</div>
               </div>
               {INCLUSIONS.map((row, i) => (
                 <div key={row.item} className={`grid grid-cols-3 border-t border-black/8 ${i % 2 === 0 ? "bg-pure-white" : "bg-off-white"}`}>
                   <div className="p-4 text-sm text-ink-black/80">{row.item}</div>
                   <div className="p-4 flex items-center justify-center">
-                    <Check size={18} className="text-mint-signal" aria-label="Included in Khairo Diet Clinic" />
+                    <Check size={18} className="text-mint-signal" aria-label="Included in KhairoDietClinic" />
                   </div>
                   <div className="p-4 flex items-center justify-center">
                     <X size={18} className="text-rose-400" aria-label="Not in typical diet" />

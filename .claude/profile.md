@@ -1,4 +1,4 @@
-# Khairo Diet Clinic — Business Profile
+# KhairoDietClinic — Business Profile
 
 > **Tagline:** *Weightloss program for women*
 > **Category:** Online women's weight-loss coaching / wellness program
@@ -10,7 +10,7 @@
 
 | Field | Detail | Source |
 |---|---|---|
-| **Business name** | Khairo Diet Clinic | ✅ Confirmed (IG/FB) |
+| **Business name** | KhairoDietClinic | ✅ Confirmed (IG/FB) |
 | **Niche** | Medically supervised weight-loss program for women | ✅ Confirmed (bio) |
 | **Primary market** | Women seeking guided weight loss | ✅ Confirmed (bio) |
 | **Likely base** | Lagos / Nigeria | ⚠️ Inferred (+234 mobile line, WhatsApp-led model) |
@@ -26,9 +26,9 @@
 
 ## Overview
 
-Khairo Diet Clinic is an online weight-loss coaching brand built exclusively for women. It operates almost entirely through social media — Instagram as the storefront and a phone number as the single conversion point — with no website and no third-party web presence beyond its own profiles.
+KhairoDietClinic is an online weight-loss coaching brand built exclusively for women. It operates almost entirely through social media — Instagram as the storefront and a phone number as the single conversion point — with no website and no third-party web presence beyond its own profiles.
 
-The brand positions itself around four pillars: a **medically supervised** program, a **community accountability/support group**, **personalized meal plans**, and **proven results**, anchored by a headline claim of **700+ women helped**. This places Khairo Diet Clinic in the fast-growing online women's-weight-loss segment, where coaching is delivered remotely and clients are onboarded and managed via WhatsApp.
+The brand positions itself around four pillars: a **medically supervised** program, a **community accountability/support group**, **personalized meal plans**, and **proven results**, anchored by a headline claim of **700+ women helped**. This places KhairoDietClinic in the fast-growing online women's-weight-loss segment, where coaching is delivered remotely and clients are onboarded and managed via WhatsApp.
 
 > **Note on claims:** "Medically supervised" and "700+ women helped" are the business's own marketing statements. No clinic, licensed practitioner, registered entity, or independent verification appears anywhere online. They should be treated as unverified until the business provides supporting detail.
 

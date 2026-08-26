@@ -243,7 +243,7 @@ export default function MessagesPage() {
                         <p className="text-xs text-[var(--theme-text-secondary)]">
                           {clientMessage
                             ? selected.client.fullName
-                            : message.senderName || "Khairo Diet Clinic Team"}
+                            : message.senderName || "KhairoDietClinic Team"}
                           {" · "}
                           {new Date(message.createdAt).toLocaleString()}
                         </p>

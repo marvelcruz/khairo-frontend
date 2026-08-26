@@ -288,7 +288,7 @@ export default function PortalPlanPage() {
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-500">
                 You have not done
                 anything wrong.
-                Your Khairo Diet Clinic team
+                Your KhairoDietClinic team
                 will add your plan
                 here when it is
                 ready. Any coach

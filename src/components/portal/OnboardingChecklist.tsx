@@ -49,7 +49,7 @@ export function OnboardingChecklist() {
         <div>
           <h2 className="text-lg font-semibold text-white">Your onboarding checklist</h2>
           <p className="mt-1 text-sm text-zinc-500">
-            Track your first steps inside Khairo Diet Clinic.
+            Track your first steps inside KhairoDietClinic.
           </p>
         </div>
         <span className="rounded-full bg-[#0d9488]/10 px-3 py-1 text-sm font-semibold text-[#0d9488]">

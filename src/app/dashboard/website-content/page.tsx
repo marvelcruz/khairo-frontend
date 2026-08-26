@@ -78,12 +78,12 @@ const GROUP_INFO: Record<
     help: "The first large section visitors see when they arrive on the website.",
   },
   Method: {
-    title: "The Khairo Diet Clinic Method",
-    help: "The four reasons the Khairo Diet Clinic program is different.",
+    title: "The KhairoDietClinic Method",
+    help: "The four reasons the KhairoDietClinic program is different.",
   },
   "How It Works": {
     title: "How It Works",
-    help: "The four steps explaining how someone starts and progresses through Khairo Diet Clinic.",
+    help: "The four steps explaining how someone starts and progresses through KhairoDietClinic.",
   },
   Results: {
     title: "Results & Transformations",
@@ -863,7 +863,7 @@ export default function WebsiteContentPage() {
                   <iframe
                     key={previewVersion}
                     src={`/?cmsPreview=${previewVersion}`}
-                    title="Published Khairo Diet Clinic website preview"
+                    title="Published KhairoDietClinic website preview"
                     className="h-[720px] w-full border-0"
                   />
                 </div>

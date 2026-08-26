@@ -28,8 +28,8 @@ type Props = {
 
 export default function ConnectionsHub({
   providers: filter,
-  title = "Khairo Diet Clinic Connections",
-  description = "Connect the Gmail and social accounts Khairo Diet Clinic uses. Sign in directly with each provider.",
+  title = "KhairoDietClinic Connections",
+  description = "Connect the Gmail and social accounts KhairoDietClinic uses. Sign in directly with each provider.",
   onChanged,
 }: Props) {
   const [items, setItems] = useState<Provider[]>([]);
@@ -44,7 +44,7 @@ export default function ConnectionsHub({
       const response = await api.get<ProviderResponse>("/social/connections");
       setItems(response.providers || []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not load Khairo Diet Clinic connections.");
+      setError(err instanceof Error ? err.message : "Could not load KhairoDietClinic connections.");
     } finally {
       setLoading(false);
     }
@@ -136,7 +136,7 @@ export default function ConnectionsHub({
                       {connected
                         ? item.connection?.displayName || "Connected"
                         : needsChoice
-                          ? "Choose the Khairo Diet Clinic account to use"
+                          ? "Choose the KhairoDietClinic account to use"
                           : item.configured
                             ? "Ready to connect"
                             : "Not available yet"}

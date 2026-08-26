@@ -225,7 +225,7 @@ html[data-theme="light"] {
     0 18px 50px rgba(24, 24, 27, 0.10);
 
   /*
-   * Existing marketing components already use these Khairo Diet Clinic
+   * Existing marketing components already use these KhairoDietClinic
    * semantic colours. Re-map them rather than duplicating pages.
    */
   --color-ink-black: #f7f7f8;
@@ -410,7 +410,7 @@ html[data-theme="light"]
 }
 
 /*
- * Pink Khairo Diet Clinic actions retain white foregrounds in both themes.
+ * Pink KhairoDietClinic actions retain white foregrounds in both themes.
  */
 
 html[data-theme="light"]
