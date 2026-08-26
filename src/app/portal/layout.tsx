@@ -46,6 +46,11 @@ const FULL_NAV = [
     icon: Newspaper,
   },
   {
+    href: "/portal/calculator",
+    label: "Calorie Calculator",
+    icon: Activity,
+  },
+  {
     href: "/portal/what-you-get",
     label: "What You Get",
     icon: CheckCircle2,
@@ -82,6 +87,11 @@ const PREVIEW_NAV = [
     href: "/portal/newsletters",
     label: "News",
     icon: Newspaper,
+  },
+  {
+    href: "/portal/calculator",
+    label: "Calorie Calculator",
+    icon: Activity,
   },
   {
     href: "/portal/what-you-get",
