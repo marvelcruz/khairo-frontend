@@ -286,7 +286,7 @@ const CRM_SOURCE_OPTIONS = [
   { value: "other", label: "Other" },
 ];
 
-const FITLUNGE_TIME_ZONE = "Africa/Lagos";
+const KHAIRO_TIME_ZONE = "Africa/Lagos";
 const CRM_DATE_MIN = "2000-01-01T00:00";
 const CRM_DATE_MAX = "2100-12-31T23:59";
 
@@ -309,7 +309,7 @@ function shortDate(value?: string) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "—";
   return date.toLocaleDateString(undefined, {
-    timeZone: FITLUNGE_TIME_ZONE,
+    timeZone: KHAIRO_TIME_ZONE,
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -321,7 +321,7 @@ function shortDateTime(value?: string) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "—";
   return date.toLocaleString(undefined, {
-    timeZone: FITLUNGE_TIME_ZONE,
+    timeZone: KHAIRO_TIME_ZONE,
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -335,7 +335,7 @@ function timeOnly(value?: string) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "";
   return date.toLocaleTimeString(undefined, {
-    timeZone: FITLUNGE_TIME_ZONE,
+    timeZone: KHAIRO_TIME_ZONE,
     hour: "numeric",
     minute: "2-digit",
   });
@@ -345,7 +345,7 @@ function dayKey(value: string | Date) {
   const date = value instanceof Date ? value : new Date(value);
   if (Number.isNaN(date.getTime())) return "";
   return new Intl.DateTimeFormat("en-CA", {
-    timeZone: FITLUNGE_TIME_ZONE,
+    timeZone: KHAIRO_TIME_ZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -359,14 +359,14 @@ function toLocalInput(value?: string) {
 
   const zonedYear = Number(
     new Intl.DateTimeFormat("en", {
-      timeZone: FITLUNGE_TIME_ZONE,
+      timeZone: KHAIRO_TIME_ZONE,
       year: "numeric",
     }).format(date)
   );
   if (zonedYear < 2000 || zonedYear > 2100) return "";
 
   const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: FITLUNGE_TIME_ZONE,
+    timeZone: KHAIRO_TIME_ZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

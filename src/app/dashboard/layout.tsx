@@ -133,7 +133,7 @@ function DashboardShell({ children }: { children: React.ReactNode }) {
       <div className="flex h-16 items-center justify-between border-b border-[var(--theme-border)] px-4">
         <Link href="/dashboard" className="flex items-center gap-2.5">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-[#0d9488] text-sm font-bold text-white">F</span>
-          <span className="text-base font-semibold tracking-tight text-white">FITLUNGE</span>
+          <span className="text-base font-semibold tracking-tight text-white">KHAIRO</span>
         </Link>
         <button type="button" onClick={() => setDrawerOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-[var(--theme-border)] text-white lg:hidden" aria-label="Close menu"><X size={18} /></button>
       </div>
@@ -181,7 +181,7 @@ function DashboardShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[var(--theme-page)]">
       <header className="sticky top-0 z-40 flex h-12 items-center justify-between border-b border-[var(--theme-border)] bg-[var(--theme-page)] px-4 lg:hidden">
-        <Link href="/dashboard" className="flex items-center gap-2"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0d9488] text-sm font-bold text-white">F</span><span className="font-semibold text-white">FITLUNGE</span></Link>
+        <Link href="/dashboard" className="flex items-center gap-2"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0d9488] text-sm font-bold text-white">F</span><span className="font-semibold text-white">KHAIRO</span></Link>
         <button type="button" onClick={() => setDrawerOpen(true)} className="grid h-10 w-10 place-items-center rounded-full border border-[var(--theme-border)] text-white" aria-label="Open menu"><Menu size={18} /></button>
       </header>
 

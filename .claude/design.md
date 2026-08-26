@@ -85,7 +85,7 @@ Scale (desktop / mobile): H1 80/40px · H2 52/32px · H3 30/24px · body-lg 19/1
 **Purpose:** Explain the offer as a system.
 **Layout:** Dark section. Section header centered (eyebrow + H2 + 1-line intro, 64px below to grid). 4 cards in a row (desktop, 4-col, 24px gap, each 280px tall, charcoal, 24px radius); 2×2 on tablet; vertical stack mobile. Each card: magenta line-icon (48px) top, H3 title, 2-line body, hover lifts 8px with magenta glow.
 **Copy:**
-- Eyebrow: `THE FITLUNGE METHOD`
+- Eyebrow: `THE KHAIRO METHOD`
 - H2: **Four things working together. That's the difference.**
 - Cards:
   1. **Medical Supervision** — "Your program is overseen by a health professional, not generic advice off the internet."

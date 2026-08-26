@@ -40,7 +40,7 @@ export default function PortalNewslettersPage() {
         ) : (
           <div className="mb-4 flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-[#0d9488] text-sm font-bold text-white">F</span>
-            <span className="font-bold tracking-tight text-white">FITLUNGE</span>
+            <span className="font-bold tracking-tight text-white">KHAIRO</span>
           </div>
         )}
         <h1 className="text-3xl font-semibold text-white">{selected.title}</h1>

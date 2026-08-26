@@ -193,7 +193,7 @@ function openApplicationDoc(r: ApplicationRequest) {
   </style></head><body>
   <div class="printbar"><button onclick="window.print()">Print / Save as PDF</button></div>
   <div class="sheet">
-    <div class="brand"><div class="logo">F</div><strong>FITLUNGE</strong></div>
+    <div class="brand"><div class="logo">F</div><strong>KHAIRO</strong></div>
     <h1>Membership Application — ${esc(getRequestName(r))}</h1>
     <div class="meta">Submitted ${r.createdAt ? new Date(r.createdAt).toLocaleString() : ""} · Status: ${esc(r.status || "pending")}</div>
     <div class="row"><div class="label">Contact</div><div class="value">${esc(r.email || "—")} · ${esc(r.phone || "—")}</div></div>

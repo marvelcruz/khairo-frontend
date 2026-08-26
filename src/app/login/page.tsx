@@ -57,7 +57,7 @@ function LoginForm() {
             F
           </span>
           <span className="text-xl font-bold tracking-tight text-white">
-            FITLUNGE
+            KHAIRO
           </span>
         </Link>
 
