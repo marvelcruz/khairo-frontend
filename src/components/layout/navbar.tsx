@@ -55,10 +55,10 @@ export function Navbar() {
               whileHover={{ color: "var(--color-magenta)" }}
               transition={{ duration: 0.2 }}
             >
-              FIT
+              KHAIRO
             </motion.span>
             <span className="font-display text-2xl text-magenta tracking-[-0.02em]">
-              LUNGE
+              
             </span>
           </Link>
 

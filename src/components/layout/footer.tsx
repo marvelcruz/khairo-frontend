@@ -46,8 +46,8 @@ export function Footer() {
           {/* Brand col */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <span className="font-display text-3xl text-pure-white">FIT</span>
-              <span className="font-display text-3xl text-magenta">LUNGE</span>
+              <span className="font-display text-3xl text-pure-white">KHAIRO</span>
+              <span className="font-display text-3xl text-magenta"></span>
             </Link>
             <p className="text-mist text-sm leading-relaxed mb-6">
               A medically supervised weight-loss program built for women&apos;s

@@ -57,7 +57,7 @@ export default function ClientLoginPage() {
         <header className="flex items-center justify-between">
           <Link href="/" className="inline-flex items-center gap-2.5">
             <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0d9488] font-bold">F</span>
-            <span className="text-lg font-bold tracking-tight sm:text-xl">FIT<span className="text-[#0d9488]">LUNGE</span></span>
+            <span className="text-lg font-bold tracking-tight sm:text-xl">KHAIRO<span className="text-[#0d9488]"></span></span>
           </Link>
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-white">
             <ArrowLeft size={15} /> Back

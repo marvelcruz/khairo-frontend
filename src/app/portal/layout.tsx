@@ -278,9 +278,9 @@ function PortalShell({
             </span>
 
             <span className="text-sm font-bold">
-              FIT
+              KHAIRO
               <span className="text-[#0d9488]">
-                LUNGE
+                
               </span>
             </span>
           </Link>
