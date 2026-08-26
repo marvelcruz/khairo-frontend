@@ -1,0 +1,42 @@
+{
+  "name": "khairo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3007",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "qa:crm": "node scripts/qa-crm.mjs",
+    "qa:crm:ui": "node scripts/qa-crm-ui.mjs",
+    "qa:custom-fields": "node scripts/qa-custom-fields.mjs",
+    "qa:custom-fields:ui": "node scripts/qa-custom-fields-ui.mjs",
+    "qa:forms": "node scripts/qa-forms.mjs",
+    "qa:forms:ui": "node scripts/qa-forms-ui.mjs",
+    "qa:workflows": "node scripts/qa-workflows.mjs",
+    "qa:workflows:ui": "node scripts/qa-workflows-ui.mjs"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
+    "lucide-react": "^0.469.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.13.1",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^15.1.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5"
+  }
+}

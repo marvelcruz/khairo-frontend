@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Magenta rounded square background -->
+  <rect width="32" height="32" rx="7" fill="#ec008c"/>
+  <!-- Bold white F-shape (6px uniform bar weight) -->
+  <!-- Trace: vertical bar + top bar + middle bar as single path -->
+  <path d="M7 6 L25 6 L25 12 L13 12 L13 15 L22 15 L22 21 L13 21 L13 26 L7 26 Z" fill="white"/>
+</svg>
