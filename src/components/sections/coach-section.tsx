@@ -37,7 +37,7 @@ export function CoachSection() {
             <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/5] max-h-[560px] glow-magenta">
               <Image
                 src={cmsText(content, "coach-image", "https://images.unsplash.com/photo-1603503363848-6952525df449?w=700&q=85&auto=format")}
-                alt={cmsText(content, "coach-image-alt", "KhairoDietClinic Coach Ada — fitness and wellness expert")}
+                alt={cmsText(content, "coach-image-alt", "KhairoDietClinic Olajumoke Osunsanya, RDN, MPH — fitness and wellness expert")}
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 42vw"
@@ -68,21 +68,21 @@ export function CoachSection() {
               variants={fadeUp}
               className="font-display text-[clamp(32px,4vw,52px)] text-ink-black leading-tight mb-1"
             >
-              {cmsText(content, "coach-name", "Coach Ada")}
+              {cmsText(content, "coach-name", "Olajumoke Osunsanya, RDN, MPH")}
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="font-ui font-semibold text-sm text-gold-trust uppercase tracking-wider mb-6"
             >
-              {cmsText(content, "coach-role", "Women's Health & Weight-Loss Specialist")}
+              {cmsText(content, "coach-role", "Founder & Lead Dietitian")}
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="text-ink-black/75 leading-relaxed mb-5 text-[1.05rem]"
             >
-              {cmsText(content, "coach-bio-1", "After years of watching women struggle with programs built for men's biology, Coach Ada created KhairoDietClinic with a single goal: a program that works with how women's bodies actually function. Hormones, hunger signals, metabolism — all of it factored in from day one.")}
+              {cmsText(content, "coach-bio-1", "After years of watching women struggle with programs built for men's biology, Olajumoke Osunsanya, RDN, MPH created KhairoDietClinic with a single goal: a program that works with how women's bodies actually function. Hormones, hunger signals, metabolism — all of it factored in from day one.")}
             </motion.p>
 
             <motion.p

@@ -72,16 +72,16 @@ export function HeroSection() {
               variants={fadeUp}
               className="font-display text-[clamp(34px,10.5vw,80px)] leading-[1.06] tracking-[-0.02em] text-pure-white mb-4 sm:mb-6"
             >
-              {cmsText(content, "hero-heading-line1", "Movement is")}
+              {cmsText(content, "hero-heading-line1", "Your Path")}
               <br />
-              {cmsText(content, "hero-heading-line2", "medicine —")}{" "}
+              {cmsText(content, "hero-heading-line2", "to Vibrant")}{" "}
               <em className="font-accent not-italic text-emerald-600">
-                {cmsText(content, "hero-heading-emphasis", "not")}
+                {cmsText(content, "hero-heading-emphasis", "Health,")}
               </em>
               <br />
-              {cmsText(content, "hero-heading-line3", "a debt you pay")}
+              {cmsText(content, "hero-heading-line3", "Personalized")}
               <br />
-              {cmsText(content, "hero-heading-line4", "for eating.")}
+              {cmsText(content, "hero-heading-line4", "for You")}
             </motion.h1>
 
             {/* Subhead */}

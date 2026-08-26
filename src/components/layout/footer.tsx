@@ -141,7 +141,7 @@ export function Footer() {
                   className="flex flex-wrap items-center gap-2 text-sm text-mist/80 hover:text-pure-white transition-colors duration-200"
                 >
                   <Phone size={14} className="text-emerald-600 shrink-0" />
-                  +234 906 138 2720
+                  +234 803 990 4595
                 </a>
               </li>
               <li>
