@@ -43,7 +43,7 @@ export function HeroSection() {
 
       {/* Magenta radial glow */}
       <div
-        className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-magenta/10 blur-[120px] pointer-events-none animate-pulse"
+        className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-emerald-600/10 blur-[120px] pointer-events-none animate-pulse"
         style={{ animationDuration: "8s" }}
         aria-hidden
       />
@@ -61,9 +61,9 @@ export function HeroSection() {
             {/* Eyebrow */}
             <motion.p
               variants={fadeUp}
-              className="font-ui font-semibold text-[11px] sm:text-[13px] text-magenta uppercase tracking-[0.12em] mb-4 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-3"
+              className="font-ui font-semibold text-[11px] sm:text-[13px] text-emerald-600 uppercase tracking-[0.12em] mb-4 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-3"
             >
-              <span className="w-8 h-px bg-magenta" aria-hidden />
+              <span className="w-8 h-px bg-emerald-600" aria-hidden />
               {cmsText(content, "hero-eyebrow", "Medically Supervised · Women Only")}
             </motion.p>
 
@@ -75,7 +75,7 @@ export function HeroSection() {
               {cmsText(content, "hero-heading-line1", "Movement is")}
               <br />
               {cmsText(content, "hero-heading-line2", "medicine —")}{" "}
-              <em className="font-accent not-italic text-magenta">
+              <em className="font-accent not-italic text-emerald-600">
                 {cmsText(content, "hero-heading-emphasis", "not")}
               </em>
               <br />

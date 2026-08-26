@@ -61,7 +61,7 @@ export function OnboardingChecklist() {
         {data.steps.map((step) => (
           <div key={step.key} className="flex items-start gap-3 rounded-xl border border-white/8 bg-black/20 p-3">
             {step.complete ? (
-              <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-emerald-400" />
+              <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-emerald-600" />
             ) : (
               <Circle size={17} className="mt-0.5 shrink-0 text-zinc-600" />
             )}

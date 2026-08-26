@@ -143,7 +143,7 @@ export default function ConnectionsHub({
                     </p>
                   </div>
                   {connected ? (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-300">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-300">
                       <CheckCircle2 size={13} /> Connected
                     </span>
                   ) : null}

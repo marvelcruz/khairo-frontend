@@ -51,7 +51,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink-black/40 via-ink-black/60 to-ink-black" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
-          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-5">
+          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-emerald-600 mb-5">
             Our Mission
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,80px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6 max-w-3xl">
@@ -69,7 +69,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <p className="font-ui text-xs uppercase tracking-widest text-magenta mb-4">
+              <p className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-4">
                 How We Started
               </p>
               <h2 className="font-display text-[clamp(28px,4vw,48px)] text-ink-black leading-tight mb-6">
@@ -112,8 +112,8 @@ export default function AboutPage() {
                 key={v.title}
                 className="bg-charcoal border border-white/8 rounded-[1.5rem] p-7"
               >
-                <div className="w-10 h-10 rounded-xl bg-magenta/10 border border-magenta/20 flex items-center justify-center mb-5">
-                  <v.icon size={20} className="text-magenta" aria-hidden />
+                <div className="w-10 h-10 rounded-xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center mb-5">
+                  <v.icon size={20} className="text-emerald-600" aria-hidden />
                 </div>
                 <h3 className="font-display text-lg text-pure-white mb-3">{v.title}</h3>
                 <p className="text-sm text-mist leading-relaxed">{v.body}</p>
@@ -127,7 +127,7 @@ export default function AboutPage() {
       <section className="bg-charcoal py-14 sm:py-20 lg:py-28">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="max-w-[760px] mx-auto text-center mb-12">
-            <p className="font-ui text-xs uppercase tracking-widest text-magenta mb-4">
+            <p className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-4">
               The Community
             </p>
             <h2 className="font-display text-[clamp(28px,4vw,48px)] text-pure-white leading-tight mb-4">

@@ -251,7 +251,7 @@ export default function PaymentsPage() {
                 <span
                   className={`w-fit rounded-full px-2.5 py-1 text-xs capitalize ${
                     payment.status === "success"
-                      ? "bg-emerald-500/10 text-emerald-400"
+                      ? "bg-emerald-600/10 text-emerald-600"
                       : "bg-white/5 text-zinc-500"
                   }`}
                 >

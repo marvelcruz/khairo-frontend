@@ -95,7 +95,7 @@ function LoginForm() {
                 </label>
                 <Link
                   href="/login/forgot-password"
-                  className="text-xs font-medium text-[#0d9488] hover:text-teal-500"
+                  className="text-xs font-medium text-[#0d9488] hover:text-emerald-600"
                 >
                   Forgot password?
                 </Link>
@@ -136,7 +136,7 @@ function LoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? "Signing in…" : "Sign in"}
             </button>

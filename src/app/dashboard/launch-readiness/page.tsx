@@ -55,7 +55,7 @@ const STATUS_COPY = {
   ready: {
     title: "Operationally ready",
     body: "No urgent or warning conditions are currently blocking the core client journey.",
-    className: "border-emerald-400/20 bg-emerald-400/[0.05] text-emerald-300",
+    className: "border-emerald-600/20 bg-emerald-400/[0.05] text-emerald-300",
     icon: CheckCircle2,
   },
   watch: {
@@ -238,7 +238,7 @@ export default function LaunchReadinessPage() {
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="text-sm font-semibold text-white">{item.label}</p>
-                      <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${item.clear ? "border-emerald-400/20 bg-emerald-400/[0.05] text-emerald-300" : severityClass(item.severity)}`}>
+                      <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${item.clear ? "border-emerald-600/20 bg-emerald-400/[0.05] text-emerald-300" : severityClass(item.severity)}`}>
                         {item.clear ? "Clear" : `${item.count} ${item.severity}`}
                       </span>
                     </div>

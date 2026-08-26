@@ -22,7 +22,7 @@ export function MobileStickyBar() {
       <div className="bg-ink-black/95 backdrop-blur-xl border-t border-white/10 px-3 py-2 safe-area-pb sm:px-4 sm:py-3">
         <Link
           href="/pricing#apply"
-          className="flex items-center justify-center w-full h-12 bg-magenta rounded-full font-ui font-bold text-pure-white text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_24px_rgba(236,0,140,0.4)] hover:bg-magenta-deep transition-colors"
+          className="flex items-center justify-center w-full h-12 bg-emerald-600 rounded-full font-ui font-bold text-pure-white text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_24px_rgba(236,0,140,0.4)] hover:bg-emerald-600-deep transition-colors"
         >
           Apply Now — Start Your Journey →
         </Link>

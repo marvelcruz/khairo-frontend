@@ -32,7 +32,7 @@ export default function LegalPage() {
               <a
                 key={item.href}
                 href={item.href}
-                className="inline-flex items-center gap-2 bg-pure-white border border-black/10 rounded-full px-5 py-2.5 font-ui text-sm font-medium text-ink-black hover:border-magenta hover:text-magenta transition-all"
+                className="inline-flex items-center gap-2 bg-pure-white border border-black/10 rounded-full px-5 py-2.5 font-ui text-sm font-medium text-ink-black hover:border-emerald-600 hover:text-emerald-600 transition-all"
               >
                 <item.icon size={15} aria-hidden />
                 {item.label}
@@ -44,7 +44,7 @@ export default function LegalPage() {
             {/* Privacy Policy */}
             <div id="privacy">
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <Shield size={22} className="text-magenta" aria-hidden />
+                <Shield size={22} className="text-emerald-600" aria-hidden />
                 <h2 className="font-display text-3xl text-ink-black">Privacy Policy</h2>
               </div>
               <div className="space-y-5 text-[0.95rem]">
@@ -65,7 +65,7 @@ export default function LegalPage() {
             {/* Terms */}
             <div id="terms">
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <FileText size={22} className="text-magenta" aria-hidden />
+                <FileText size={22} className="text-emerald-600" aria-hidden />
                 <h2 className="font-display text-3xl text-ink-black">Terms & Conditions</h2>
               </div>
               <div className="space-y-5 text-[0.95rem]">
@@ -86,7 +86,7 @@ export default function LegalPage() {
             {/* Medical Disclaimer */}
             <div id="disclaimer">
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <AlertTriangle size={22} className="text-magenta" aria-hidden />
+                <AlertTriangle size={22} className="text-emerald-600" aria-hidden />
                 <h2 className="font-display text-3xl text-ink-black">Medical Disclaimer</h2>
               </div>
               <div className="bg-rose-50 border border-rose-200 rounded-[1.5rem] p-6 mb-6">
@@ -106,7 +106,7 @@ export default function LegalPage() {
           <div className="mt-12 pt-8 border-t border-black/10 text-center">
             <p className="text-xs text-ink-black/40">
               Questions about these policies?{" "}
-              <Link href="/contact" className="text-magenta underline underline-offset-2 hover:no-underline">
+              <Link href="/contact" className="text-emerald-600 underline underline-offset-2 hover:no-underline">
                 Contact us
               </Link>
               .

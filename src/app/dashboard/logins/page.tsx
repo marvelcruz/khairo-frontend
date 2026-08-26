@@ -136,7 +136,7 @@ function AddLoginModal({ onClose, onCreated }: { onClose: () => void; onCreated:
           <button
             type="submit"
             disabled={saving}
-            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-60"
+            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60"
           >
             {saving ? "Creating…" : "Create account"}
           </button>
@@ -217,7 +217,7 @@ export default function LoginsPage() {
 
         <button
           onClick={() => setShowModal(true)}
-          className="flex min-h-10 self-start items-center gap-1.5 rounded-full bg-[#0d9488] px-4 text-xs font-medium text-white hover:bg-teal-700"
+          className="flex min-h-10 self-start items-center gap-1.5 rounded-full bg-[#0d9488] px-4 text-xs font-medium text-white hover:bg-emerald-700"
         >
           <Plus size={14} /> New login
         </button>

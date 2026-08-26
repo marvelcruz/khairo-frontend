@@ -57,7 +57,7 @@ export default function RemarksSection({ entityType, entityId }: { entityType: s
         <button
           type="submit"
           disabled={saving || !text.trim()}
-          className="flex flex-wrap shrink-0 items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+          className="flex flex-wrap shrink-0 items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
         >
           <MessageSquarePlus size={14} /> Add
         </button>

@@ -34,7 +34,7 @@ export default function ContactPage() {
       <section className="relative bg-ink-black pt-24 pb-12 sm:pt-32 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 halftone opacity-40" aria-hidden />
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6">
-          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-4">
+          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-emerald-600 mb-4">
             Get In Touch
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,72px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6">
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-wrap items-center gap-5 bg-magenta rounded-[1.5rem] p-6 mb-4 group hover:bg-magenta-deep transition-colors"
+                className="flex flex-wrap items-center gap-5 bg-emerald-600 rounded-[1.5rem] p-6 mb-4 group hover:bg-emerald-600-deep transition-colors"
               >
                 <div className="w-12 h-12 rounded-2xl bg-pure-white/20 flex items-center justify-center shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
@@ -77,10 +77,10 @@ export default function ContactPage() {
               <div className="space-y-3">
                 <a
                   href="tel:+2349061382720"
-                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-magenta/30 transition-all group"
+                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-emerald-600/30 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-magenta/10 flex items-center justify-center">
-                    <Phone size={18} className="text-magenta" aria-hidden />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600/10 flex items-center justify-center">
+                    <Phone size={18} className="text-emerald-600" aria-hidden />
                   </div>
                   <div>
                     <p className="font-ui font-semibold text-sm text-ink-black">Call Us</p>
@@ -92,10 +92,10 @@ export default function ContactPage() {
                   href="https://www.instagram.com/khairo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-magenta/30 transition-all group"
+                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-emerald-600/30 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-magenta/10 flex items-center justify-center">
-                    <Instagram size={18} className="text-magenta" aria-hidden />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600/10 flex items-center justify-center">
+                    <Instagram size={18} className="text-emerald-600" aria-hidden />
                   </div>
                   <div>
                     <p className="font-ui font-semibold text-sm text-ink-black">Instagram</p>
@@ -107,10 +107,10 @@ export default function ContactPage() {
                   href="https://www.facebook.com/profile.php?id=61573678627525"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-magenta/30 transition-all group"
+                  className="flex flex-wrap items-center gap-4 bg-pure-white border border-black/8 rounded-[1.25rem] p-5 hover:border-emerald-600/30 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-magenta/10 flex items-center justify-center">
-                    <Facebook size={18} className="text-magenta" aria-hidden />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600/10 flex items-center justify-center">
+                    <Facebook size={18} className="text-emerald-600" aria-hidden />
                   </div>
                   <div>
                     <p className="font-ui font-semibold text-sm text-ink-black">Facebook</p>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                         value={form[f.key as keyof typeof form]}
                         onChange={(e) => setForm((p) => ({ ...p, [f.key]: e.target.value }))}
                         required={f.required}
-                        className="w-full border border-black/12 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 text-sm focus:outline-none focus:border-magenta transition-colors"
+                        className="w-full border border-black/12 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 text-sm focus:outline-none focus:border-emerald-600 transition-colors"
                       />
                     </div>
                   ))}
@@ -170,7 +170,7 @@ export default function ContactPage() {
                       value={form.message}
                       onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
                       required
-                      className="w-full border border-black/12 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 text-sm focus:outline-none focus:border-magenta transition-colors resize-none"
+                      className="w-full border border-black/12 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 text-sm focus:outline-none focus:border-emerald-600 transition-colors resize-none"
                     />
                   </div>
                   {error && (
@@ -187,10 +187,10 @@ export default function ContactPage() {
 
               {/* FAQ shortcut */}
               <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-black/50">
-                <MessageCircle size={15} className="text-magenta shrink-0" />
+                <MessageCircle size={15} className="text-emerald-600 shrink-0" />
                 <span>
                   Looking for quick answers?{" "}
-                  <a href="/program#faq" className="text-magenta underline underline-offset-2 hover:no-underline">
+                  <a href="/program#faq" className="text-emerald-600 underline underline-offset-2 hover:no-underline">
                     Check our FAQ
                   </a>
                 </span>

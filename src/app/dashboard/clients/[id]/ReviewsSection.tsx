@@ -50,7 +50,7 @@ export default function ReviewsSection({ clientId }: { clientId: string }) {
         <button
           onClick={handleGenerate}
           disabled={generating}
-          className="flex flex-wrap items-center gap-2 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+          className="flex flex-wrap items-center gap-2 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
         >
           {generating ? "Generating..." : "Generate Review Now"}
         </button>

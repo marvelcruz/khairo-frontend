@@ -112,7 +112,7 @@ export default function HelpPage() {
         />
 
         {sent && (
-          <div className="mt-3 rounded-xl bg-emerald-500/10 p-3 text-sm text-emerald-400">
+          <div className="mt-3 rounded-xl bg-emerald-600/10 p-3 text-sm text-emerald-600">
             Your message has been sent to KhairoDietClinic.
           </div>
         )}

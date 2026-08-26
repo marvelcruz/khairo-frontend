@@ -106,7 +106,7 @@ export default function ClientLoginPage() {
               <label className="block">
                 <span className="mb-1.5 flex items-center justify-between gap-4 text-sm font-medium text-zinc-300">
                   Password
-                  <Link href="/portal/forgot-password" className="text-xs font-medium text-[#0d9488] hover:text-teal-500">
+                  <Link href="/portal/forgot-password" className="text-xs font-medium text-[#0d9488] hover:text-emerald-600">
                     Forgot password?
                   </Link>
                 </span>

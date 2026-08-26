@@ -179,7 +179,7 @@ const STAGE_META: Record<
 > = {
   new: {
     label: "New Lead",
-    badge: "bg-pink-500/10 text-pink-300 border-teal-500/20",
+    badge: "bg-pink-500/10 text-pink-300 border-emerald-600/20",
     dot: "bg-pink-400",
     border: "border-t-pink-400/50",
   },
@@ -191,7 +191,7 @@ const STAGE_META: Record<
   },
   qualified: {
     label: "Qualified",
-    badge: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
+    badge: "bg-emerald-600/10 text-emerald-300 border-emerald-500/20",
     dot: "bg-emerald-400",
     border: "border-t-emerald-400/50",
   },
@@ -2158,7 +2158,7 @@ export default function CrmPage() {
                                 {activity.type === "task" && (
                                   <div className="flex items-center gap-2">
                                     {activity.dueAt && <span className={!activity.completedAt && followUpMeta(activity.dueAt).status === "overdue" ? "text-amber-300" : "text-[var(--theme-text-muted)]"}>Due {shortDateTime(activity.dueAt)}</span>}
-                                    <button type="button" onClick={() => void toggleTask(activity._id)} className={`rounded-md px-2 py-1 font-semibold transition ${activity.completedAt ? "bg-emerald-500/10 text-emerald-300" : "bg-[var(--theme-surface-soft)] text-[var(--theme-text-secondary)] hover:text-[var(--theme-text)]"}`}>{activity.completedAt ? "Completed" : "Mark complete"}</button>
+                                    <button type="button" onClick={() => void toggleTask(activity._id)} className={`rounded-md px-2 py-1 font-semibold transition ${activity.completedAt ? "bg-emerald-600/10 text-emerald-300" : "bg-[var(--theme-surface-soft)] text-[var(--theme-text-secondary)] hover:text-[var(--theme-text)]"}`}>{activity.completedAt ? "Completed" : "Mark complete"}</button>
                                   </div>
                                 )}
                               </div>

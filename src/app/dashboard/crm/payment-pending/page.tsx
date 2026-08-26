@@ -40,7 +40,7 @@ type QueueResponse = {
 
 const statusClass: Record<string, string> = {
   pending: "bg-amber-500/10 text-amber-300",
-  success: "bg-emerald-500/10 text-emerald-300",
+  success: "bg-emerald-600/10 text-emerald-300",
   failed: "bg-red-500/10 text-red-300",
   abandoned: "bg-[var(--theme-surface-soft)] text-[var(--theme-text-muted)]",
 };
@@ -208,7 +208,7 @@ export default function PaymentPendingPage() {
         ))}
       </div>
 
-      {notice && <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-3 text-sm text-emerald-300">{notice}</div>}
+      {notice && <div className="rounded-lg border border-emerald-500/30 bg-emerald-600/5 px-4 py-3 text-sm text-emerald-300">{notice}</div>}
       {error && <div className="rounded-lg border border-red-500/30 bg-red-500/5 px-4 py-3 text-sm text-red-300">{error}</div>}
 
       <div className="relative max-w-xl">

@@ -70,7 +70,7 @@ export function MethodSection() {
             <motion.div
               key={pillar.title}
               variants={fadeUp}
-              className="group relative bg-charcoal border border-white/8 rounded-[1.5rem] p-7 hover:-translate-y-2 transition-all duration-300 hover:border-magenta/30"
+              className="group relative bg-charcoal border border-white/8 rounded-[1.5rem] p-7 hover:-translate-y-2 transition-all duration-300 hover:border-emerald-600/30"
               style={{
                 boxShadow: "0 0 0 0 rgba(236,0,140,0)",
               }}
@@ -79,10 +79,10 @@ export function MethodSection() {
               }}
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-2xl bg-magenta/10 border border-magenta/20 flex items-center justify-center mb-5 group-hover:bg-magenta/20 transition-colors duration-300">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center mb-5 group-hover:bg-emerald-600/20 transition-colors duration-300">
                 <pillar.icon
                   size={22}
-                  className="text-magenta"
+                  className="text-emerald-600"
                   aria-hidden
                 />
               </div>

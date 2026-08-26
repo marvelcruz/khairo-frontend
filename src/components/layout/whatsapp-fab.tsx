@@ -7,14 +7,14 @@ export function WhatsAppFAB() {
   return (
     <div className="fixed bottom-20 right-3 z-50 sm:bottom-24 sm:right-4 lg:bottom-6 lg:right-6" aria-label="Chat on WhatsApp">
       {/* Pulse rings */}
-      <span className="absolute inset-0 rounded-full bg-magenta opacity-30 animate-ping" aria-hidden />
-      <span className="absolute inset-0 rounded-full bg-magenta opacity-20 animate-ping [animation-delay:0.5s]" aria-hidden />
+      <span className="absolute inset-0 rounded-full bg-emerald-600 opacity-30 animate-ping" aria-hidden />
+      <span className="absolute inset-0 rounded-full bg-emerald-600 opacity-20 animate-ping [animation-delay:0.5s]" aria-hidden />
 
       <motion.a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-magenta flex items-center justify-center shadow-[0_0_32px_rgba(236,0,140,0.5)] hover:bg-magenta-deep transition-colors duration-200"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-600 flex items-center justify-center shadow-[0_0_32px_rgba(236,0,140,0.5)] hover:bg-emerald-600-deep transition-colors duration-200"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ scale: 0, opacity: 0 }}

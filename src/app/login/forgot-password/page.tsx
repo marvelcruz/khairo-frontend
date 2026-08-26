@@ -55,7 +55,7 @@ export default function StaffForgotPasswordPage() {
             </label>
 
             {message && (
-              <p className="rounded-lg border border-emerald-400/20 bg-emerald-400/5 p-3 text-sm leading-5 text-emerald-300">
+              <p className="rounded-lg border border-emerald-600/20 bg-emerald-400/5 p-3 text-sm leading-5 text-emerald-300">
                 {message}
               </p>
             )}

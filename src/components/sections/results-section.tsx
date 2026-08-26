@@ -97,7 +97,7 @@ export function ResultsSection() {
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 20vw"
                   />
-                  <span className="absolute bottom-2 right-2 bg-magenta text-white text-[10px] font-ui uppercase tracking-wider px-2 py-0.5 rounded-full">
+                  <span className="absolute bottom-2 right-2 bg-emerald-600 text-white text-[10px] font-ui uppercase tracking-wider px-2 py-0.5 rounded-full">
                     After
                   </span>
                 </div>
@@ -125,8 +125,8 @@ export function ResultsSection() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-1.5 mt-3">
-                  <BadgeCheck size={14} className="text-magenta" aria-hidden />
-                  <span className="text-xs text-magenta font-ui font-medium uppercase tracking-wide">
+                  <BadgeCheck size={14} className="text-emerald-600" aria-hidden />
+                  <span className="text-xs text-emerald-600 font-ui font-medium uppercase tracking-wide">
                     Verified result
                   </span>
                 </div>

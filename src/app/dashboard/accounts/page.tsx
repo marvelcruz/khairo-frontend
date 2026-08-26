@@ -240,7 +240,7 @@ function AddLoginModal({
           <button
             type="submit"
             disabled={saving}
-            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60"
+            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
           >
             {saving ? "Creating…" : "Create login"}
           </button>
@@ -327,7 +327,7 @@ function EditLoginModal({
           <button
             type="submit"
             disabled={saving}
-            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60"
+            className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
           >
             {saving ? "Saving…" : "Save changes"}
           </button>
@@ -421,7 +421,7 @@ export default function StaffAccessPage() {
 
         <button
           onClick={() => setShowModal(true)}
-          className="inline-flex min-h-10 self-start items-center gap-1.5 rounded-full bg-[#0d9488] px-4 text-xs font-semibold text-white hover:bg-teal-700"
+          className="inline-flex min-h-10 self-start items-center gap-1.5 rounded-full bg-[#0d9488] px-4 text-xs font-semibold text-white hover:bg-emerald-700"
         >
           <Plus size={14} /> Add team login
         </button>
@@ -464,7 +464,7 @@ export default function StaffAccessPage() {
                       <span className="rounded-full border border-[var(--theme-border)] px-2 py-0.5 text-[10px] font-semibold text-[var(--theme-text-secondary)]">
                         {accessProfileLabel(account)}
                       </span>
-                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${enabled ? "bg-emerald-500/10 text-emerald-300" : "bg-red-500/10 text-red-300"}`}>
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${enabled ? "bg-emerald-600/10 text-emerald-300" : "bg-red-500/10 text-red-300"}`}>
                         {enabled ? "Active" : "Off"}
                       </span>
                     </div>
@@ -488,7 +488,7 @@ export default function StaffAccessPage() {
                     className={`inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 text-xs font-semibold disabled:opacity-50 ${
                       enabled
                         ? "border-red-500/30 text-red-300 hover:bg-red-500/10"
-                        : "border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/10"
+                        : "border-emerald-500/30 text-emerald-300 hover:bg-emerald-600/10"
                     }`}
                   >
                     {enabled ? <UserX size={13} /> : <UserCheck size={13} />}

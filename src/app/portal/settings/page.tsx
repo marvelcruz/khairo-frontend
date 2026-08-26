@@ -308,7 +308,7 @@ export default function SettingsPage() {
         </section>
 
         {message && (
-          <p className="rounded-xl bg-emerald-500/10 p-3 text-sm text-emerald-400">
+          <p className="rounded-xl bg-emerald-600/10 p-3 text-sm text-emerald-600">
             {message}
           </p>
         )}

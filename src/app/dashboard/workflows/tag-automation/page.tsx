@@ -383,7 +383,7 @@ export default function TagAutomationPage() {
                           <span>{trigger.change === "removed" ? "removed" : "added"}</span>
                         </div>
                       </div>
-                      <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide ${workflow.status === "active" ? "border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-300" : "border-[var(--theme-border)] text-[var(--theme-text-muted)]"}`}>
+                      <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide ${workflow.status === "active" ? "border-emerald-600/20 bg-emerald-400/[0.06] text-emerald-300" : "border-[var(--theme-border)] text-[var(--theme-text-muted)]"}`}>
                         {workflow.status}
                       </span>
                     </div>

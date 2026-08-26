@@ -57,7 +57,7 @@ export function Navbar() {
             >
               KHAIRO
             </motion.span>
-            <span className="font-display text-2xl text-magenta tracking-[-0.02em]">
+            <span className="font-display text-2xl text-emerald-600 tracking-[-0.02em]">
               
             </span>
           </Link>
@@ -71,14 +71,14 @@ export function Navbar() {
                 className={cn(
                   "relative whitespace-nowrap px-2.5 2xl:px-3.5 py-2 font-ui text-[12px] 2xl:text-sm font-medium uppercase tracking-wider transition-colors duration-200 rounded-full",
                   pathname === link.href
-                    ? "text-magenta"
+                    ? "text-emerald-600"
                     : "text-mist hover:text-pure-white"
                 )}
               >
                 {pathname === link.href && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute inset-0 bg-magenta/10 rounded-full"
+                    className="absolute inset-0 bg-emerald-600/10 rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -103,7 +103,7 @@ export function Navbar() {
               <Link
                 href="/login"
                 title="Admin login"
-                className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-magenta/70 bg-magenta/15 px-3 2xl:px-4 py-2 font-ui text-xs font-semibold uppercase tracking-wide text-magenta transition-colors hover:bg-magenta/25"
+                className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-600/70 bg-emerald-600/15 px-3 2xl:px-4 py-2 font-ui text-xs font-semibold uppercase tracking-wide text-emerald-600 transition-colors hover:bg-emerald-600/25"
               >
                 <LockKeyhole size={13} />
                 Admin Login
@@ -189,7 +189,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "block py-3 font-display text-2xl sm:py-4 sm:text-3xl uppercase tracking-wider border-b border-white/8 transition-colors",
-                      pathname === link.href ? "text-magenta" : "text-pure-white"
+                      pathname === link.href ? "text-emerald-600" : "text-pure-white"
                     )}
                   >
                     {link.label}

@@ -17,7 +17,7 @@ export function ProductsServicesHeader({
     <div className="space-y-5">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-500">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
             Products & Services
           </div>
 
@@ -32,7 +32,7 @@ export function ProductsServicesHeader({
 
         <span className={`w-fit rounded-full border px-3 py-1 text-xs font-medium ${
           connected
-            ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-300"
+            ? "border-emerald-500/25 bg-emerald-600/10 text-emerald-300"
             : "border-[var(--theme-border)] bg-[var(--theme-surface)] text-[var(--theme-text-secondary)]"
         }`}>
           {badge}

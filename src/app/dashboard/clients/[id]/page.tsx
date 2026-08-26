@@ -551,7 +551,7 @@ export default function ClientDetailPage() {
               onChange={(e) => setNewItemText(e.target.value)}
               className="w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488]"
             />
-            <button type="submit" disabled={itemSaving} className="flex flex-wrap shrink-0 items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+            <button type="submit" disabled={itemSaving} className="flex flex-wrap shrink-0 items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
               <Plus size={14} /> Add
             </button>
           </div>
@@ -608,7 +608,7 @@ export default function ClientDetailPage() {
               className="w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488]"
             />
           </div>
-          <button type="submit" disabled={exerciseSaving} className="flex flex-wrap items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+          <button type="submit" disabled={exerciseSaving} className="flex flex-wrap items-center gap-1 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
             <Plus size={14} /> Add exercise
           </button>
         </form>
@@ -630,7 +630,7 @@ export default function ClientDetailPage() {
           placeholder="Observations, concerns, things to follow up on…"
           className="mt-3 w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2.5 text-sm text-white outline-none focus:border-[#0d9488]"
         />
-        <button onClick={handleSaveNotes} disabled={notesSaving} className="mt-3 rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+        <button onClick={handleSaveNotes} disabled={notesSaving} className="mt-3 rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
           {notesSaving ? "Saving…" : notesSaved ? "Saved" : "Save notes"}
         </button>
       </div>
@@ -665,7 +665,7 @@ export default function ClientDetailPage() {
         <button
           onClick={handleManualActivate}
           disabled={manualActivating}
-          className="mt-3 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+          className="mt-3 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
         >
           {manualActivating ? "Activating…" : "Mark as paid & activate"}
         </button>
@@ -688,7 +688,7 @@ export default function ClientDetailPage() {
             </button>
           </div>
         ) : (
-          <button onClick={handleGenerateLink} disabled={linkLoading} className="mt-4 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+          <button onClick={handleGenerateLink} disabled={linkLoading} className="mt-4 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
             {linkLoading ? "Generating…" : "Generate payment link"}
           </button>
         )}
@@ -732,7 +732,7 @@ export default function ClientDetailPage() {
             {transcripts.length === 0 && <option value="" disabled>No sessions available</option>}
           </select>
           <textarea name="text" placeholder="Paste transcript from tl;dv…" rows={4} className="w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none" />
-          <button type="submit" className="rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-teal-700">Save transcript</button>
+          <button type="submit" className="rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-emerald-700">Save transcript</button>
         </form>
       </div>
 

@@ -52,9 +52,9 @@ export default function ProductsServicesPage() {
             <Link
               key={card.href}
               href={card.href}
-              className="group rounded-xl border border-[var(--theme-border)] bg-[var(--theme-surface)] p-5 transition hover:border-teal-500/60"
+              className="group rounded-xl border border-[var(--theme-border)] bg-[var(--theme-surface)] p-5 transition hover:border-emerald-600/60"
             >
-              <Icon className="h-5 w-5 text-teal-500" />
+              <Icon className="h-5 w-5 text-emerald-600" />
 
               <h2 className="mt-5 font-semibold text-white">
                 {card.title}

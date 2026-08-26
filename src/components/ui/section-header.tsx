@@ -35,7 +35,7 @@ export function SectionHeader({
       {eyebrow && (
         <motion.p
           variants={fadeUp}
-          className="font-ui font-semibold text-[11px] uppercase tracking-[0.12em] text-magenta mb-3 sm:text-[13px] sm:mb-4"
+          className="font-ui font-semibold text-[11px] uppercase tracking-[0.12em] text-emerald-600 mb-3 sm:text-[13px] sm:mb-4"
         >
           {eyebrow}
         </motion.p>

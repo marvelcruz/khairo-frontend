@@ -21,7 +21,7 @@ export function ManifestoSection() {
           >
             &ldquo;You don&apos;t need{" "}
             <motion.em
-              className="font-accent not-italic text-magenta"
+              className="font-accent not-italic text-emerald-600"
               initial={false}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -30,7 +30,7 @@ export function ManifestoSection() {
               another
             </motion.em>{" "}
             punishing diet. You need a plan that works{" "}
-            <strong className="text-magenta">with</strong> your body.&rdquo;
+            <strong className="text-emerald-600">with</strong> your body.&rdquo;
           </motion.blockquote>
 
           {/* Divider */}
@@ -39,7 +39,7 @@ export function ManifestoSection() {
             className="flex flex-wrap items-center gap-4 mb-10"
           >
             <div className="flex-1 h-px bg-ink-black/15" aria-hidden />
-            <div className="w-2 h-2 rounded-full bg-magenta" aria-hidden />
+            <div className="w-2 h-2 rounded-full bg-emerald-600" aria-hidden />
             <div className="flex-1 h-px bg-ink-black/15" aria-hidden />
           </motion.div>
 

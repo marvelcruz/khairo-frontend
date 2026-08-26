@@ -162,7 +162,7 @@ export default function BuddiesPage() {
           <h1 className="text-2xl font-bold text-white flex flex-wrap items-center gap-2"><Users size={24} /> Buddy System</h1>
           <p className="text-[var(--theme-text-secondary)] mt-1">Pair new clients with graduates for community & retention.</p>
         </div>
-        <button onClick={() => setShowPairModal(true)} className="flex flex-wrap items-center gap-2 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-700">
+        <button onClick={() => setShowPairModal(true)} className="flex flex-wrap items-center gap-2 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700">
           <UserPlus size={16} /> New Pairing
         </button>
       </div>
@@ -190,7 +190,7 @@ export default function BuddiesPage() {
                 </select>
                 <p className="mt-1.5 text-xs text-[var(--theme-text-secondary)]">Only reconciled clients whose program status is Completed are eligible as mentors.</p>
               </div>
-              <button onClick={createPair} disabled={loading} className="w-full rounded-full bg-[#0d9488] py-3 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+              <button onClick={createPair} disabled={loading} className="w-full rounded-full bg-[#0d9488] py-3 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
                 {loading ? "Creating..." : "Create Pair"}
               </button>
             </div>

@@ -482,7 +482,7 @@ export function ProgressPhotos() {
           </label>
 
           {file && (
-            <p className="mt-2 truncate text-xs text-emerald-400">
+            <p className="mt-2 truncate text-xs text-emerald-600">
               Selected:{" "}
               {file.name}
             </p>

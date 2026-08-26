@@ -37,12 +37,12 @@ export default async function ArticlePage({
         <div className="relative max-w-[900px] mx-auto px-6">
           <Link
             href="/science"
-            className="inline-flex items-center gap-2 text-mist hover:text-magenta transition-colors text-sm mb-8 font-ui"
+            className="inline-flex items-center gap-2 text-mist hover:text-emerald-600 transition-colors text-sm mb-8 font-ui"
           >
             <ArrowLeft size={15} aria-hidden />
             Back to The Lab
           </Link>
-          <span className="inline-block bg-magenta text-pure-white text-xs font-ui font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">
+          <span className="inline-block bg-emerald-600 text-pure-white text-xs font-ui font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">
             Biology
           </span>
           <h1 className="font-display text-[clamp(32px,5vw,60px)] text-pure-white leading-[1.1] tracking-[-0.02em] mb-6">
@@ -109,7 +109,7 @@ export default async function ArticlePage({
             </p>
 
             <div className="bg-rose-tint rounded-2xl p-6 my-8 not-prose">
-              <p className="font-ui font-semibold text-magenta text-xs uppercase tracking-wider mb-2">Key Takeaway</p>
+              <p className="font-ui font-semibold text-emerald-600 text-xs uppercase tracking-wider mb-2">Key Takeaway</p>
               <p className="text-ink-black/80 text-sm leading-relaxed">
                 Weight loss that works for women must account for hormonal fluctuation, metabolic adaptation, and the psychological effects of restriction. KhairoDietClinic does all three.
               </p>
@@ -117,7 +117,7 @@ export default async function ArticlePage({
           </div>
 
           <div className="mt-12 pt-8 border-t border-black/10">
-            <p className="font-ui text-xs uppercase tracking-widest text-magenta mb-4">
+            <p className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-4">
               Ready to apply the science?
             </p>
             <h3 className="font-display text-2xl text-ink-black mb-4">
@@ -125,7 +125,7 @@ export default async function ArticlePage({
             </h3>
             <Link
               href="/pricing#apply"
-              className="inline-flex items-center gap-2 bg-magenta text-pure-white rounded-full px-6 py-3 font-ui font-semibold text-sm uppercase tracking-wider hover:bg-magenta-deep transition-colors"
+              className="inline-flex items-center gap-2 bg-emerald-600 text-pure-white rounded-full px-6 py-3 font-ui font-semibold text-sm uppercase tracking-wider hover:bg-emerald-600-deep transition-colors"
             >
               <BookOpen size={15} aria-hidden />
               Apply Now →

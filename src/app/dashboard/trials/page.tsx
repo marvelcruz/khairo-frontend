@@ -390,7 +390,7 @@ export default function TrialsPage() {
             onClick={() =>
               setShowCreate(true)
             }
-            className="flex items-center gap-2 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-700"
+            className="flex items-center gap-2 rounded-full bg-[#0d9488] px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700"
           >
             <Plus size={16} />
             New Trial Day
@@ -485,7 +485,7 @@ export default function TrialsPage() {
             <button
               onClick={create}
               disabled={loading}
-              className="rounded-full bg-[#0d9488] px-5 py-2 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+              className="rounded-full bg-[#0d9488] px-5 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
             >
               {loading
                 ? "Creating…"

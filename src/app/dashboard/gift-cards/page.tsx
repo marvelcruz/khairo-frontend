@@ -136,7 +136,7 @@ export default function GiftCardsPage() {
         </ol>
       </div>
 
-      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-300">{notice}</div>}
+      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/10 p-3 text-sm text-emerald-300">{notice}</div>}
       {error && <div className="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
 
       <button
@@ -190,7 +190,7 @@ export default function GiftCardsPage() {
                 <div className="flex items-center gap-2">
                   <Gift size={16} className="text-[#0d9488]" />
                   <h3 className="font-semibold text-white">{giftCard.code}</h3>
-                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${giftCard.active ? "bg-emerald-500/10 text-emerald-300" : "bg-zinc-700 text-zinc-400"}`}>
+                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${giftCard.active ? "bg-emerald-600/10 text-emerald-300" : "bg-zinc-700 text-zinc-400"}`}>
                     {giftCard.active ? "Active" : "Inactive"}
                   </span>
                 </div>

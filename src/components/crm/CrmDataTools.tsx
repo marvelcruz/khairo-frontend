@@ -1842,7 +1842,7 @@ export default function CrmDataTools({
                                       <span className={`rounded-full px-2 py-1 text-[10px] font-semibold ${
                                         row.result ===
                                         "new"
-                                          ? "bg-emerald-500/10 text-emerald-300"
+                                          ? "bg-emerald-600/10 text-emerald-300"
                                           : row.result ===
                                               "update"
                                             ? "bg-blue-500/10 text-blue-300"

@@ -91,7 +91,7 @@ export default function DraftsSection({ entityType, entityId }: { entityType: st
         ) : (
           <input type="number" value={value} onChange={(e) => setValue(e.target.value)} placeholder="New value" className="rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488]" />
         )}
-        <button type="submit" disabled={saving || !value} className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+        <button type="submit" disabled={saving || !value} className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
           Save as draft
         </button>
         <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Reason (optional, e.g. client upgraded after review)" className="rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488] sm:col-span-3" />

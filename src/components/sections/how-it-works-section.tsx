@@ -96,7 +96,7 @@ export function HowItWorksSection() {
               >
                 {/* Node */}
                 <div
-                  className="absolute left-0 top-0 w-10 h-10 rounded-full bg-magenta border-4 border-off-white flex items-center justify-center"
+                  className="absolute left-0 top-0 w-10 h-10 rounded-full bg-emerald-600 border-4 border-off-white flex items-center justify-center"
                   aria-hidden
                 >
                   <span className="font-ui font-bold text-xs text-pure-white">
@@ -114,7 +114,7 @@ export function HowItWorksSection() {
                   />
                 </div>
 
-                <span className="font-display text-5xl text-magenta/20 leading-none block mb-2">
+                <span className="font-display text-5xl text-emerald-600/20 leading-none block mb-2">
                   {step.number}
                 </span>
                 <h3 className="font-display text-2xl text-ink-black mb-2">
@@ -180,7 +180,7 @@ function StepRow({
         </p>
         {/* Accent line */}
         <div
-          className="w-12 h-1 bg-magenta rounded-full mt-6"
+          className="w-12 h-1 bg-emerald-600 rounded-full mt-6"
           aria-hidden
         />
       </div>

@@ -63,7 +63,7 @@ export default function ClientForgotPasswordPage() {
             </label>
 
             {message && (
-              <p className="rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-4 text-sm leading-6 text-emerald-300">{message}</p>
+              <p className="rounded-xl border border-emerald-600/20 bg-emerald-400/5 p-4 text-sm leading-6 text-emerald-300">{message}</p>
             )}
             {error && (
               <p className="rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-400">{error}</p>

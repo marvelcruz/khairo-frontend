@@ -89,7 +89,7 @@ function statusLabel(status: OnboardingItem["onboardingStatus"]) {
 }
 
 function statusClass(status: OnboardingItem["onboardingStatus"]) {
-  if (status === "complete") return "bg-emerald-500/10 text-emerald-400";
+  if (status === "complete") return "bg-emerald-600/10 text-emerald-600";
   if (status === "in_progress") return "bg-amber-500/10 text-amber-400";
   return "bg-[var(--theme-surface-soft)] text-[var(--theme-text-secondary)]";
 }
@@ -295,7 +295,7 @@ export default function StaffOnboardingPage() {
                           className="flex items-center gap-2 rounded-xl border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 py-2.5 text-xs"
                         >
                           {complete ? (
-                            <CheckCircle2 size={15} className="shrink-0 text-emerald-400" />
+                            <CheckCircle2 size={15} className="shrink-0 text-emerald-600" />
                           ) : (
                             <Circle size={15} className="shrink-0 text-[var(--theme-text-muted)]" />
                           )}

@@ -90,7 +90,7 @@ export default function TemplatesPage() {
               <button
                 onClick={() => save(tpl)}
                 disabled={saving === tpl._id}
-                className="flex min-h-10 items-center gap-2 rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+                className="flex min-h-10 items-center gap-2 rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
               >
                 <Save size={14} />
                 {saving === tpl._id ? "Saving..." : "Save"}

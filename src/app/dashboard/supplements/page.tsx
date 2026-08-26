@@ -238,7 +238,7 @@ export default function SupplementsPage() {
         </div>
         <div className="flex flex-wrap gap-2">
           <button onClick={startCheck} className="flex flex-wrap items-center gap-1.5 rounded-full border border-amber-500/40 px-4 py-2 text-xs font-medium text-amber-400 hover:bg-amber-500/10"><ClipboardCheck size={14} /> Inventory check</button>
-          <button onClick={() => setShowForm(!showForm)} className="flex flex-wrap items-center gap-1.5 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700"><Plus size={14} /> {showForm ? "Cancel" : "Add supplement"}</button>
+          <button onClick={() => setShowForm(!showForm)} className="flex flex-wrap items-center gap-1.5 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700"><Plus size={14} /> {showForm ? "Cancel" : "Add supplement"}</button>
         </div>
       </div>
 
@@ -292,7 +292,7 @@ export default function SupplementsPage() {
               <input value={unit} onChange={(e) => setUnit(e.target.value)} className="w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488]" />
             </div>
           </div>
-          <button type="submit" disabled={saving} className="rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">{saving ? "Saving…" : editing ? "Update" : "Create"}</button>
+          <button type="submit" disabled={saving} className="rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">{saving ? "Saving…" : editing ? "Update" : "Create"}</button>
         </form>
       )}
 
@@ -334,7 +334,7 @@ export default function SupplementsPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className={`rounded-full px-3 py-1 text-xs font-semibold ${s.stock <= s.reorderThreshold ? "bg-red-500/10 text-red-400" : "bg-green-500/10 text-green-400"}`}>{s.stock} {s.unit}</span>
                 <button onClick={() => openLedger(s._id)} className="flex flex-wrap items-center gap-1 rounded-full border border-[var(--theme-border)] px-3 py-1.5 text-xs text-white hover:bg-[var(--theme-surface-hover)]"><History size={12} /> Ledger</button>
-                <button onClick={() => { setAdjustingId(s._id); setLedgerId(null); }} className="rounded-full bg-[#0d9488] px-3 py-1.5 text-xs font-medium text-white hover:bg-teal-700">Adjust</button>
+                <button onClick={() => { setAdjustingId(s._id); setLedgerId(null); }} className="rounded-full bg-[#0d9488] px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700">Adjust</button>
               </div>
             </div>
 
@@ -363,7 +363,7 @@ export default function SupplementsPage() {
                   <input value={adjustReason} onChange={(e) => setAdjustReason(e.target.value)} placeholder="Note (optional)" className="flex-1 rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488]" />
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <button onClick={handleAdjust} disabled={adjusting} className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">{adjusting ? "…" : "Confirm"}</button>
+                  <button onClick={handleAdjust} disabled={adjusting} className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">{adjusting ? "…" : "Confirm"}</button>
                   <button onClick={() => setAdjustingId(null)} className="rounded-full border border-[var(--theme-border)] px-4 py-2 text-xs text-white hover:bg-[var(--theme-surface-hover)]">Cancel</button>
                 </div>
               </div>

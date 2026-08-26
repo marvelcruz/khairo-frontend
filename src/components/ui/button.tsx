@@ -18,14 +18,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-magenta text-pure-white hover:bg-magenta-deep shadow-[0_0_24px_rgba(236,0,140,0.4)] hover:shadow-[0_0_40px_rgba(236,0,140,0.6)]",
+    "bg-emerald-600 text-pure-white hover:bg-emerald-600-deep shadow-[0_0_24px_rgba(236,0,140,0.4)] hover:shadow-[0_0_40px_rgba(236,0,140,0.6)]",
   secondary:
-    "border-2 border-magenta text-magenta hover:bg-magenta hover:text-pure-white",
+    "border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-pure-white",
   ghost: "text-blush hover:text-pure-white hover:bg-white/10",
   white:
     "bg-pure-white text-ink-black hover:bg-off-white shadow-lg",
   outline:
-    "border border-[var(--theme-border)] bg-transparent text-[var(--theme-text-secondary)] hover:border-magenta/50 hover:text-pure-white",
+    "border border-[var(--theme-border)] bg-transparent text-[var(--theme-text-secondary)] hover:border-emerald-600/50 hover:text-pure-white",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

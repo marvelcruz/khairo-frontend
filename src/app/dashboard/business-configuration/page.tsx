@@ -378,7 +378,7 @@ export default function BusinessConfigurationPage() {
               Administration
             </p>
 
-            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/20 bg-emerald-600/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
               <CheckCircle2 size={11} />
               Connected
             </span>
@@ -427,7 +427,7 @@ export default function BusinessConfigurationPage() {
       )}
 
       {message && (
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-300">
           {message}
         </div>
       )}
@@ -1355,7 +1355,7 @@ export default function BusinessConfigurationPage() {
                 type="button"
                 onClick={() => void save()}
                 disabled={saving}
-                className="inline-flex min-h-10 w-fit items-center gap-2 rounded-full bg-[#0d9488] px-5 text-xs font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
+                className="inline-flex min-h-10 w-fit items-center gap-2 rounded-full bg-[#0d9488] px-5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50"
               >
                 {saving ? (
                   <Loader2

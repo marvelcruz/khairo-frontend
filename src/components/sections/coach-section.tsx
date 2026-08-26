@@ -59,7 +59,7 @@ export function CoachSection() {
           >
             <motion.p
               variants={fadeUp}
-              className="font-ui text-xs uppercase tracking-widest text-magenta mb-4"
+              className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-4"
             >
               {cmsText(content, "coach-eyebrow", "Your Guide")}
             </motion.p>
@@ -99,7 +99,7 @@ export function CoachSection() {
                   key={label}
                   className="inline-flex items-center gap-2 bg-ink-black/8 border border-ink-black/12 text-ink-black rounded-full px-4 py-2 text-sm font-ui font-medium"
                 >
-                  <Icon size={14} className="text-magenta" aria-hidden />
+                  <Icon size={14} className="text-emerald-600" aria-hidden />
                   {label}
                 </span>
               ))}

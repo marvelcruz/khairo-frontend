@@ -37,7 +37,7 @@ const OUTCOMES: Array<{
     value: "on_track",
     label: "On track",
     description: "Progress is appropriate. Continue the current plan.",
-    tone: "border-emerald-500/30 bg-emerald-500/[0.06]",
+    tone: "border-emerald-500/30 bg-emerald-600/[0.06]",
   },
   {
     value: "needs_support",
@@ -175,7 +175,7 @@ export default function Week3ReviewPage() {
       </header>
 
       {notice && (
-        <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-4 py-3 text-sm text-emerald-300">
+        <div className="rounded-lg border border-emerald-500/25 bg-emerald-600/[0.06] px-4 py-3 text-sm text-emerald-300">
           {notice}
         </div>
       )}

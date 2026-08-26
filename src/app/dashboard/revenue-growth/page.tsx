@@ -211,7 +211,7 @@ export default function RevenueGrowthPage() {
       )}
 
       {notice && (
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-300">
           {notice}
         </div>
       )}

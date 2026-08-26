@@ -28,7 +28,7 @@ const STATUS_STYLES: Record<
   pending:
     "bg-amber-500/10 text-amber-400 border-amber-500/15",
   confirmed:
-    "bg-emerald-500/10 text-emerald-400 border-emerald-500/15",
+    "bg-emerald-600/10 text-emerald-600 border-emerald-500/15",
   declined:
     "bg-red-500/10 text-red-400 border-red-500/15",
   completed:
@@ -320,7 +320,7 @@ export default function PortalAppointmentsPage() {
             )}
 
             {success && (
-              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm leading-relaxed text-emerald-400">
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/10 p-3 text-sm leading-relaxed text-emerald-600">
                 {success}
               </div>
             )}

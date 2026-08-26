@@ -416,7 +416,7 @@ html[data-theme="light"]
 html[data-theme="light"]
 [class~="bg-[#0d9488]"][class~="text-white"],
 html[data-theme="light"]
-[class~="bg-magenta"][class~="text-white"],
+[class~="bg-emerald-600"][class~="text-white"],
 html[data-theme="light"]
 .gradient-magenta[class~="text-white"] {
   color:
@@ -449,7 +449,7 @@ html[data-theme="light"]
 [class~="bg-emerald-600"][class~="text-white"],
 
 html[data-theme="light"]
-[class~="bg-emerald-500"][class~="text-white"],
+[class~="bg-emerald-600"][class~="text-white"],
 
 html[data-theme="light"]
 [class~="bg-red-600"][class~="text-white"],

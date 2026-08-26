@@ -64,11 +64,11 @@ export default function PricingPage() {
       <section className="relative bg-ink-black pt-24 pb-12 sm:pt-32 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 halftone opacity-40" aria-hidden />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-magenta/8 blur-[100px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-emerald-600/8 blur-[100px]"
           aria-hidden
         />
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
-          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-4">
+          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-emerald-600 mb-4">
             Simple Pricing
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,80px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6">
@@ -88,7 +88,7 @@ export default function PricingPage() {
       <section className="bg-off-white py-14 sm:py-20 lg:py-28" id="apply">
         <div className="max-w-[640px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="font-ui text-xs uppercase tracking-widest text-magenta mb-3">
+            <p className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-3">
               Ready to Start?
             </p>
             <h2 className="font-display text-[clamp(28px,4vw,48px)] text-ink-black leading-tight mb-3">
@@ -107,7 +107,7 @@ export default function PricingPage() {
                   <span
                     key={s}
                     className={`font-ui text-xs uppercase tracking-wider ${
-                      i <= step ? "text-magenta" : "text-ink-black/30"
+                      i <= step ? "text-emerald-600" : "text-ink-black/30"
                     }`}
                   >
                     {s}
@@ -116,7 +116,7 @@ export default function PricingPage() {
               </div>
               <div className="h-1 bg-ink-black/10 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-magenta rounded-full"
+                  className="h-full bg-emerald-600 rounded-full"
                   initial={false}
                   animate={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -164,8 +164,8 @@ export default function PricingPage() {
                         }
                         className={`text-left p-3 sm:p-4 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 ${
                           selected.includes(goal)
-                            ? "border-magenta bg-magenta/5 text-magenta"
-                            : "border-black/10 text-ink-black/70 hover:border-magenta/40"
+                            ? "border-emerald-600 bg-emerald-600/5 text-emerald-600"
+                            : "border-black/10 text-ink-black/70 hover:border-emerald-600/40"
                         }`}
                       >
                         {goal}
@@ -207,7 +207,7 @@ export default function PricingPage() {
                           onChange={(e) =>
                             setForm((f) => ({ ...f, [field.key]: e.target.value }))
                           }
-                          className="w-full border border-black/15 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 focus:outline-none focus:border-magenta transition-colors text-sm"
+                          className="w-full border border-black/15 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 focus:outline-none focus:border-emerald-600 transition-colors text-sm"
                         />
                       </div>
                     ))}
@@ -242,7 +242,7 @@ export default function PricingPage() {
                     placeholder="Please share any relevant details (required)..."
                     value={form.notes}
                     onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
-                    className="w-full border border-black/15 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 focus:outline-none focus:border-magenta transition-colors text-sm resize-none mb-6"
+                    className="w-full border border-black/15 rounded-xl px-4 py-3 text-ink-black placeholder:text-ink-black/30 focus:outline-none focus:border-emerald-600 transition-colors text-sm resize-none mb-6"
                   />
                   <div className="flex flex-wrap items-center gap-2 text-xs text-ink-black/40 mb-6">
                     <ShieldCheck size={14} className="text-mint-signal shrink-0" />

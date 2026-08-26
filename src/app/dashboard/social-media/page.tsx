@@ -764,7 +764,7 @@ export default function SocialMediaPage() {
                   <p
                     className={`text-xs ${
                       instagramConnected
-                        ? "text-emerald-400"
+                        ? "text-emerald-600"
                         : "text-amber-400"
                     }`}
                   >

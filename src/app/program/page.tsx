@@ -52,11 +52,11 @@ export default function ProgramPage() {
         <div className="absolute inset-0 halftone opacity-60" aria-hidden />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink-black/80" aria-hidden />
         <div
-          className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-magenta/10 blur-[100px] pointer-events-none"
+          className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-emerald-600/10 blur-[100px] pointer-events-none"
           aria-hidden
         />
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
-          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-4">
+          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-emerald-600 mb-4">
             The KhairoDietClinic Program
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,80px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6 max-w-3xl">
@@ -86,8 +86,8 @@ export default function ProgramPage() {
               { icon: TrendingUp, title: "Weekly Check-ins", body: "Regular reviews to track progress and make real-time adjustments." },
             ].map((item) => (
               <div key={item.title} className="bg-ink-black/50 border border-white/8 rounded-[1.5rem] p-6">
-                <div className="w-10 h-10 rounded-xl bg-magenta/10 border border-magenta/20 flex items-center justify-center mb-4">
-                  <item.icon size={20} className="text-magenta" aria-hidden />
+                <div className="w-10 h-10 rounded-xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center mb-4">
+                  <item.icon size={20} className="text-emerald-600" aria-hidden />
                 </div>
                 <h3 className="font-display text-lg text-pure-white mb-2">{item.title}</h3>
                 <p className="text-sm text-mist leading-relaxed">{item.body}</p>
@@ -109,10 +109,10 @@ export default function ProgramPage() {
             <div className="space-y-8">
               {WEEKS.map((w, i) => (
                 <div key={w.week} className="pl-16 relative">
-                  <div className="absolute left-0 top-1 w-12 h-12 rounded-full bg-magenta border-4 border-ink-black flex items-center justify-center" aria-hidden>
+                  <div className="absolute left-0 top-1 w-12 h-12 rounded-full bg-emerald-600 border-4 border-ink-black flex items-center justify-center" aria-hidden>
                     <span className="font-ui font-bold text-xs text-pure-white">{i + 1}</span>
                   </div>
-                  <p className="font-ui text-xs uppercase tracking-widest text-magenta mb-1">{w.week}</p>
+                  <p className="font-ui text-xs uppercase tracking-widest text-emerald-600 mb-1">{w.week}</p>
                   <h3 className="font-display text-xl text-pure-white mb-2">{w.title}</h3>
                   <p className="text-mist text-sm leading-relaxed">{w.body}</p>
                 </div>
@@ -132,7 +132,7 @@ export default function ProgramPage() {
             <div className="rounded-[1.5rem] overflow-hidden border border-black/8">
               <div className="grid grid-cols-3 bg-ink-black text-pure-white">
                 <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider col-span-1">Feature</div>
-                <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-magenta">KhairoDietClinic</div>
+                <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-emerald-600">KhairoDietClinic</div>
                 <div className="p-4 font-ui font-bold text-sm uppercase tracking-wider text-center text-mist">Typical Diet</div>
               </div>
               {INCLUSIONS.map((row, i) => (

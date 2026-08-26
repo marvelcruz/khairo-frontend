@@ -103,7 +103,7 @@ function statusClass(
   status: SharedItem["status"]
 ) {
   if (status === "completed") {
-    return "border-emerald-500/20 bg-emerald-500/10 text-emerald-300";
+    return "border-emerald-500/20 bg-emerald-600/10 text-emerald-300";
   }
 
   if (status === "action_required") {
@@ -270,7 +270,7 @@ export default function DocumentsContractsPage() {
               Administration
             </p>
 
-            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/20 bg-emerald-600/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
               <CheckCircle2 size={11} />
               Connected
             </span>

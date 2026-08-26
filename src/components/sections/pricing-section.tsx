@@ -165,7 +165,7 @@ export function PricingSection() {
               className={cn(
                 "relative rounded-[1.25rem] sm:rounded-[1.5rem] border p-5 sm:p-8 flex flex-col gap-4 sm:gap-6",
                 plan.popular
-                  ? "bg-charcoal border-magenta md:-translate-y-4 shadow-[0_0_60px_rgba(236,0,140,0.2)]"
+                  ? "bg-charcoal border-emerald-600 md:-translate-y-4 shadow-[0_0_60px_rgba(236,0,140,0.2)]"
                   : "bg-charcoal/60 border-white/10"
               )}
             >
@@ -247,7 +247,7 @@ export function PricingSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-magenta underline underline-offset-2 hover:no-underline"
+            className="text-emerald-600 underline underline-offset-2 hover:no-underline"
           >
             {cmsText(content, "pricing-help-link", "Chat with us on WhatsApp")}
           </a>{" "}

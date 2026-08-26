@@ -68,7 +68,7 @@ export function FAQSection() {
               <div
                 className={`rounded-[1.5rem] overflow-hidden border transition-all duration-300 ${
                   open === i
-                    ? "border-magenta/30 bg-pure-white shadow-sm"
+                    ? "border-emerald-600/30 bg-pure-white shadow-sm"
                     : "border-black/8 bg-pure-white/60"
                 }`}
               >
@@ -80,7 +80,7 @@ export function FAQSection() {
                 >
                   <span
                     className={`font-ui font-semibold text-[0.95rem] transition-colors duration-200 ${
-                      open === i ? "text-magenta" : "text-ink-black"
+                      open === i ? "text-emerald-600" : "text-ink-black"
                     }`}
                   >
                     {faq.q}
@@ -88,7 +88,7 @@ export function FAQSection() {
                   <motion.div
                     animate={{ rotate: open === i ? 45 : 0 }}
                     transition={{ duration: 0.25 }}
-                    className="shrink-0 w-7 h-7 rounded-full bg-magenta/10 flex items-center justify-center text-magenta"
+                    className="shrink-0 w-7 h-7 rounded-full bg-emerald-600/10 flex items-center justify-center text-emerald-600"
                     aria-hidden
                   >
                     <Plus size={14} />

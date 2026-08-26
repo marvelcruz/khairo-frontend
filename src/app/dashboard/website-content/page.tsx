@@ -471,7 +471,7 @@ export default function WebsiteContentPage() {
     <main className="mx-auto w-full max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7">
       <div className="mb-6 flex flex-col gap-4 border-b border-[var(--theme-border)] pb-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="mb-2 font-ui text-xs font-semibold uppercase tracking-[0.18em] text-magenta">
+          <p className="mb-2 font-ui text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
             Website Editor
           </p>
           <h1 className="font-display text-3xl text-pure-white sm:text-4xl">
@@ -489,7 +489,7 @@ export default function WebsiteContentPage() {
             onClick={() => setTab("pages")}
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
               tab === "pages"
-                ? "bg-magenta text-white"
+                ? "bg-emerald-600 text-white"
                 : "border border-[var(--theme-border)] text-mist hover:bg-[var(--theme-surface-hover)]"
             }`}
           >
@@ -501,7 +501,7 @@ export default function WebsiteContentPage() {
             onClick={() => setTab("media")}
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
               tab === "media"
-                ? "bg-magenta text-white"
+                ? "bg-emerald-600 text-white"
                 : "border border-[var(--theme-border)] text-mist hover:bg-[var(--theme-surface-hover)]"
             }`}
           >
@@ -531,7 +531,7 @@ export default function WebsiteContentPage() {
                     setPageKey(event.target.value);
                     setSearch("");
                   }}
-                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-magenta"
+                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-emerald-600"
                 >
                   {PAGES.map((page) => (
                     <option key={page.key} value={page.key}>
@@ -554,7 +554,7 @@ export default function WebsiteContentPage() {
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
                     placeholder="Try: coach, main image, FAQ..."
-                    className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black pl-9 pr-3 text-sm text-pure-white outline-none placeholder:text-mist/35 focus:border-magenta"
+                    className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black pl-9 pr-3 text-sm text-pure-white outline-none placeholder:text-mist/35 focus:border-emerald-600"
                   />
                 </div>
               </label>
@@ -578,7 +578,7 @@ export default function WebsiteContentPage() {
                   type="button"
                   onClick={() => void publishPage()}
                   disabled={publishing || loading || !items.length}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-magenta px-5 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {publishing
                     ? "Publishing..."
@@ -599,7 +599,7 @@ export default function WebsiteContentPage() {
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-magenta hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:underline"
               >
                 View live website
                 <ExternalLink size={13} />
@@ -708,7 +708,7 @@ export default function WebsiteContentPage() {
                                       dirty
                                         ? "bg-gold-trust/15 text-gold-trust"
                                         : draft
-                                        ? "bg-magenta/12 text-magenta"
+                                        ? "bg-emerald-600/12 text-emerald-600"
                                         : "bg-mint-signal/12 text-mint-signal"
                                     }`}
                                   >
@@ -764,7 +764,7 @@ export default function WebsiteContentPage() {
                                         event.target.value
                                       )
                                     }
-                                    className="w-full resize-y rounded-xl border border-[var(--theme-border)] bg-charcoal px-4 py-3 text-sm leading-relaxed text-pure-white outline-none focus:border-magenta"
+                                    className="w-full resize-y rounded-xl border border-[var(--theme-border)] bg-charcoal px-4 py-3 text-sm leading-relaxed text-pure-white outline-none focus:border-emerald-600"
                                   />
                                 ) : (
                                   <input
@@ -776,7 +776,7 @@ export default function WebsiteContentPage() {
                                         event.target.value
                                       )
                                     }
-                                    className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-charcoal px-4 text-sm text-pure-white outline-none focus:border-magenta"
+                                    className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-charcoal px-4 text-sm text-pure-white outline-none focus:border-emerald-600"
                                   />
                                 )}
 
@@ -797,7 +797,7 @@ export default function WebsiteContentPage() {
                                             );
                                           }
                                         }}
-                                        className="h-10 w-full rounded-xl border border-[var(--theme-border)] bg-charcoal px-3 text-xs text-pure-white outline-none focus:border-magenta"
+                                        className="h-10 w-full rounded-xl border border-[var(--theme-border)] bg-charcoal px-3 text-xs text-pure-white outline-none focus:border-emerald-600"
                                       >
                                         <option value="">
                                           Choose an image...
@@ -885,7 +885,7 @@ export default function WebsiteContentPage() {
         <section>
           <div className="mb-5 rounded-2xl border border-[var(--theme-border)] bg-charcoal/65 p-5 sm:p-6">
             <div className="mb-5 flex items-start gap-3">
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-magenta/10 text-magenta">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-600/10 text-emerald-600">
                 <ImageIcon size={20} />
               </div>
               <div>
@@ -915,7 +915,7 @@ export default function WebsiteContentPage() {
                     setMediaName(event.target.value)
                   }
                   placeholder="Example: Homepage coach"
-                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-magenta"
+                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-emerald-600"
                 />
               </label>
 
@@ -929,7 +929,7 @@ export default function WebsiteContentPage() {
                     setMediaUrl(event.target.value)
                   }
                   placeholder="https://..."
-                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-magenta"
+                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-emerald-600"
                 />
               </label>
 
@@ -943,7 +943,7 @@ export default function WebsiteContentPage() {
                     setMediaAlt(event.target.value)
                   }
                   placeholder="Describe what is in the image"
-                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-magenta"
+                  className="h-11 w-full rounded-xl border border-[var(--theme-border)] bg-ink-black px-3 text-sm text-pure-white outline-none focus:border-emerald-600"
                 />
               </label>
             </div>
@@ -952,7 +952,7 @@ export default function WebsiteContentPage() {
               type="button"
               onClick={() => void createMedia()}
               disabled={saving}
-              className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-magenta px-5 text-sm font-bold text-white transition hover:brightness-110 disabled:opacity-40"
+              className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 text-sm font-bold text-white transition hover:brightness-110 disabled:opacity-40"
             >
               <ImageIcon size={16} />
               Add Image

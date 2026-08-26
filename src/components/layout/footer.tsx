@@ -47,7 +47,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <span className="font-display text-3xl text-pure-white">KHAIRO</span>
-              <span className="font-display text-3xl text-magenta"></span>
+              <span className="font-display text-3xl text-emerald-600"></span>
             </Link>
             <p className="text-mist text-sm leading-relaxed mb-6">
               A medically supervised weight-loss program built for women&apos;s
@@ -59,7 +59,7 @@ export function Footer() {
                 href="https://www.instagram.com/khairo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-mist hover:text-magenta hover:bg-magenta/10 transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-mist hover:text-emerald-600 hover:bg-emerald-600/10 transition-all duration-200"
                 aria-label="KhairoDietClinic on Instagram"
               >
                 <Instagram size={16} />
@@ -68,7 +68,7 @@ export function Footer() {
                 href="https://www.facebook.com/profile.php?id=61573678627525"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-mist hover:text-magenta hover:bg-magenta/10 transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-mist hover:text-emerald-600 hover:bg-emerald-600/10 transition-all duration-200"
                 aria-label="KhairoDietClinic on Facebook"
               >
                 <Facebook size={16} />
@@ -97,7 +97,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-mist/80 hover:text-magenta transition-colors duration-200 inline-flex items-center gap-1 group"
+                    className="text-sm text-mist/80 hover:text-emerald-600 transition-colors duration-200 inline-flex items-center gap-1 group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform duration-200">
                       {l.label}
@@ -118,7 +118,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-mist/80 hover:text-magenta transition-colors duration-200 inline-flex items-center gap-1 group"
+                    className="text-sm text-mist/80 hover:text-emerald-600 transition-colors duration-200 inline-flex items-center gap-1 group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform duration-200">
                       {l.label}
@@ -140,7 +140,7 @@ export function Footer() {
                   href="tel:+2349061382720"
                   className="flex flex-wrap items-center gap-2 text-sm text-mist/80 hover:text-pure-white transition-colors duration-200"
                 >
-                  <Phone size={14} className="text-magenta shrink-0" />
+                  <Phone size={14} className="text-emerald-600 shrink-0" />
                   +234 906 138 2720
                 </a>
               </li>

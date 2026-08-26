@@ -482,7 +482,7 @@ export default function DashboardOverview() {
             <button
               onClick={saveGoal}
               disabled={goalSaving}
-              className="rounded-full bg-[#0d9488] px-4 py-1.5 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+              className="rounded-full bg-[#0d9488] px-4 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
             >
               {goalSaving ? "Saving…" : "Save"}
             </button>

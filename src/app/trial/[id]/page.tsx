@@ -91,7 +91,7 @@ export default function TrialRegistrationPage() {
                   <input required type="email" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} placeholder="Your email" className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#0d9488]" />
                   <input required value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} placeholder="WhatsApp number" className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#0d9488]" />
                   {error && <p className="text-red-400 text-sm">{error}</p>}
-                  <button type="submit" className="w-full rounded-full bg-[#0d9488] py-3.5 font-semibold text-white hover:bg-teal-700">
+                  <button type="submit" className="w-full rounded-full bg-[#0d9488] py-3.5 font-semibold text-white hover:bg-emerald-700">
                     Reserve My Spot
                   </button>
                 </form>
@@ -102,7 +102,7 @@ export default function TrialRegistrationPage() {
               <div className="text-5xl mb-4"></div>
               <h2 className="text-2xl font-bold text-white mb-2">You&apos;re in!</h2>
               <p className="text-white/70 mb-6">We&apos;ve sent details to {form.email}. See you at the trial!</p>
-              <a href="/pricing" className="inline-block rounded-full bg-[#0d9488] px-6 py-3 text-sm font-medium text-white hover:bg-teal-700">View KhairoDietClinic programs</a>
+              <a href="/pricing" className="inline-block rounded-full bg-[#0d9488] px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700">View KhairoDietClinic programs</a>
             </div>
           )}
         </div>

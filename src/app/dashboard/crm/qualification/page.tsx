@@ -180,7 +180,7 @@ export default function QualificationReviewPage() {
         </div>
 
         {notice && (
-          <div className="mt-5 rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3 text-sm text-emerald-300">
+          <div className="mt-5 rounded-lg border border-emerald-500/20 bg-emerald-600/[0.06] px-4 py-3 text-sm text-emerald-300">
             {notice}
           </div>
         )}
@@ -278,7 +278,7 @@ export default function QualificationReviewPage() {
                             type="button"
                             disabled={Boolean(busyId)}
                             onClick={() => void decide(contact, "qualified")}
-                            className="h-10 rounded-lg border border-emerald-500/25 bg-emerald-500/10 px-3 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-500/15 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="h-10 rounded-lg border border-emerald-500/25 bg-emerald-600/10 px-3 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-600/15 disabled:cursor-not-allowed disabled:opacity-50"
                           >
                             {busy ? "Saving…" : "Qualify"}
                           </button>

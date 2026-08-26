@@ -69,7 +69,7 @@ export default function ResultsPage() {
         <div className="absolute inset-0 halftone opacity-60" aria-hidden />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink-black" aria-hidden />
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
-          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-magenta mb-4">
+          <p className="font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-emerald-600 mb-4">
             Success Stories
           </p>
           <h1 className="font-display text-[clamp(40px,6vw,80px)] text-pure-white leading-[1.06] tracking-[-0.02em] mb-6">
@@ -118,7 +118,7 @@ export default function ResultsPage() {
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
-                  <span className="absolute bottom-3 right-3 bg-magenta text-white text-[11px] font-ui uppercase tracking-wider px-2.5 py-1 rounded-full">
+                  <span className="absolute bottom-3 right-3 bg-emerald-600 text-white text-[11px] font-ui uppercase tracking-wider px-2.5 py-1 rounded-full">
                     After
                   </span>
                 </div>
@@ -148,13 +148,13 @@ export default function ResultsPage() {
                   ))}
                 </div>
 
-                <blockquote className="text-ink-black/75 leading-relaxed text-[1.05rem] border-l-4 border-magenta pl-5 mb-5">
+                <blockquote className="text-ink-black/75 leading-relaxed text-[1.05rem] border-l-4 border-emerald-600 pl-5 mb-5">
                   &ldquo;{story.story}&rdquo;
                 </blockquote>
 
                 <div className="flex flex-wrap items-center gap-2">
-                  <BadgeCheck size={16} className="text-magenta" aria-hidden />
-                  <span className="text-xs text-magenta font-ui font-medium uppercase tracking-wide">
+                  <BadgeCheck size={16} className="text-emerald-600" aria-hidden />
+                  <span className="text-xs text-emerald-600 font-ui font-medium uppercase tracking-wide">
                     Verified KhairoDietClinic participant
                   </span>
                 </div>

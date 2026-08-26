@@ -396,7 +396,7 @@ export default function MedicalReviewPage() {
         </Button>
       </header>
 
-      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
+      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
       {error && <div className="rounded-lg border border-rose-500/20 bg-rose-500/[0.06] px-4 py-3 text-sm text-rose-300">{error}</div>}
 
       <section className="overflow-hidden rounded-xl border border-[var(--theme-border)] bg-[var(--theme-surface)]">
@@ -523,7 +523,7 @@ export default function MedicalReviewPage() {
 
       {outcomeCase && (
         <Modal title="Medical clearance outcome" subtitle={outcomeCase.contact.fullName} onClose={() => setOutcomeCase(null)}>
-          <div className="space-y-4"><div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.05] px-4 py-3 text-xs text-emerald-200"><LockKeyhole size={14} className="mr-2 inline" />Clinical notes are already signed and protected. This step records only the disposition.</div><div className="grid gap-2 sm:grid-cols-3">{[["cleared", "Cleared", "Move to Payment Pending"],["follow_up_required", "Follow-up", "Keep in Medical Review"],["not_cleared", "Not cleared", "Move to Nurture"]].map(([value, label, description]) => <button key={value} type="button" onClick={() => setOutcome(value)} className={`rounded-lg border p-3 text-left ${outcome === value ? "border-[#0d9488]/60 bg-[#0d9488]/10" : "border-[var(--theme-border)] bg-[var(--theme-page)]"}`}><p className="text-sm font-semibold text-[var(--theme-text)]">{label}</p><p className="mt-1 text-xs text-[var(--theme-text-muted)]">{description}</p></button>)}</div></div>
+          <div className="space-y-4"><div className="rounded-lg border border-emerald-500/20 bg-emerald-600/[0.05] px-4 py-3 text-xs text-emerald-200"><LockKeyhole size={14} className="mr-2 inline" />Clinical notes are already signed and protected. This step records only the disposition.</div><div className="grid gap-2 sm:grid-cols-3">{[["cleared", "Cleared", "Move to Payment Pending"],["follow_up_required", "Follow-up", "Keep in Medical Review"],["not_cleared", "Not cleared", "Move to Nurture"]].map(([value, label, description]) => <button key={value} type="button" onClick={() => setOutcome(value)} className={`rounded-lg border p-3 text-left ${outcome === value ? "border-[#0d9488]/60 bg-[#0d9488]/10" : "border-[var(--theme-border)] bg-[var(--theme-page)]"}`}><p className="text-sm font-semibold text-[var(--theme-text)]">{label}</p><p className="mt-1 text-xs text-[var(--theme-text-muted)]">{description}</p></button>)}</div></div>
           <ModalFooter><Button type="button" variant="ghost" size="sm" onClick={() => setOutcomeCase(null)}>Cancel</Button><Button type="button" size="sm" disabled={busy} onClick={() => void saveOutcome()}>{busy ? "Saving…" : "Save outcome"}</Button></ModalFooter>
         </Modal>
       )}

@@ -282,7 +282,7 @@ export function CatalogueWorkspace({
       )}
 
       {message && (
-        <div className="flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+        <div className="flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-300">
           <Check className="h-4 w-4" />
           {message}
         </div>
@@ -291,7 +291,7 @@ export function CatalogueWorkspace({
       {editor && canManage && (
         <form
           onSubmit={saveItem}
-          className="rounded-xl border border-teal-500/30 bg-pink-500/5 p-4 sm:p-5"
+          className="rounded-xl border border-emerald-600/30 bg-pink-500/5 p-4 sm:p-5"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
@@ -319,7 +319,7 @@ export function CatalogueWorkspace({
                 required
                 value={editor.name}
                 onChange={(e) => setEditor({ ...editor, name: e.target.value })}
-                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-teal-500"
+                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-emerald-600"
               />
             </label>
 
@@ -349,7 +349,7 @@ export function CatalogueWorkspace({
                 type="number"
                 value={editor.price}
                 onChange={(e) => setEditor({ ...editor, price: e.target.value })}
-                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-teal-500"
+                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-emerald-600"
               />
             </label>
 
@@ -359,7 +359,7 @@ export function CatalogueWorkspace({
                 maxLength={3}
                 value={editor.currency}
                 onChange={(e) => setEditor({ ...editor, currency: e.target.value.toUpperCase() })}
-                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-teal-500"
+                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-emerald-600"
               />
             </label>
 
@@ -368,7 +368,7 @@ export function CatalogueWorkspace({
               <input
                 value={editor.sku}
                 onChange={(e) => setEditor({ ...editor, sku: e.target.value })}
-                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-teal-500"
+                className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-emerald-600"
               />
             </label>
 
@@ -384,7 +384,7 @@ export function CatalogueWorkspace({
                   onChange={(e) =>
                     setEditor({ ...editor, durationWeeks: e.target.value })
                   }
-                  className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-teal-500"
+                  className="min-h-11 w-full rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 text-sm text-white outline-none focus:border-emerald-600"
                 />
               </label>
             )}
@@ -441,7 +441,7 @@ export function CatalogueWorkspace({
                 rows={4}
                 value={editor.description}
                 onChange={(e) => setEditor({ ...editor, description: e.target.value })}
-                className="w-full resize-y rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 py-3 text-sm text-white outline-none focus:border-teal-500"
+                className="w-full resize-y rounded-lg border border-[var(--theme-border)] bg-[var(--theme-page)] px-3 py-3 text-sm text-white outline-none focus:border-emerald-600"
               />
             </label>
 

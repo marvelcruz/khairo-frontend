@@ -204,9 +204,9 @@ export default function OrderDetailPage() {
       </div>
 
       {order.fulfillmentRequired === false ? (
-        <div className="mt-6 rounded-sm border border-emerald-500/20 bg-emerald-500/[0.04] p-5">
+        <div className="mt-6 rounded-sm border border-emerald-500/20 bg-emerald-600/[0.04] p-5">
           <div className="flex items-start gap-3">
-            <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-emerald-400" />
+            <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-emerald-600" />
             <div>
               <p className="font-medium text-white">Order confirmed</p>
               <p className="mt-1 text-sm text-[var(--theme-text-secondary)]">This subscription does not require a physical package, so there is no packing or shipping workflow.</p>
@@ -290,7 +290,7 @@ export default function OrderDetailPage() {
             <button
               onClick={handleSaveDetails}
               disabled={savingDetails}
-              className="mt-3 rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50"
+              className="mt-3 rounded-full bg-[#0d9488] px-5 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
             >
               {savingDetails ? "Saving…" : detailsSaved ? "Saved" : "Save details"}
             </button>

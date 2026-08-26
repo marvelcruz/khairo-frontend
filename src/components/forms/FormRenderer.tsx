@@ -110,7 +110,7 @@ function FieldControl({
       >
         {label}
         {element.required && (
-          <span className="text-[#ff4db2]" aria-hidden="true">
+          <span className="text-[#10b981]" aria-hidden="true">
             *
           </span>
         )}
@@ -338,7 +338,7 @@ export default function FormRenderer({
     return (
       <div
         data-testid="form-confirmation"
-        className="rounded-2xl border border-emerald-400/25 bg-emerald-400/10 p-7 text-center sm:p-9"
+        className="rounded-2xl border border-emerald-600/25 bg-emerald-400/10 p-7 text-center sm:p-9"
       >
         <CheckCircle2
           className="mx-auto text-emerald-300"

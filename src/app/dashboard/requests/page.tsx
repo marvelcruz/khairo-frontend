@@ -276,7 +276,7 @@ function StepRow({
           </p>
 
           {done && !warning && (
-            <Check size={13} className="text-emerald-400" />
+            <Check size={13} className="text-emerald-600" />
           )}
 
           {warning && (
@@ -734,7 +734,7 @@ export default function RequestsPage() {
             </button>
             <button
               onClick={() => setShowAddForm(!showAddForm)}
-              className="whitespace-nowrap rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700"
+              className="whitespace-nowrap rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700"
             >
               {showAddForm ? "Close" : "+ Add Request"}
             </button>
@@ -769,7 +769,7 @@ export default function RequestsPage() {
             <input value={addForm.goals} onChange={(e) => setAddForm({ ...addForm, goals: e.target.value })} placeholder="Goals" className="rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488] sm:col-span-2" />
             <input value={addForm.healthNotes} onChange={(e) => setAddForm({ ...addForm, healthNotes: e.target.value })} placeholder="Health notes" className="rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-[#0d9488] sm:col-span-2" />
           </div>
-          <button onClick={submitAddRequest} disabled={addSaving} className="mt-3 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+          <button onClick={submitAddRequest} disabled={addSaving} className="mt-3 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
             {addSaving ? "Saving…" : "Add to pipeline"}
           </button>
         </div>
@@ -1202,7 +1202,7 @@ export default function RequestsPage() {
                       <button
                         onClick={() => handlePaymentLink(r, chosen)}
                         disabled={!canSalesWorkflow || !chosen || updatingId === reqId}
-                        className={`rounded-sm px-3 py-1.5 text-xs font-medium ${chosen ? "bg-[#0d9488] text-white hover:bg-teal-700" : "cursor-not-allowed bg-[var(--theme-surface-soft)] text-[var(--theme-text-muted)]"}`}
+                        className={`rounded-sm px-3 py-1.5 text-xs font-medium ${chosen ? "bg-[#0d9488] text-white hover:bg-emerald-700" : "cursor-not-allowed bg-[var(--theme-surface-soft)] text-[var(--theme-text-muted)]"}`}
                       >
                         Send Payment Link
                       </button>

@@ -29,7 +29,7 @@ type Client = {
 type ClientsResponse = { clients?: Client[]; data?: Client[] };
 
 const STATUS_TONE: Record<ClientStatus, string> = {
-  active: "bg-emerald-500/10 text-emerald-300",
+  active: "bg-emerald-600/10 text-emerald-300",
   paused: "bg-amber-500/10 text-amber-300",
   completed: "bg-slate-500/10 text-slate-300",
   cancelled: "bg-rose-500/10 text-rose-300",
@@ -175,7 +175,7 @@ export default function ClientLifecyclePage() {
         </Button>
       </header>
 
-      <div className="rounded-xl border border-emerald-500/15 bg-emerald-500/[0.04] px-4 py-3 text-xs leading-5 text-[var(--theme-text-muted)]">
+      <div className="rounded-xl border border-emerald-500/15 bg-emerald-600/[0.04] px-4 py-3 text-xs leading-5 text-[var(--theme-text-muted)]">
         <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-300">
           <ShieldCheck size={13} /> Payment-gated reactivation
         </span>{" "}
@@ -191,7 +191,7 @@ export default function ClientLifecyclePage() {
         ))}
       </div>
 
-      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
+      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
       {error && <div className="rounded-lg border border-rose-500/20 bg-rose-500/[0.06] px-4 py-3 text-sm text-rose-300">{error}</div>}
 
       <div className="relative max-w-xl">

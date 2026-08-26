@@ -45,7 +45,7 @@ export function ScienceSection() {
 
       {/* Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-magenta/8 blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-emerald-600/8 blur-[120px] pointer-events-none"
         aria-hidden
       />
 
@@ -63,7 +63,7 @@ export function ScienceSection() {
           <div className="relative min-h-[280px] flex items-center">
             {/* Decorative "?" marks */}
             <span
-              className="absolute -left-6 top-0 font-display text-[120px] text-magenta/[0.08] leading-none select-none pointer-events-none"
+              className="absolute -left-6 top-0 font-display text-[120px] text-emerald-600/[0.08] leading-none select-none pointer-events-none"
               aria-hidden
             >
               ?
@@ -86,7 +86,7 @@ export function ScienceSection() {
                 className="w-full"
               >
                 {/* Speech bubble */}
-                <div className="bg-charcoal border border-magenta/20 rounded-[1.25rem_1.25rem_1.25rem_0.25rem] sm:rounded-[1.5rem_1.5rem_1.5rem_0.25rem] p-5 sm:p-8 md:p-10 mb-4 relative overflow-hidden">
+                <div className="bg-charcoal border border-emerald-600/20 rounded-[1.25rem_1.25rem_1.25rem_0.25rem] sm:rounded-[1.5rem_1.5rem_1.5rem_0.25rem] p-5 sm:p-8 md:p-10 mb-4 relative overflow-hidden">
                   {/* Glow bg */}
                   <div
                     className="absolute inset-0 bg-gradient-to-br from-magenta/5 to-transparent pointer-events-none"
@@ -94,10 +94,10 @@ export function ScienceSection() {
                   />
 
                   <div className="flex flex-wrap items-start gap-4 mb-5 relative">
-                    <div className="w-10 h-10 rounded-full bg-magenta/15 border border-magenta/25 flex items-center justify-center shrink-0 mt-1">
-                      <Lightbulb size={18} className="text-magenta" aria-hidden />
+                    <div className="w-10 h-10 rounded-full bg-emerald-600/15 border border-emerald-600/25 flex items-center justify-center shrink-0 mt-1">
+                      <Lightbulb size={18} className="text-emerald-600" aria-hidden />
                     </div>
-                    <p className="font-ui font-semibold text-xs uppercase tracking-widest text-magenta">
+                    <p className="font-ui font-semibold text-xs uppercase tracking-widest text-emerald-600">
                       Did You Know?
                     </p>
                   </div>
@@ -108,7 +108,7 @@ export function ScienceSection() {
                       ""
                     ).split("——")[0]}
                     {FACTS[current].question.includes(FACTS[current].accent) && (
-                      <strong className="text-magenta">{FACTS[current].accent}</strong>
+                      <strong className="text-emerald-600">{FACTS[current].accent}</strong>
                     )}
                   </p>
 
@@ -139,7 +139,7 @@ export function ScienceSection() {
                     }}
                     className={`rounded-full transition-all duration-300 ${
                       i === current
-                        ? "w-6 h-2 bg-magenta"
+                        ? "w-6 h-2 bg-emerald-600"
                         : "w-2 h-2 bg-white/20 hover:bg-white/40"
                     }`}
                     aria-label={`Go to fact ${i + 1}`}
@@ -152,14 +152,14 @@ export function ScienceSection() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => navigate(-1)}
-                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-mist hover:text-pure-white hover:border-magenta transition-all duration-200"
+                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-mist hover:text-pure-white hover:border-emerald-600 transition-all duration-200"
                 aria-label="Previous fact"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
                 onClick={() => navigate(1)}
-                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-mist hover:text-pure-white hover:border-magenta transition-all duration-200"
+                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-mist hover:text-pure-white hover:border-emerald-600 transition-all duration-200"
                 aria-label="Next fact"
               >
                 <ChevronRight size={18} />

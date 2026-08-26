@@ -194,7 +194,7 @@ export default function SubscriptionLifecyclePage() {
                 <td className="px-4 py-3">
                   <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
                     sub.status === "active"
-                      ? "bg-emerald-500/10 text-emerald-300"
+                      ? "bg-emerald-600/10 text-emerald-300"
                       : sub.status === "grace_period"
                         ? "bg-orange-500/10 text-orange-300"
                         : sub.status === "expired"

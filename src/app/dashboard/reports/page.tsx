@@ -291,7 +291,7 @@ export default function ReportsPage() {
           <button
             onClick={handleExport}
             disabled={exporting}
-            className="flex h-10 items-center gap-2 rounded-full bg-[#0d9488] px-4 text-xs font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
+            className="flex h-10 items-center gap-2 rounded-full bg-[#0d9488] px-4 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50"
           >
             <Download size={14} />
             {exporting ? "Exporting…" : "Export"}

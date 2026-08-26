@@ -193,7 +193,7 @@ function BookSessionModal({ onClose, onBooked, staffList }: { onClose: () => voi
             <input placeholder="Anything the professional should know (optional)" value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} className={inputClass} />
           </div>
           {error && <p className="rounded-sm bg-red-500/10 px-3 py-2 text-sm text-red-400">{error}</p>}
-          <button type="submit" disabled={saving} className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-60">
+          <button type="submit" disabled={saving} className="w-full rounded-full bg-[#0d9488] px-4 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60">
             {saving ? "Booking…" : "Book session"}
           </button>
         </form>
@@ -419,7 +419,7 @@ export default function AppointmentsPage() {
           <p className="mt-1 text-sm text-[var(--theme-text-secondary)]">Every session moves through a four-stage pipeline: request, assignment, professional confirmation and completion. Each completed stage unlocks the next.</p>
         </div>
         {canBook && (
-          <button onClick={() => setShowModal(true)} className="flex flex-wrap items-center gap-1.5 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700">
+          <button onClick={() => setShowModal(true)} className="flex flex-wrap items-center gap-1.5 rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700">
             <Plus size={14} /> Book Session
           </button>
         )}
@@ -628,7 +628,7 @@ export default function AppointmentsPage() {
                       }}
                     >
                       <textarea name="text" rows={4} placeholder="Paste transcript from tl;dv…" className="w-full rounded-sm border border-[var(--theme-border)] bg-black/50 px-3 py-2 text-sm text-white outline-none" />
-                      <button type="submit" className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-teal-700">Save transcript</button>
+                      <button type="submit" className="rounded-full bg-[#0d9488] px-4 py-2 text-xs font-medium text-white hover:bg-emerald-700">Save transcript</button>
                     </form>
                   )}
                 </div>

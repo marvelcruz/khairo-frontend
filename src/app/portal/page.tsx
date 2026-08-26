@@ -134,11 +134,11 @@ function PreviewExperience() {
                 key={String(label)}
                 href={String(href)}
                 className={`flex items-center justify-between rounded-xl border p-4 text-sm ${
-                  done ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300" : "border-white/10 bg-black/20 text-white"
+                  done ? "border-emerald-500/20 bg-emerald-600/10 text-emerald-300" : "border-white/10 bg-black/20 text-white"
                 }`}
               >
                 <span>{label}</span>
-                {done ? <CheckCircle2 size={16} className="text-emerald-400" /> : <span className="text-xs text-zinc-500">Start</span>}
+                {done ? <CheckCircle2 size={16} className="text-emerald-600" /> : <span className="text-xs text-zinc-500">Start</span>}
               </Link>
             ))}
           </div>
@@ -374,10 +374,10 @@ function CompletedExperience() {
       <section className="rounded-[30px] border border-emerald-500/15 bg-gradient-to-br from-zinc-900 to-emerald-500/5 p-6 sm:p-9">
         <CheckCircle2
           size={30}
-          className="text-emerald-400"
+          className="text-emerald-600"
         />
 
-        <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-400">
+        <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-600">
           Program Complete
         </p>
 

@@ -118,7 +118,7 @@ export function TestimonialsSection() {
                 aria-selected={i === current}
                 onClick={() => setCurrent(i)}
                 className={`rounded-full transition-all duration-300 ${
-                  i === current ? "w-6 h-2 bg-magenta" : "w-2 h-2 bg-white/20"
+                  i === current ? "w-6 h-2 bg-emerald-600" : "w-2 h-2 bg-white/20"
                 }`}
                 aria-label={`Testimonial ${i + 1}`}
               />

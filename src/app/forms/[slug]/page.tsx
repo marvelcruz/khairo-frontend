@@ -66,7 +66,7 @@ export default function PublicFormPage() {
           >
             <header className="border-b border-white/10 bg-gradient-to-br from-white/[0.055] to-transparent p-6 sm:p-8 lg:p-10">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white/75">
-                <ShieldCheck size={14} className="text-[#ff4db2]" />
+                <ShieldCheck size={14} className="text-[#10b981]" />
                 Secure KhairoDietClinic form
               </div>
 

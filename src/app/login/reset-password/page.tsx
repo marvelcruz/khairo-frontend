@@ -56,7 +56,7 @@ export default function StaffResetPasswordPage() {
 
           {success ? (
             <div className="mt-6">
-              <p className="rounded-lg border border-emerald-400/20 bg-emerald-400/5 p-4 text-sm leading-6 text-emerald-300">
+              <p className="rounded-lg border border-emerald-600/20 bg-emerald-400/5 p-4 text-sm leading-6 text-emerald-300">
                 Your password has been updated. This recovery link cannot be used again.
               </p>
               <Link href="/login" className="mt-4 flex h-11 items-center justify-center rounded-full bg-[#0d9488] text-sm font-semibold">

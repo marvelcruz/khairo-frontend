@@ -52,7 +52,7 @@ const OUTCOME_OPTIONS: Array<{
     value: "completed",
     label: "Completed",
     description: "Move to Consultation Completed.",
-    tone: "border-emerald-500/30 bg-emerald-500/[0.06]",
+    tone: "border-emerald-500/30 bg-emerald-600/[0.06]",
   },
   {
     value: "no_show",
@@ -348,7 +348,7 @@ export default function ConsultationsPage() {
         </Button>
       </header>
 
-      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
+      {notice && <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/[0.06] px-4 py-3 text-sm text-emerald-300">{notice}</div>}
       {error && <div className="rounded-lg border border-rose-500/20 bg-rose-500/[0.06] px-4 py-3 text-sm text-rose-300">{error}</div>}
 
       <section className="overflow-hidden rounded-xl border border-[var(--theme-border)] bg-[var(--theme-surface)]">

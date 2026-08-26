@@ -176,7 +176,7 @@ export default function PricingPage() {
                 <input value={consultFee} inputMode="numeric" onChange={(e) => setConsultFee(e.target.value.replace(/[^0-9]/g, ""))} placeholder="15000" className={inputClass} />
               </div>
               <div className="flex items-end">
-                <button onClick={saveFee} disabled={feeSaving} className="min-h-10 w-fit rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+                <button onClick={saveFee} disabled={feeSaving} className="min-h-10 w-fit rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
                   {feeSaving ? "Saving..." : "Save fee"}
                 </button>
               </div>
@@ -217,7 +217,7 @@ export default function PricingPage() {
 
         {msg && <p className={`text-sm ${msg.startsWith("") ? "text-green-400" : "text-red-400"}`}>{msg}</p>}
 
-        <button onClick={handleSave} disabled={saving} className="min-h-10 w-fit rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50">
+        <button onClick={handleSave} disabled={saving} className="min-h-10 w-fit rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50">
           {saving ? "Saving..." : "Save changes"}
         </button>
       </div>
