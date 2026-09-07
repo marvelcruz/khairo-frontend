@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
+const sharedVoiceCoachApi = "https://fitlunge-voice-coach-api-preview.onrender.com/api/client-portal/voice-coach";
+
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/api/voice-coach/:path*",
+        destination: `${sharedVoiceCoachApi}/:path*`,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
