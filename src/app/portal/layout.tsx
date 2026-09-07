@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import {
   Activity,
+  BellRing,
   CalendarDays,
   CheckCircle2,
   ClipboardList,
@@ -64,6 +65,11 @@ const FULL_NAV = [
     href: "/portal/plan",
     label: "My Plan",
     icon: ClipboardList,
+  },
+  {
+    href: "/portal/reminders",
+    label: "Voice Coach",
+    icon: BellRing,
   },
   {
     href: "/portal/book",
