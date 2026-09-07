@@ -29,6 +29,7 @@ type Client = {
   startingWeightKg?: number;
   goalWeightKg?: number;
   currentWeightKg?: number;
+  calorieCalculation?: DailyLog["calorieCalculation"];
   mealPlanNotes?: string;
   privateNotes?: string;
   referredBy?: string;
