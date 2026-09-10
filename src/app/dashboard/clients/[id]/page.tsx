@@ -29,6 +29,15 @@ type Client = {
   startingWeightKg?: number;
   goalWeightKg?: number;
   currentWeightKg?: number;
+  calorieCalculation?: {
+    gender?: string;
+    age?: number;
+    heightCm?: number;
+    weightKg?: number;
+    activityLevel?: string;
+    tdeeKcal?: number;
+    updatedAt?: string;
+  };
   mealPlanNotes?: string;
   privateNotes?: string;
   referredBy?: string;
