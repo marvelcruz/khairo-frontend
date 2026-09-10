@@ -20,7 +20,7 @@ if p.exists():
     s = p.read_text(encoding='utf-8')
     head = s.split('type DailyLog = {', 1)[0]
     marker = '  currentWeightKg?: number;\n'
-    if 'type Client = {' in head and 'calorieCalculation?: {' not in head and marker in s:
+    if 'type Client = {' in head and 'calorieCalculation?:' not in head and marker in s:
         addition = '  calorieCalculation?: {\n    gender?: string;\n    age?: number;\n    heightCm?: number;\n    weightKg?: number;\n    activityLevel?: string;\n    tdeeKcal?: number;\n    updatedAt?: string;\n  };\n'
         p.write_text(s.replace(marker, marker + addition, 1), encoding='utf-8')
 PY
