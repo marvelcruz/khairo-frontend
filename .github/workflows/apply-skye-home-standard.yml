@@ -1,0 +1,437 @@
+name: Apply Skye homepage standard
+
+on:
+  push:
+    branches:
+      - feature/skye-home-standard
+    paths:
+      - '.github/workflows/apply-skye-home-standard.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  standardize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/skye-home-standard
+          fetch-depth: 0
+
+      - name: Generate config-driven homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os, json, re
+
+          repo = os.environ['GITHUB_REPOSITORY'].split('/')[-1]
+          root = Path('.')
+          names = {
+            'Fitlunge-frontend': 'FitLunge',
+            'khairo-frontend': 'Khairo',
+            'getslim-weight-loss-center-frontend': 'GetSlim Weight Loss Center',
+            'dr-dammies-weightloss-clinic-frontend': 'Dr Dammies Weightloss Clinic',
+            'noureesh-nutrition-clinic-frontend': 'Noureesh Nutrition Clinic',
+            'one2one-diet-west-africa-frontend': 'One2One Diet West Africa',
+            'poisera-nutrition-frontend': 'Poisera Nutrition',
+            'quincy-wellness-frontend': 'Quincy Wellness',
+            'lifemd-weight-management-frontend': 'LifeMD Weight Management',
+            'medi-weightloss-frontend': 'Medi Weightloss',
+            'mochi-health-frontend': 'Mochi Health',
+            'form-health-frontend': 'Form Health',
+            'ro-body-frontend': 'Ro Body',
+            'options-medical-weight-loss-frontend': 'Options Medical Weight Loss',
+            'felix-health-frontend': 'Felix Health',
+            'jill-health-frontend': 'Jill Health',
+            'science-and-humans-frontend': 'Science & Humans',
+            'wharton-medical-clinic-frontend': 'Wharton Medical Clinic',
+            'jack-health-frontend': 'Jack Health',
+            'circle-health-frontend': 'Circle Health',
+            'juniper-uk-frontend': 'Juniper UK',
+            'second-nature-health-frontend': 'Second Nature Health',
+            'voy-frontend': 'Voy',
+            'the-slimming-clinic-frontend': 'The Slimming Clinic',
+            'numan-frontend': 'Numan',
+            'weightgone-frontend': 'WeightGone',
+            'weightwatchers-clinic-frontend': 'WeightWatchers Clinic',
+          }
+
+          def humanize(slug):
+            slug = re.sub(r'-frontend-?$', '', slug, flags=re.I)
+            return ' '.join(word.capitalize() for word in slug.replace('-', ' ').split())
+
+          brand = names.get(repo, humanize(repo))
+          tagline = 'Personalised care and support built around your goals.'
+          headline = 'Your goals, with a clearer path forward.'
+          goals = [
+            ('Weight management', 'Start with the main programme pathway and explore the support available for your goals.', '/program'),
+            ('Nutrition & lifestyle', 'Explore the programme structure and the habits that support sustainable progress.', '/program#how-it-works'),
+            ('Clinical support', 'Start with an application so the right level of support can be assessed for you.', '/pricing#apply'),
+            ('Ongoing support', 'Review the available plans and choose the pathway that best fits your current stage.', '/pricing'),
+          ]
+
+          if repo == 'khairo-frontend':
+            tagline = 'Medically supervised weight management for women.'
+            headline = 'A clearer path to sustainable weight loss.'
+            goals = [
+              ('Sustainable weight loss', 'Start with the programme pathway and see how structured support can fit your goals.', '/program'),
+              ('Nutrition & accountability', 'Explore the programme structure and the support designed to keep progress consistent.', '/program#how-it-works'),
+              ('Medical guidance', 'Begin with an application so the team can assess the right level of support for you.', '/pricing#apply'),
+              ('Maintain progress', 'Review the long-term support options and choose the next step that matches your stage.', '/pricing'),
+            ]
+          elif repo == 'Fitlunge-frontend':
+            tagline = 'Structured weight management with coaching, fitness and accountability.'
+            headline = 'Move better. Feel stronger. Build progress that lasts.'
+            goals = [
+              ('Weight management', 'Start with the guided programme pathway and choose the level of support that fits your goals.', '/program'),
+              ('Fitness & strength', 'Explore the programme and build a structured path around movement and consistency.', '/program#how-it-works'),
+              ('Nutrition', 'Review the programme approach to food, habits and sustainable progress.', '/program'),
+              ('Accountability', 'Choose a supported plan designed to keep your routine moving forward.', '/pricing'),
+            ]
+          elif 'nutrition' in repo or 'diet' in repo:
+            tagline = 'Nutrition-led support for sustainable weight and wellbeing goals.'
+          elif 'medical' in repo or 'weightloss' in repo or 'weight-management' in repo:
+            tagline = 'Structured weight-management support with a clear care pathway.'
+
+          shop_exists = (root / 'src/app/shop/page.tsx').exists()
+          logo_src = None
+          for fs_path, web_path in [
+            ('public/brand/logo.svg', '/brand/logo.svg'),
+            ('public/brand/logo.png', '/brand/logo.png'),
+            ('public/logo.svg', '/logo.svg'),
+            ('public/logo.png', '/logo.png'),
+          ]:
+            if (root / fs_path).exists():
+              logo_src = web_path
+              break
+
+          goals_json = json.dumps([{'label': a, 'description': b, 'href': c} for a,b,c in goals], ensure_ascii=False, indent=4)
+          shop_line = '    { label: "Shop", href: "/shop" },\n' if shop_exists else ''
+
+          config = f'''export type HomepageVideoConfig = {{
+            bgVideoUrl: string;
+            desktop: string;
+            tablet: string;
+            mobile: string;
+            poster: string;
+          }};
+
+          export type HomepageGoal = {{
+            label: string;
+            description: string;
+            href: string;
+          }};
+
+          export type HomepageCategory = {{
+            eyebrow: string;
+            title: string;
+            description: string;
+            href: string;
+          }};
+
+          export const homepageConfig = {{
+            brandName: {json.dumps(brand)},
+            tagline: {json.dumps(tagline)},
+            logoSrc: {json.dumps(logo_src)},
+            theme: {{
+              background: "#07110e",
+              surface: "#0d1b16",
+              surfaceSoft: "#13251e",
+              text: "#f8f5ee",
+              muted: "#bac3bd",
+              accent: "#d4b06a",
+              accentText: "#1b160d",
+            }},
+            nav: [
+              {{ label: "Services", href: "#services" }},
+          {shop_line}    {{ label: "About", href: "/about" }},
+              {{ label: "Contact", href: "/contact" }},
+            ],
+            portals: {{ client: "/portal/login", staff: "/login" }},
+            primaryCta: {{ label: "Get Started", href: "/pricing#apply" }},
+            hero: {{
+              eyebrow: "PERSONALISED CARE",
+              headline: {json.dumps(headline)},
+              description: {json.dumps(tagline)},
+              secondaryLabel: "Explore Services",
+              secondaryHref: "#services",
+              video: {{
+                bgVideoUrl: "",
+                desktop: "",
+                tablet: "",
+                mobile: "",
+                poster: "",
+              }} as HomepageVideoConfig,
+            }},
+            discovery: {{
+              eyebrow: "FIND YOUR PATH",
+              title: "What are you working toward?",
+              description: "Choose the goal that feels closest to where you are now. You can change it at any time.",
+              goals: {goals_json} as HomepageGoal[],
+            }},
+            categories: [
+              {{ eyebrow: "01", title: "Guided Programmes", description: "Start with a structured pathway designed to make the next step clear.", href: "/program" }},
+              {{ eyebrow: "02", title: "Nutrition & Lifestyle", description: "Build practical habits around food, movement, routine and long-term consistency.", href: "/program#how-it-works" }},
+              {{ eyebrow: "03", title: "Clinical Support", description: "Use consultation and assessment to understand the level of support that fits your needs.", href: "/pricing#apply" }},
+              {{ eyebrow: "04", title: "Progress & Maintenance", description: "Stay supported after the first milestone with a pathway designed for continued progress.", href: "/pricing" }},
+            ] as HomepageCategory[],
+            footer: {{ description: {json.dumps(tagline)}, email: "", phone: "", location: "" }},
+          }} as const;
+          '''
+
+          hero_video = '''import type { HomepageVideoConfig } from "@/config/homepage";
+
+          export function HeroVideo({ video }: { video: HomepageVideoConfig }) {
+            const desktop = video.desktop || video.bgVideoUrl;
+            const hasVideo = Boolean(desktop || video.tablet || video.mobile);
+            return (
+              <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                {hasVideo ? (
+                  <video autoPlay muted loop playsInline preload="metadata" poster={video.poster || undefined} className="h-full w-full object-cover">
+                    {video.mobile ? <source media="(max-width: 639px)" src={video.mobile} /> : null}
+                    {video.tablet ? <source media="(min-width: 640px) and (max-width: 1023px)" src={video.tablet} /> : null}
+                    {desktop ? <source src={desktop} /> : null}
+                  </video>
+                ) : (
+                  <div className="h-full w-full" style={{ background: "radial-gradient(circle at 74% 30%, rgba(212,176,106,.22), transparent 28%), radial-gradient(circle at 18% 74%, rgba(62,111,91,.28), transparent 32%), linear-gradient(135deg, #07110e 0%, #10251d 52%, #07110e 100%)" }} />
+                )}
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,14,.9)_0%,rgba(7,17,14,.58)_48%,rgba(7,17,14,.25)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,14,.15)_0%,rgba(7,17,14,.08)_55%,rgba(7,17,14,.92)_100%)]" />
+              </div>
+            );
+          }
+          '''
+
+          smooth = '''"use client";
+
+          import { useEffect } from "react";
+          import Lenis from "lenis";
+
+          export function HomeSmoothScroll() {
+            useEffect(() => {
+              if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+              const lenis = new Lenis({ duration: 1.05, smoothWheel: true, syncTouch: false });
+              let frame = 0;
+              const raf = (time: number) => {
+                lenis.raf(time);
+                frame = requestAnimationFrame(raf);
+              };
+              frame = requestAnimationFrame(raf);
+              return () => {
+                cancelAnimationFrame(frame);
+                lenis.destroy();
+              };
+            }, []);
+            return null;
+          }
+          '''
+
+          homepage = '''"use client";
+
+          import { useEffect, useState } from "react";
+          import Link from "next/link";
+          import { HeroVideo } from "@/components/home/hero-video";
+          import { HomeSmoothScroll } from "@/components/home/home-smooth-scroll";
+          import { homepageConfig } from "@/config/homepage";
+
+          export function StandardHomepage() {
+            const [selectedGoal, setSelectedGoal] = useState(0);
+            const [openCategory, setOpenCategory] = useState<number | null>(null);
+
+            useEffect(() => {
+              if (openCategory === null) return;
+              const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpenCategory(null);
+              window.addEventListener("keydown", onKey);
+              return () => window.removeEventListener("keydown", onKey);
+            }, [openCategory]);
+
+            const goal = homepageConfig.discovery.goals[selectedGoal];
+            const category = openCategory === null ? null : homepageConfig.categories[openCategory];
+
+            return (
+              <main
+                style={{
+                  "--home-bg": homepageConfig.theme.background,
+                  "--home-surface": homepageConfig.theme.surface,
+                  "--home-text": homepageConfig.theme.text,
+                  "--home-muted": homepageConfig.theme.muted,
+                  "--home-accent": homepageConfig.theme.accent,
+                  "--home-accent-text": homepageConfig.theme.accentText,
+                } as React.CSSProperties}
+                className="bg-[var(--home-bg)] text-[var(--home-text)]"
+              >
+                <HomeSmoothScroll />
+
+                <section className="relative min-h-[100dvh] overflow-hidden">
+                  <div className="sticky top-0 h-[100dvh] min-h-[620px]">
+                    <HeroVideo video={homepageConfig.hero.video} />
+                    <div className="relative z-10 mx-auto flex h-full max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:items-center lg:px-12 lg:pb-0">
+                      <div className="max-w-3xl">
+                        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--home-accent)]">{homepageConfig.hero.eyebrow}</p>
+                        <h1 className="max-w-4xl text-balance text-[clamp(3rem,8vw,7.75rem)] font-semibold leading-[0.9] tracking-[-0.055em]">{homepageConfig.hero.headline}</h1>
+                        <p className="mt-7 max-w-2xl text-base leading-7 text-[var(--home-muted)] sm:text-lg sm:leading-8">{homepageConfig.hero.description}</p>
+                        <div className="mt-9 flex flex-wrap gap-3">
+                          <Link href={homepageConfig.primaryCta.href} className="inline-flex min-h-12 items-center rounded-full bg-[var(--home-accent)] px-6 text-sm font-semibold text-[var(--home-accent-text)]">{homepageConfig.primaryCta.label}</Link>
+                          <Link href={homepageConfig.hero.secondaryHref} className="inline-flex min-h-12 items-center rounded-full border border-white/25 bg-black/10 px-6 text-sm font-semibold text-white backdrop-blur-md hover:bg-white/10">{homepageConfig.hero.secondaryLabel}</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="border-y border-white/10 py-20 sm:py-28">
+                  <div className="mx-auto grid max-w-[1320px] gap-10 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:px-12">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--home-accent)]">{homepageConfig.discovery.eyebrow}</p>
+                      <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">{homepageConfig.discovery.title}</h2>
+                      <p className="mt-5 max-w-lg text-sm leading-7 text-[var(--home-muted)] sm:text-base">{homepageConfig.discovery.description}</p>
+                    </div>
+                    <div>
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {homepageConfig.discovery.goals.map((item, index) => (
+                          <button key={item.label} type="button" onClick={() => setSelectedGoal(index)} aria-pressed={selectedGoal === index} className={`rounded-2xl border px-5 py-4 text-left text-sm font-medium transition-all ${selectedGoal === index ? "border-[var(--home-accent)] bg-[var(--home-accent)] text-[var(--home-accent-text)]" : "border-white/10 bg-white/[0.035] hover:border-white/25"}`}>{item.label}</button>
+                        ))}
+                      </div>
+                      <div className="mt-4 rounded-3xl border border-white/10 bg-[var(--home-surface)] p-6 sm:p-8">
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--home-accent)]">Recommended next step</p>
+                        <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">{goal.label}</h3>
+                        <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--home-muted)] sm:text-base">{goal.description}</p>
+                        <Link href={goal.href} className="mt-6 inline-flex rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold hover:bg-white/10">View this pathway</Link>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section id="services" className="py-20 sm:py-28">
+                  <div className="mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-12">
+                    <div className="mb-10 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+                      <div><p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--home-accent)]">SERVICES</p><h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Explore without losing your place.</h2></div>
+                      <p className="max-w-md text-sm leading-7 text-[var(--home-muted)]">Open a quick view for each category, then continue browsing the homepage when you are ready.</p>
+                    </div>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {homepageConfig.categories.map((item, index) => (
+                        <button key={item.title} type="button" onClick={() => setOpenCategory(index)} className="min-h-64 rounded-[2rem] border border-white/10 bg-[var(--home-surface)] p-7 text-left transition-all duration-300 hover:-translate-y-1 hover:border-white/25 sm:p-9">
+                          <div className="flex h-full flex-col justify-between gap-10"><p className="text-xs font-semibold tracking-[0.24em] text-[var(--home-accent)]">{item.eyebrow}</p><div><h3 className="text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">{item.title}</h3><p className="mt-4 max-w-xl text-sm leading-7 text-[var(--home-muted)] sm:text-base">{item.description}</p><span className="mt-6 inline-flex text-sm font-semibold">Quick view</span></div></div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+
+                <section className="border-t border-white/10 bg-[var(--home-surface)] py-20 sm:py-24">
+                  <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-8 px-5 sm:px-8 lg:flex-row lg:items-center lg:px-12">
+                    <div><p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--home-accent)]">READY WHEN YOU ARE</p><h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Make the next step simple.</h2></div>
+                    <Link href={homepageConfig.primaryCta.href} className="inline-flex min-h-12 shrink-0 items-center rounded-full bg-[var(--home-accent)] px-7 text-sm font-semibold text-[var(--home-accent-text)]">{homepageConfig.primaryCta.label}</Link>
+                  </div>
+                </section>
+
+                {category ? (
+                  <div className="fixed inset-0 z-[90] bg-black/55 backdrop-blur-sm" role="presentation" onMouseDown={(event) => event.currentTarget === event.target && setOpenCategory(null)}>
+                    <aside role="dialog" aria-modal="true" aria-label={category.title} className="absolute bottom-0 right-0 top-0 w-full max-w-xl overflow-y-auto border-l border-white/10 bg-[var(--home-surface)] p-6 shadow-2xl sm:p-10">
+                      <div className="flex items-start justify-between gap-6"><div><p className="text-xs font-semibold tracking-[0.24em] text-[var(--home-accent)]">{category.eyebrow}</p><h3 className="mt-4 text-4xl font-semibold tracking-[-0.04em]">{category.title}</h3></div><button type="button" onClick={() => setOpenCategory(null)} className="min-h-11 rounded-full border border-white/15 px-4 text-sm hover:bg-white/10" aria-label="Close quick view">Close</button></div>
+                      <p className="mt-8 text-base leading-8 text-[var(--home-muted)]">{category.description}</p>
+                      <Link href={category.href} className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[var(--home-accent)] px-6 text-sm font-semibold text-[var(--home-accent-text)]">Explore {category.title}</Link>
+                    </aside>
+                  </div>
+                ) : null}
+              </main>
+            );
+          }
+          '''
+
+          navbar = '''"use client";
+          import { useEffect, useState } from "react";
+          import Link from "next/link";
+          import { usePathname } from "next/navigation";
+          import { homepageConfig } from "@/config/homepage";
+
+          export function Navbar() {
+            const pathname = usePathname();
+            const [open, setOpen] = useState(false);
+            useEffect(() => setOpen(false), [pathname]);
+            useEffect(() => {
+              if (!open) return;
+              const previous = document.body.style.overflow;
+              document.body.style.overflow = "hidden";
+              const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+              window.addEventListener("keydown", onKey);
+              return () => { document.body.style.overflow = previous; window.removeEventListener("keydown", onKey); };
+            }, [open]);
+            return (
+              <header className="fixed inset-x-0 top-0 z-[70] border-b border-white/10 bg-[#07110e]/85 text-[#f8f5ee] backdrop-blur-xl" style={{ "--nav-accent": homepageConfig.theme.accent } as React.CSSProperties}>
+                <div className="border-b border-white/10"><div className="mx-auto flex h-8 max-w-[1440px] items-center justify-end gap-4 px-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:px-8 lg:px-12"><Link href={homepageConfig.portals.client}>Client Login</Link><span className="h-3 w-px bg-white/15" /><Link href={homepageConfig.portals.staff}>Staff Login</Link></div></div>
+                <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-5 px-5 sm:px-8 lg:px-12">
+                  <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={`${homepageConfig.brandName} home`}>{homepageConfig.logoSrc ? <img src={homepageConfig.logoSrc} alt={homepageConfig.brandName} className="max-h-10 w-auto max-w-[180px] object-contain" /> : <span className="truncate text-base font-semibold uppercase tracking-[0.16em] sm:text-lg">{homepageConfig.brandName}</span>}</Link>
+                  <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">{homepageConfig.nav.map((item) => <Link key={`${item.label}-${item.href}`} href={item.href} className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/70 hover:bg-white/5 hover:text-white">{item.label}</Link>)}</nav>
+                  <Link href={homepageConfig.primaryCta.href} className="hidden min-h-10 items-center rounded-full bg-[var(--nav-accent)] px-5 text-xs font-semibold uppercase tracking-[0.12em] text-[#1b160d] lg:inline-flex">{homepageConfig.primaryCta.label}</Link>
+                  <button type="button" className="grid h-10 min-w-16 place-items-center rounded-full border border-white/15 px-3 text-xs font-semibold uppercase tracking-[0.12em] lg:hidden" onClick={() => setOpen(v => !v)} aria-expanded={open} aria-controls="mobile-standard-nav">{open ? "Close" : "Menu"}</button>
+                </div>
+                {open ? <div id="mobile-standard-nav" className="border-t border-white/10 bg-[#07110e] px-5 pb-6 pt-4 lg:hidden"><nav className="mx-auto flex max-w-[1440px] flex-col">{homepageConfig.nav.map((item) => <Link key={`${item.label}-${item.href}`} href={item.href} className="border-b border-white/10 py-4 text-xl font-semibold">{item.label}</Link>)}</nav><div className="mx-auto mt-5 grid max-w-[1440px] gap-2 sm:grid-cols-3"><Link href={homepageConfig.primaryCta.href} className="rounded-full bg-[var(--nav-accent)] px-5 py-3 text-center text-sm font-semibold text-[#1b160d]">{homepageConfig.primaryCta.label}</Link><Link href={homepageConfig.portals.client} className="rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold">Client Login</Link><Link href={homepageConfig.portals.staff} className="rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold">Staff Login</Link></div></div> : null}
+              </header>
+            );
+          }
+          '''
+
+          footer = '''import Link from "next/link";
+          import { homepageConfig } from "@/config/homepage";
+
+          export function Footer() {
+            return (
+              <footer className="border-t border-white/10 bg-[#07110e] text-[#f8f5ee]" style={{ "--footer-accent": homepageConfig.theme.accent } as React.CSSProperties}>
+                <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-12">
+                  <div><p className="text-base font-semibold uppercase tracking-[0.16em]">{homepageConfig.brandName}</p><p className="mt-4 max-w-sm text-sm leading-7 text-white/55">{homepageConfig.footer.description}</p></div>
+                  <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--footer-accent)]">Explore</p><div className="mt-4 flex flex-col gap-3 text-sm text-white/65">{homepageConfig.nav.map((item) => <Link key={`${item.label}-${item.href}`} href={item.href}>{item.label}</Link>)}</div></div>
+                  <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--footer-accent)]">Portals</p><div className="mt-4 flex flex-col gap-3 text-sm text-white/65"><Link href={homepageConfig.portals.client}>Client Login</Link><Link href={homepageConfig.portals.staff}>Staff Portal</Link></div></div>
+                  <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--footer-accent)]">Contact</p><div className="mt-4 flex flex-col gap-3 text-sm text-white/65">{homepageConfig.footer.email ? <a href={`mailto:${homepageConfig.footer.email}`}>{homepageConfig.footer.email}</a> : null}{homepageConfig.footer.phone ? <a href={`tel:${homepageConfig.footer.phone}`}>{homepageConfig.footer.phone}</a> : null}{homepageConfig.footer.location ? <p>{homepageConfig.footer.location}</p> : null}{!homepageConfig.footer.email && !homepageConfig.footer.phone && !homepageConfig.footer.location ? <Link href="/contact">Contact the team</Link> : null}</div></div>
+                </div>
+                <div className="border-t border-white/10"><div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-3 px-5 py-6 text-xs text-white/40 sm:flex-row sm:px-8 lg:px-12"><p>© {new Date().getFullYear()} {homepageConfig.brandName}. All rights reserved.</p><div className="flex flex-wrap gap-4"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/medical-disclaimer">Medical Disclaimer</Link></div></div></div>
+              </footer>
+            );
+          }
+          '''
+
+          page = '''import type { Metadata } from "next";
+          import { StandardHomepage } from "@/components/home/standard-homepage";
+          import { homepageConfig } from "@/config/homepage";
+
+          export const metadata: Metadata = {
+            title: `${homepageConfig.brandName} — ${homepageConfig.tagline}`,
+            description: homepageConfig.tagline,
+          };
+
+          export default function HomePage() {
+            return <StandardHomepage />;
+          }
+          '''
+
+          files = {
+            'src/config/homepage.ts': config,
+            'src/components/home/hero-video.tsx': hero_video,
+            'src/components/home/home-smooth-scroll.tsx': smooth,
+            'src/components/home/standard-homepage.tsx': homepage,
+            'src/components/layout/navbar.tsx': navbar,
+            'src/components/layout/footer.tsx': footer,
+            'src/app/page.tsx': page,
+          }
+          for rel, content in files.items():
+            path = root / rel
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(content.strip() + '\n', encoding='utf-8')
+          print(f'Standardized {repo} as {brand}')
+          PY
+
+      - name: Install Lenis
+        run: npm install lenis@^1.3.26 --save
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit standardized homepage
+        run: |
+          rm -f .github/workflows/apply-skye-home-standard.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Standardize homepage with Skye design system"
+          git push origin HEAD:feature/skye-home-standard
