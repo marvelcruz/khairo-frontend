@@ -13,7 +13,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useClientAuth } from "../../../context/ClientAuthContext";
-import { ApiError } from "../../../lib/api";
 
 const API_BASE = "https://khairo-backend.onrender.com/api";
 
@@ -37,9 +36,12 @@ export default function ClientLoginPage() {
       await login(email, password);
       router.push("/portal");
     } catch (err) {
-      const message = err instanceof ApiError ? err.message : "Unable to sign in. Please try again.";
+      const loginError = err instanceof Error
+        ? (err as Error & { code?: string; status?: number })
+        : null;
+      const message = loginError?.message || "Unable to sign in. Please try again.";
       setError(message);
-      if (err instanceof ApiError && err.code) setErrorCode(err.code);
+      if (loginError?.code) setErrorCode(loginError.code);
       else if (message.includes("No account")) setErrorCode("NO_ACCOUNT");
       else if (message.includes("activated")) setErrorCode("NOT_ACTIVATED");
       else if (message.includes("Incorrect")) setErrorCode("WRONG_PASSWORD");
