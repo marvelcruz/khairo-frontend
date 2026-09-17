@@ -2,20 +2,24 @@
 
 import { useEffect } from "react";
 
+function safeTarget(value: string | null) {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) {
+    return "/";
+  }
+
+  return value;
+}
+
 export default function SocialAuthCallbackPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
-    const storage = params.get("storage") || "";
-    const target = params.get("target") || "/";
+    const target = safeTarget(params.get("target"));
 
-    if (!token || !storage) {
-      window.location.href = "/login";
-      return;
-    }
-
-    localStorage.setItem(storage, token);
-    window.location.href = target;
+    // Older OAuth callbacks may still contain token/storage parameters in a
+    // user's history. Never read or persist them; remove the query string before
+    // navigating so browser history and copied URLs do not retain credentials.
+    window.history.replaceState({}, "", "/social-auth/callback");
+    window.location.replace(target);
   }, []);
 
   return (
