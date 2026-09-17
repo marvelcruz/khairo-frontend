@@ -24,6 +24,7 @@ describe("api client", () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     vi.unstubAllGlobals();
   });
 
@@ -227,10 +228,14 @@ describe("api client", () => {
       });
     });
 
-    const request = api.get("/slow", { timeoutMs: 25 });
-    await vi.advanceTimersByTimeAsync(25);
+    // Attach the rejection assertion before advancing fake timers so the abort
+    // rejection is observed immediately rather than surfacing as an unhandled
+    // promise rejection in Vitest/CI.
+    const rejection = expect(
+      api.get("/slow", { timeoutMs: 25 })
+    ).rejects.toMatchObject({ name: "AbortError" });
 
-    await expect(request).rejects.toMatchObject({ name: "AbortError" });
-    vi.useRealTimers();
+    await vi.advanceTimersByTimeAsync(25);
+    await rejection;
   });
 });
