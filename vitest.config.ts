@@ -19,6 +19,8 @@ export default defineConfig({
       include: [
         "src/lib/accessControl.ts",
         "src/lib/api.ts",
+        "src/lib/appErrors.ts",
+        "src/components/system/AppErrorProvider.tsx",
       ],
       thresholds: {
         statements: 90,
