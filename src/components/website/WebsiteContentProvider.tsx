@@ -7,14 +7,16 @@ import {
   useState,
 } from "react";
 
+import { api } from "@/lib/api";
+
 export type WebsiteContentValues = Record<string, unknown>;
+
+type WebsiteContentResponse = {
+  values?: WebsiteContentValues;
+};
 
 const WebsiteContentContext =
   createContext<WebsiteContentValues>({});
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5000/api";
 
 export function WebsiteContentProvider({
   pageKey,
@@ -29,18 +31,22 @@ export function WebsiteContentProvider({
   useEffect(() => {
     let active = true;
 
-    fetch(
-      `${API_BASE_URL}/public/website/content/${encodeURIComponent(pageKey)}`
+    api.get<WebsiteContentResponse>(
+      `/public/website/content/${encodeURIComponent(pageKey)}`,
+      {
+        suppressGlobalError: true,
+        suppressAuthExpired: true,
+      }
     )
-      .then((response) =>
-        response.ok ? response.json() : null
-      )
       .then((data) => {
         if (active && data?.values) {
           setValues(data.values);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        // Marketing content has static fallbacks, so an unavailable CMS does
+        // not need to interrupt the visitor experience.
+      });
 
     return () => {
       active = false;
