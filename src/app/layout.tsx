@@ -10,6 +10,7 @@ import {
   ThemeProvider,
 } from "@/context/ThemeContext";
 import InteractiveOnboarding from "@/components/onboarding/InteractiveOnboarding";
+import { AppErrorProvider } from "@/components/system/AppErrorProvider";
 
 export const viewport:
   Viewport = {
@@ -110,10 +111,12 @@ export default function RootLayout({
 
       <body>
         <ThemeProvider>
-          <Shell>
-            {children}
-          </Shell>
-          <InteractiveOnboarding />
+          <AppErrorProvider>
+            <Shell>
+              {children}
+            </Shell>
+            <InteractiveOnboarding />
+          </AppErrorProvider>
         </ThemeProvider>
       </body>
     </html>
