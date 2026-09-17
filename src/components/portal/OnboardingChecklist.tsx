@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { CheckCircle2, Circle, Loader2 } from "lucide-react";
 
+import { api } from "@/lib/api";
+
 type Step = {
   key: string;
   title: string;
@@ -24,18 +26,17 @@ export function OnboardingChecklist() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api"}/client-experience/onboarding-checklist`, {
-      credentials: "include",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("khairo_client_token") || ""}`,
-      },
+    api.get<ChecklistResponse>("/client-experience/onboarding-checklist", {
+      isClientRoute: true,
+      suppressGlobalError: true,
     })
-      .then((res) => res.json())
       .then((json) => {
         if (json.success) setData(json);
-        else setError(json.message || "Could not load onboarding checklist.");
+        else setError("Could not load onboarding checklist.");
       })
-      .catch(() => setError("Could not load onboarding checklist."))
+      .catch((err) =>
+        setError(err instanceof Error ? err.message : "Could not load onboarding checklist.")
+      )
       .finally(() => setLoading(false));
   }, []);
 
