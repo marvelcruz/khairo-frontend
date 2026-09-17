@@ -9,11 +9,7 @@ import {
   ReactNode,
 } from "react";
 
-export type PortalStage =
-  | "preview"
-  | "active"
-  | "paused"
-  | "completed";
+export type PortalStage = "preview" | "active" | "paused" | "completed";
 
 export type PortalAccess = {
   stage: PortalStage;
@@ -33,11 +29,7 @@ export type ClientProfile = {
   fullName: string;
   email?: string;
   phone?: string;
-  program:
-    | "core"
-    | "plus"
-    | "vip"
-    | "not_sure";
+  program: "core" | "plus" | "vip" | "not_sure";
   startDate: string;
   cycleWeeks: number;
   startingWeightKg?: number;
@@ -55,9 +47,7 @@ export type ClientProfile = {
     text: string;
     period?: string;
   }[];
-  mealTimetableMode?:
-    | "weekly"
-    | "full_cycle";
+  mealTimetableMode?: "weekly" | "full_cycle";
   mealTimetable?: {
     dayNumber: number;
     items: {
@@ -91,7 +81,6 @@ export type ClientProfile = {
 
 type AuthResponse = {
   success: boolean;
-  token: string;
   client: ClientProfile;
 };
 
@@ -104,32 +93,23 @@ type ClientAuthContextType = {
   client: ClientProfile | null;
   loading: boolean;
   error: string;
-  login: (
-    email: string,
-    password: string
-  ) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
   register: (
     fullName: string,
     email: string,
     phone: string,
     password: string,
-    referralCode?: string
+    referralCode?: string,
   ) => Promise<void>;
-  activate: (
-    email: string,
-    phone: string,
-    password: string
-  ) => Promise<void>;
+  activate: (email: string, phone: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   refresh: () => Promise<void>;
 };
 
-const ClientAuthContext =
-  createContext<ClientAuthContextType | null>(
-    null
-  );
+const ClientAuthContext = createContext<ClientAuthContextType | null>(null);
 
 const API =
+  process.env.NEXT_PUBLIC_API_URL ||
   "https://khairo-backend.onrender.com/api";
 
 type ApiError = Error & {
@@ -139,87 +119,35 @@ type ApiError = Error & {
 
 async function clientRequest<T>(
   endpoint: string,
-  options: RequestInit & {
-    timeoutMs?: number;
-  } = {}
+  options: RequestInit & { timeoutMs?: number } = {},
 ): Promise<T> {
-  const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem(
-          "khairo_client_token"
-        )
-      : null;
+  const headers = new Headers(options.headers || {});
 
-  const headers =
-    new Headers(
-      options.headers || {}
-    );
-
-  if (
-    options.body &&
-    !(options.body instanceof FormData)
-  ) {
-    headers.set(
-      "Content-Type",
-      "application/json"
-    );
+  if (options.body && !(options.body instanceof FormData)) {
+    headers.set("Content-Type", "application/json");
   }
 
-  if (token) {
-    headers.set(
-      "Authorization",
-      `Bearer ${token}`
-    );
-  }
-
-  const {
-    timeoutMs,
-    ...requestOptions
-  } = options;
-
-  const controller =
-    timeoutMs &&
-    timeoutMs > 0
-      ? new AbortController()
-      : null;
-
-  const timeoutId =
-    controller
-      ? window.setTimeout(
-          () =>
-            controller.abort(),
-          timeoutMs
-        )
-      : null;
+  const { timeoutMs, ...requestOptions } = options;
+  const controller = timeoutMs && timeoutMs > 0 ? new AbortController() : null;
+  const timeoutId = controller
+    ? window.setTimeout(() => controller.abort(), timeoutMs)
+    : null;
 
   let response: Response;
 
   try {
-    response =
-      await fetch(
-        `${API}${endpoint}`,
-        {
-          ...requestOptions,
-          headers,
-          credentials: "include",
-          cache: "no-store",
-          signal:
-            controller?.signal ||
-            requestOptions.signal,
-        }
-      );
+    response = await fetch(`${API}${endpoint}`, {
+      ...requestOptions,
+      headers,
+      credentials: "include",
+      cache: "no-store",
+      signal: controller?.signal || requestOptions.signal,
+    });
   } finally {
-    if (timeoutId !== null) {
-      window.clearTimeout(
-        timeoutId
-      );
-    }
+    if (timeoutId !== null) window.clearTimeout(timeoutId);
   }
 
-  let data: {
-    message?: string;
-    code?: string;
-  } = {};
+  let data: { message?: string; code?: string } = {};
 
   try {
     data = await response.json();
@@ -228,15 +156,15 @@ async function clientRequest<T>(
   }
 
   if (!response.ok) {
-    const error =
-      new Error(
-        data.message ||
-          "Something went wrong."
-      ) as ApiError;
-
+    const error = new Error(
+      data.message || "Something went wrong.",
+    ) as ApiError;
     error.code = data.code;
-    error.status =
-      response.status;
+    error.status = response.status;
+
+    if (response.status === 401 && typeof window !== "undefined") {
+      window.dispatchEvent(new Event("client-auth:expired"));
+    }
 
     throw error;
   }
@@ -244,93 +172,47 @@ async function clientRequest<T>(
   return data as T;
 }
 
-export function ClientAuthProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const [
-    client,
-    setClient,
-  ] =
-    useState<ClientProfile | null>(
-      null
-    );
+export function ClientAuthProvider({ children }: { children: ReactNode }) {
+  const [client, setClient] = useState<ClientProfile | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const [
-    loading,
-    setLoading,
-  ] = useState(true);
+  const refresh = useCallback(async () => {
+    setLoading(true);
+    setError("");
 
-  const [
-    error,
-    setError,
-  ] = useState("");
+    try {
+      const response = await clientRequest<MeResponse>("/client-auth/me", {
+        timeoutMs: 10000,
+      });
 
-  const refresh =
-    useCallback(async () => {
-      const token =
-        localStorage.getItem(
-          "khairo_client_token"
-        );
+      setClient(response.client);
+    } catch (err) {
+      const apiError = err as ApiError;
 
-      if (!token) {
+      if (apiError.status === 401) {
         setClient(null);
         setError("");
-        setLoading(false);
-        return;
-      }
-
-      setLoading(true);
-      setError("");
-
-      try {
-        const response =
-          await clientRequest<MeResponse>(
-            "/client-auth/me",
-            {
-              timeoutMs: 10000,
-            }
-          );
-
-        setClient(
-          response.client
+      } else {
+        setClient(null);
+        setError(
+          "KhairoDietClinic could not verify your session because the server is temporarily unavailable.",
         );
-      } catch (err) {
-        const apiError =
-          err as ApiError;
-
-        if (
-          apiError.status === 401
-        ) {
-          localStorage.removeItem(
-            "khairo_client_token"
-          );
-
-          setClient(null);
-          setError("");
-        } else {
-          setClient(null);
-
-          setError(
-            "KhairoDietClinic could not verify your session because the server is temporarily unavailable."
-          );
-        }
-      } finally {
-        setLoading(false);
       }
-    }, []);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
+    // One-time migration cleanup: remove the old browser-readable JWT.
+    // Authentication now relies exclusively on the httpOnly clientToken cookie.
+    localStorage.removeItem("khairo_client_token");
     void refresh();
   }, [refresh]);
 
   useEffect(() => {
     const expired = () => {
-      localStorage.removeItem(
-        "khairo_client_token"
-      );
-
       setClient(null);
       setError("");
       setLoading(false);
@@ -340,70 +222,29 @@ export function ClientAuthProvider({
       void refresh();
     };
 
-    window.addEventListener(
-      "client-auth:expired",
-      expired
-    );
-
-    window.addEventListener(
-      "client-auth:changed",
-      changed
-    );
+    window.addEventListener("client-auth:expired", expired);
+    window.addEventListener("client-auth:changed", changed);
 
     return () => {
-      window.removeEventListener(
-        "client-auth:expired",
-        expired
-      );
-
-      window.removeEventListener(
-        "client-auth:changed",
-        changed
-      );
+      window.removeEventListener("client-auth:expired", expired);
+      window.removeEventListener("client-auth:changed", changed);
     };
   }, [refresh]);
 
-  const establishSession = (
-    response: AuthResponse
-  ) => {
-    localStorage.setItem(
-      "khairo_client_token",
-      response.token
-    );
-
-    setClient(
-      response.client
-    );
-
+  const establishSession = (response: AuthResponse) => {
+    setClient(response.client);
     setError("");
     setLoading(false);
-
-    window.dispatchEvent(
-      new Event(
-        "client-auth:changed"
-      )
-    );
+    window.dispatchEvent(new Event("client-auth:changed"));
   };
 
-  const login = async (
-    email: string,
-    password: string
-  ) => {
-    const response =
-      await clientRequest<AuthResponse>(
-        "/client-auth/login",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        }
-      );
+  const login = async (email: string, password: string) => {
+    const response = await clientRequest<AuthResponse>("/client-auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    });
 
-    establishSession(
-      response
-    );
+    establishSession(response);
   };
 
   const register = async (
@@ -411,89 +252,47 @@ export function ClientAuthProvider({
     email: string,
     phone: string,
     password: string,
-    referralCode?: string
+    referralCode?: string,
   ) => {
-    const response =
-      await clientRequest<AuthResponse>(
-        "/client-auth/register",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            fullName,
-            email,
-            phone,
-            password,
-            referralCode,
-          }),
-        }
-      );
-
-    establishSession(
-      response
+    const response = await clientRequest<AuthResponse>(
+      "/client-auth/register",
+      {
+        method: "POST",
+        body: JSON.stringify({ fullName, email, phone, password, referralCode }),
+      },
     );
+
+    establishSession(response);
   };
 
-  const activate = async (
-    email: string,
-    phone: string,
-    password: string
-  ) => {
-    const response =
-      await clientRequest<AuthResponse>(
-        "/client-auth/activate",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email,
-            phone,
-            password,
-          }),
-        }
-      );
-
-    establishSession(
-      response
+  const activate = async (email: string, phone: string, password: string) => {
+    const response = await clientRequest<AuthResponse>(
+      "/client-auth/activate",
+      {
+        method: "POST",
+        body: JSON.stringify({ email, phone, password }),
+      },
     );
+
+    establishSession(response);
   };
 
   const logout = async () => {
     try {
-      await clientRequest(
-        "/client-auth/logout",
-        {
-          method: "POST",
-        }
-      );
+      await clientRequest("/client-auth/logout", { method: "POST" });
     } catch {
+      // Local sign-out must still succeed if the API is unavailable.
     }
-
-    localStorage.removeItem(
-      "khairo_client_token"
-    );
 
     setClient(null);
     setError("");
     setLoading(false);
-
-    window.dispatchEvent(
-      new Event(
-        "client-auth:changed"
-      )
-    );
+    window.dispatchEvent(new Event("client-auth:changed"));
   };
 
   return (
     <ClientAuthContext.Provider
-      value={{
-        client,
-        loading,
-        error,
-        login,
-        register,
-        activate,
-        logout,
-        refresh,
-      }}
+      value={{ client, loading, error, login, register, activate, logout, refresh }}
     >
       {children}
     </ClientAuthContext.Provider>
@@ -501,15 +300,10 @@ export function ClientAuthProvider({
 }
 
 export function useClientAuth() {
-  const context =
-    useContext(
-      ClientAuthContext
-    );
+  const context = useContext(ClientAuthContext);
 
   if (!context) {
-    throw new Error(
-      "useClientAuth must be used within ClientAuthProvider"
-    );
+    throw new Error("useClientAuth must be used within ClientAuthProvider");
   }
 
   return context;
