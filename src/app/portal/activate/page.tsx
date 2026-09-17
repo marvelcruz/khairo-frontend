@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "/api";
+import { api } from "@/lib/api";
 
 export default function ClientActivatePage() {
   const [token, setToken] = useState("");
@@ -27,15 +27,19 @@ export default function ClientActivatePage() {
     setError("");
 
     try {
-      const response = await fetch(`${API}/client-auth/request-activation`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-        credentials: "include",
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || "Could not request an activation link.");
-      setMessage(data.message || "If an eligible client record exists, a secure activation link will be sent shortly.");
+      const data = await api.post<{ message?: string }>(
+        "/client-auth/request-activation",
+        { email },
+        {
+          isClientRoute: true,
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        }
+      );
+      setMessage(
+        data.message ||
+          "If an eligible client record exists, a secure activation link will be sent shortly."
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not request an activation link.");
     } finally {
@@ -62,14 +66,15 @@ export default function ClientActivatePage() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${API}/client-auth/activate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, password }),
-        credentials: "include",
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || "Could not activate your account.");
+      await api.post(
+        "/client-auth/activate",
+        { token, password },
+        {
+          isClientRoute: true,
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        }
+      );
       setActivated(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not activate your account.");
