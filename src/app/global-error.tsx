@@ -10,7 +10,9 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error("Khairo root render error", error);
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Khairo root render error", error);
+    }
   }, [error]);
 
   return (
