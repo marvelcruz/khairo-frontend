@@ -74,11 +74,6 @@ function getErrorMessage(data: unknown): string {
   return "Something went wrong.";
 }
 
-function staffTokenForRequest(isClientRoute: boolean) {
-  if (isClientRoute || typeof window === "undefined") return null;
-  return localStorage.getItem("khairo_staff_token");
-}
-
 async function request<T>(
   path: string,
   options: RequestOptions = {}
@@ -90,10 +85,6 @@ async function request<T>(
     params,
     timeoutMs,
   } = options;
-
-  // Client authentication is cookie-only. Keep the legacy staff-token path
-  // untouched here until staff auth is migrated separately.
-  const token = staffTokenForRequest(isClientRoute);
 
   const requestPath = addQueryParams(path, params);
 
@@ -118,9 +109,6 @@ async function request<T>(
       headers: {
         ...(body !== undefined && !isFormData
           ? { "Content-Type": "application/json" }
-          : {}),
-        ...(token
-          ? { Authorization: `Bearer ${token}` }
           : {}),
       },
       credentials: "include",
@@ -171,36 +159,17 @@ async function downloadRequest(
     params,
   } = options;
 
-  // Client downloads also authenticate through the httpOnly cookie.
-  const token = staffTokenForRequest(isClientRoute);
+  const requestPath = addQueryParams(path, params);
 
-  const requestPath =
-    addQueryParams(path, params);
-
-  const res = await fetch(
-    `${API_BASE_URL}${requestPath}`,
-    {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        ...(token
-          ? {
-              Authorization:
-                `Bearer ${token}`,
-            }
-          : {}),
-      },
-    }
-  );
+  const res = await fetch(`${API_BASE_URL}${requestPath}`, {
+    method: "GET",
+    credentials: "include",
+  });
 
   if (!res.ok) {
-    const data: unknown =
-      await res.json().catch(() => ({}));
+    const data: unknown = await res.json().catch(() => ({}));
 
-    if (
-      res.status === 401 &&
-      typeof window !== "undefined"
-    ) {
+    if (res.status === 401 && typeof window !== "undefined") {
       window.dispatchEvent(
         new CustomEvent(
           isClientRoute
@@ -217,21 +186,12 @@ async function downloadRequest(
     );
   }
 
-  const disposition =
-    res.headers.get(
-      "content-disposition"
-    ) || "";
-
-  const filenameMatch =
-    disposition.match(
-      /filename="?([^";]+)"?/i
-    );
+  const disposition = res.headers.get("content-disposition") || "";
+  const filenameMatch = disposition.match(/filename="?([^";]+)"?/i);
 
   return {
     blob: await res.blob(),
-    filename:
-      filenameMatch?.[1] ||
-      "download",
+    filename: filenameMatch?.[1] || "download",
   };
 }
 
@@ -296,11 +256,7 @@ export const api = {
   download: (
     path: string,
     options: DownloadOptions = {}
-  ) =>
-    downloadRequest(
-      path,
-      options
-    ),
+  ) => downloadRequest(path, options),
 };
 
 export { ApiError };
