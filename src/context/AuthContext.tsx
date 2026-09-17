@@ -43,6 +43,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const { user } = await api.get<{ user: Staff }>("/auth/me", {
         timeoutMs: 10000,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
       });
 
       setUser(user);
@@ -80,10 +82,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const data = await api.post<{ user: Staff }>("/auth/login", {
-      email,
-      password,
-    });
+    const data = await api.post<{ user: Staff }>(
+      "/auth/login",
+      { email, password },
+      {
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
+      }
+    );
 
     setUser(data.user);
     setError("");
@@ -92,7 +98,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      await api.post("/auth/logout");
+      await api.post(
+        "/auth/logout",
+        undefined,
+        {
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        }
+      );
     } catch {
       // Local sign-out must still succeed if the API is unavailable.
     } finally {
