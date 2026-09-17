@@ -9,6 +9,8 @@ import {
   ReactNode,
 } from "react";
 
+import { api, ApiError } from "@/lib/api";
+
 export type PortalStage = "preview" | "active" | "paused" | "completed";
 
 export type PortalAccess = {
@@ -108,70 +110,6 @@ type ClientAuthContextType = {
 
 const ClientAuthContext = createContext<ClientAuthContextType | null>(null);
 
-const API =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://khairo-backend.onrender.com/api";
-
-type ApiError = Error & {
-  code?: string;
-  status?: number;
-};
-
-async function clientRequest<T>(
-  endpoint: string,
-  options: RequestInit & { timeoutMs?: number } = {},
-): Promise<T> {
-  const headers = new Headers(options.headers || {});
-
-  if (options.body && !(options.body instanceof FormData)) {
-    headers.set("Content-Type", "application/json");
-  }
-
-  const { timeoutMs, ...requestOptions } = options;
-  const controller = timeoutMs && timeoutMs > 0 ? new AbortController() : null;
-  const timeoutId = controller
-    ? window.setTimeout(() => controller.abort(), timeoutMs)
-    : null;
-
-  let response: Response;
-
-  try {
-    response = await fetch(`${API}${endpoint}`, {
-      ...requestOptions,
-      headers,
-      credentials: "include",
-      cache: "no-store",
-      signal: controller?.signal || requestOptions.signal,
-    });
-  } finally {
-    if (timeoutId !== null) window.clearTimeout(timeoutId);
-  }
-
-  let data: { message?: string; code?: string } = {};
-
-  try {
-    data = await response.json();
-  } catch {
-    data = {};
-  }
-
-  if (!response.ok) {
-    const error = new Error(
-      data.message || "Something went wrong.",
-    ) as ApiError;
-    error.code = data.code;
-    error.status = response.status;
-
-    if (response.status === 401 && typeof window !== "undefined") {
-      window.dispatchEvent(new Event("client-auth:expired"));
-    }
-
-    throw error;
-  }
-
-  return data as T;
-}
-
 export function ClientAuthProvider({ children }: { children: ReactNode }) {
   const [client, setClient] = useState<ClientProfile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -182,15 +120,16 @@ export function ClientAuthProvider({ children }: { children: ReactNode }) {
     setError("");
 
     try {
-      const response = await clientRequest<MeResponse>("/client-auth/me", {
+      const response = await api.get<MeResponse>("/client-auth/me", {
+        isClientRoute: true,
         timeoutMs: 10000,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
       });
 
       setClient(response.client);
     } catch (err) {
-      const apiError = err as ApiError;
-
-      if (apiError.status === 401) {
+      if (err instanceof ApiError && err.status === 401) {
         setClient(null);
         setError("");
       } else {
@@ -239,10 +178,15 @@ export function ClientAuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (email: string, password: string) => {
-    const response = await clientRequest<AuthResponse>("/client-auth/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await api.post<AuthResponse>(
+      "/client-auth/login",
+      { email, password },
+      {
+        isClientRoute: true,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
+      },
+    );
 
     establishSession(response);
   };
@@ -254,11 +198,13 @@ export function ClientAuthProvider({ children }: { children: ReactNode }) {
     password: string,
     referralCode?: string,
   ) => {
-    const response = await clientRequest<AuthResponse>(
+    const response = await api.post<AuthResponse>(
       "/client-auth/register",
+      { fullName, email, phone, password, referralCode },
       {
-        method: "POST",
-        body: JSON.stringify({ fullName, email, phone, password, referralCode }),
+        isClientRoute: true,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
       },
     );
 
@@ -266,11 +212,13 @@ export function ClientAuthProvider({ children }: { children: ReactNode }) {
   };
 
   const activate = async (email: string, phone: string, password: string) => {
-    const response = await clientRequest<AuthResponse>(
+    const response = await api.post<AuthResponse>(
       "/client-auth/activate",
+      { email, phone, password },
       {
-        method: "POST",
-        body: JSON.stringify({ email, phone, password }),
+        isClientRoute: true,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
       },
     );
 
@@ -279,7 +227,15 @@ export function ClientAuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      await clientRequest("/client-auth/logout", { method: "POST" });
+      await api.post(
+        "/client-auth/logout",
+        undefined,
+        {
+          isClientRoute: true,
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        },
+      );
     } catch {
       // Local sign-out must still succeed if the API is unavailable.
     }
