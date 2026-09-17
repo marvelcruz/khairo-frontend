@@ -1,4 +1,5 @@
 const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
   "https://khairo-backend.onrender.com/api";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -73,6 +74,11 @@ function getErrorMessage(data: unknown): string {
   return "Something went wrong.";
 }
 
+function staffTokenForRequest(isClientRoute: boolean) {
+  if (isClientRoute || typeof window === "undefined") return null;
+  return localStorage.getItem("khairo_staff_token");
+}
+
 async function request<T>(
   path: string,
   options: RequestOptions = {}
@@ -85,14 +91,9 @@ async function request<T>(
     timeoutMs,
   } = options;
 
-  const tokenKey = isClientRoute
-    ? "khairo_client_token"
-    : "khairo_staff_token";
-
-  const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem(tokenKey)
-      : null;
+  // Client authentication is cookie-only. Keep the legacy staff-token path
+  // untouched here until staff auth is migrated separately.
+  const token = staffTokenForRequest(isClientRoute);
 
   const requestPath = addQueryParams(path, params);
 
@@ -170,14 +171,8 @@ async function downloadRequest(
     params,
   } = options;
 
-  const tokenKey = isClientRoute
-    ? "khairo_client_token"
-    : "khairo_staff_token";
-
-  const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem(tokenKey)
-      : null;
+  // Client downloads also authenticate through the httpOnly cookie.
+  const token = staffTokenForRequest(isClientRoute);
 
   const requestPath =
     addQueryParams(path, params);
