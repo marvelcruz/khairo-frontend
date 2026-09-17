@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { api } from "@/lib/api";
 
 type Newsletter = {
   id: string;
@@ -13,7 +14,10 @@ type Newsletter = {
   publishedAt?: string;
 };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+type NewsletterResponse = {
+  newsletters?: Newsletter[];
+};
+
 const DEFAULT_LOGO_URL = "/icon.svg";
 
 export default function PublicNewslettersPage() {
@@ -22,8 +26,9 @@ export default function PublicNewslettersPage() {
   const [selected, setSelected] = useState<Newsletter | null>(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/newsletters/public`)
-      .then((res) => res.json())
+    api.get<NewsletterResponse>("/newsletters/public", {
+      suppressAuthExpired: true,
+    })
       .then((data) => setNewsletters(data.newsletters || []))
       .catch(() => setNewsletters([]))
       .finally(() => setLoading(false));
@@ -79,10 +84,10 @@ export default function PublicNewslettersPage() {
                 ) : (
                   <span className="grid h-6 w-6 place-items-center rounded-full bg-[#0d9488] text-xs font-bold">F</span>
                 )}
-                {n.title}
+                <span>{n.title}</span>
               </div>
-              <p className="mt-2 text-sm text-zinc-400">{n.excerpt}</p>
-              <p className="mt-2 text-xs text-zinc-600">
+              {n.excerpt && <p className="mt-2 text-sm text-zinc-400">{n.excerpt}</p>}
+              <p className="mt-3 text-xs text-zinc-600">
                 {n.publishedAt ? new Date(n.publishedAt).toLocaleDateString() : ""}
               </p>
             </button>
