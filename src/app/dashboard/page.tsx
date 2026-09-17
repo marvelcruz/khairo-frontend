@@ -199,30 +199,23 @@ export default function DashboardOverview() {
   }, [fetchAll]);
 
   const saveGoal = async () => {
-    const t = Number(goalInput);
-    if (!t || t <= 0) return;
-    setGoalSaving(true);
-    try {
-      const token = typeof window !== "undefined" ? localStorage.getItem("khairo_staff_token") : null;
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/reports/goal`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-        body: JSON.stringify({ target: t }),
-      });
-      const data = await res.json().catch(() => ({}));
-      console.log("RAW GOAL RESPONSE:", res.status, data);
-      if (!res.ok) throw new Error(`Status ${res.status}: ${data.message || JSON.stringify(data)}`);
-      setGoal(t);
-      setEditingGoal(false);
-    } catch (err) {
-      alert("Could not save goal: " + (err instanceof Error ? err.message : "is the backend running?"));
-    } finally {
-      setGoalSaving(false);
-    }
-  };
+  const t = Number(goalInput);
+  if (!t || t <= 0) return;
+  setGoalSaving(true);
+  try {
+    await api.post(
+      "/reports/goal",
+      { target: t },
+      { suppressGlobalError: true }
+    );
+    setGoal(t);
+    setEditingGoal(false);
+  } catch (err) {
+    alert("Could not save goal: " + (err instanceof Error ? err.message : "Please try again."));
+  } finally {
+    setGoalSaving(false);
+  }
+};
 
   const totalTasksToday =
     flagged.length +

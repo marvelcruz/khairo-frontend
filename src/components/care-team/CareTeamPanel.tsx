@@ -37,8 +37,6 @@ type Snapshot = {
   sharedItems: Array<{ _id?: string; title: string; kind: string; status?: string; url?: string }>;
 };
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api";
-
 function peopleFromResponse(value: unknown): Person[] {
   if (Array.isArray(value)) return value as Person[];
   if (!value || typeof value !== "object") return [];
@@ -79,36 +77,40 @@ export default function CareTeamPanel({ clientId }: { clientId: string }) {
   }, [hasRole]);
 
   useEffect(() => {
-    const photos = snapshot?.progressPhotos?.slice(0, 4) || [];
-    if (!photos.length) {
-      setPhotoUrls({});
-      return;
-    }
+  const photos = snapshot?.progressPhotos?.slice(0, 4) || [];
+  if (!photos.length) {
+    setPhotoUrls({});
+    return;
+  }
 
-    let cancelled = false;
-    const created: string[] = [];
-    const token = localStorage.getItem("khairo_staff_token");
+  let cancelled = false;
+  const created: string[] = [];
 
-    Promise.all(
-      photos.map(async (photo) => {
-        const response = await fetch(
-          `${API}/care-team/clients/${clientId}/progress-photos/${photo._id}/image`,
-          { headers: token ? { Authorization: `Bearer ${token}` } : {} }
+  Promise.all(
+    photos.map(async (photo) => {
+      try {
+        const { blob } = await api.download(
+          `/care-team/clients/${clientId}/progress-photos/${photo._id}/image`,
+          { suppressGlobalError: true }
         );
-        if (!response.ok) return [photo._id, ""] as const;
-        const url = URL.createObjectURL(await response.blob());
+        const url = URL.createObjectURL(blob);
         created.push(url);
         return [photo._id, url] as const;
-      })
-    ).then((pairs) => {
-      if (!cancelled) setPhotoUrls(Object.fromEntries(pairs.filter(([, url]) => Boolean(url))));
-    });
+      } catch {
+        return [photo._id, ""] as const;
+      }
+    })
+  ).then((pairs) => {
+    if (!cancelled) {
+      setPhotoUrls(Object.fromEntries(pairs.filter(([, url]) => Boolean(url))));
+    }
+  });
 
-    return () => {
-      cancelled = true;
-      created.forEach((url) => URL.revokeObjectURL(url));
-    };
-  }, [snapshot?.progressPhotos, clientId]);
+  return () => {
+    cancelled = true;
+    created.forEach((url) => URL.revokeObjectURL(url));
+  };
+}, [snapshot?.progressPhotos, clientId]);
 
   const latestMeasurement = useMemo(() => {
     const items = snapshot?.measurements || [];

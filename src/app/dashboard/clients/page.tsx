@@ -133,42 +133,51 @@ export default function ClientsPage() {
   })();
 
   const exportCSV = async () => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/clients/export`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("khairo_staff_token")}` },
-      });
-      if (!res.ok) throw new Error("Export failed");
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `khairo-clients-${new Date().toISOString().slice(0, 10)}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch { alert("Could not export CSV."); }
-  };
+  try {
+    const { blob } = await api.download("/clients/export", {
+      suppressGlobalError: true,
+    });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `khairo-clients-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
+  } catch {
+    alert("Could not export CSV.");
+  }
+};
 
-  const importCSV = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setImporting(true);
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/clients/import`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${localStorage.getItem("khairo_staff_token")}` },
-        body: formData,
-      });
-      const data = await res.json();
-      if (data.success) {
-        alert(`Imported: ${data.created} created, ${data.skipped} skipped${data.errors.length ? ". Errors: " + data.errors.join(", ") : ""}`);
-        fetchClients();
-      } else alert(data.message || "Import failed");
-    } catch { alert("Could not import CSV."); }
-    finally { setImporting(false); }
-  };
+const importCSV = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  setImporting(true);
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+    const data = await api.post<{
+      success?: boolean;
+      created?: number;
+      skipped?: number;
+      errors?: string[];
+      message?: string;
+    }>("/clients/import", formData, { suppressGlobalError: true });
+
+    if (data.success) {
+      const errors = data.errors || [];
+      alert(`Imported: ${data.created || 0} created, ${data.skipped || 0} skipped${errors.length ? ". Errors: " + errors.join(", ") : ""}`);
+      fetchClients();
+    } else {
+      alert(data.message || "Import failed");
+    }
+  } catch {
+    alert("Could not import CSV.");
+  } finally {
+    setImporting(false);
+  }
+};
 
   const [error, setError] = useState<string | null>(null);
   const fetchClients = useCallback(async (q = "", silent = false) => {

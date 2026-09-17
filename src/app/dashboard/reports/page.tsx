@@ -78,8 +78,6 @@ type PipelineReport = {
   sources: Array<{ _id: string; count: number }>;
 };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-
 export default function ReportsPage() {
   const [data, setData] = useState<RevenueData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -125,38 +123,30 @@ export default function ReportsPage() {
   }, []);
 
   const handleExport = async () => {
-    setExporting(true);
-    try {
-      const token = localStorage.getItem("khairo_staff_token");
-      const params = new URLSearchParams({
+  setExporting(true);
+  try {
+    const { blob } = await api.download("/reports/export", {
+      params: {
         type: reportType,
         range: reportRange,
         format: reportFormat,
-      });
-
-      const res = await fetch(`${API_BASE}/reports/export?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.message || "Export failed");
-      }
-
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `khairo-${reportType}-${new Date().toISOString().slice(0, 10)}.${reportFormat}`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch (error) {
-      alert(error instanceof Error ? error.message : "Could not export report.");
-    } finally {
-      setExporting(false);
-    }
-  };
+      },
+      suppressGlobalError: true,
+    });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `khairo-${reportType}-${new Date().toISOString().slice(0, 10)}.${reportFormat}`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : "Could not export report.");
+  } finally {
+    setExporting(false);
+  }
+};
 
 
 

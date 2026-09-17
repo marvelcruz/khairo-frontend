@@ -12,22 +12,14 @@ import {
   Upload,
 } from "lucide-react";
 
+import { api } from "@/lib/api";
+
 type Photo = {
   _id: string;
   uploadedAt: string;
   angle: string;
   note?: string;
 };
-
-const API =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5000/api";
-
-function token() {
-  return localStorage.getItem(
-    "khairo_client_token"
-  );
-}
 
 async function prepareImage(
   file: File
@@ -141,78 +133,35 @@ export function ProgressPhotos() {
       });
     }, []);
 
-  const load =
-    useCallback(async () => {
-      const auth = token();
+  const load = useCallback(async () => {
+  try {
+    const data = await api.get<{ photos?: Photo[] }>(
+      "/client-portal/progress-photos",
+      { isClientRoute: true }
+    );
+    const list = data.photos || [];
+    setPhotos(list);
+    clearUrls();
 
-      if (!auth) return;
-
-      try {
-        const response =
-          await fetch(
-            `${API}/client-portal/progress-photos`,
-            {
-              headers: {
-                Authorization:
-                  `Bearer ${auth}`,
-              },
-            }
+    const pairs = await Promise.all(
+      list.slice(0, 12).map(async (photo) => {
+        try {
+          const { blob } = await api.download(
+            `/client-portal/progress-photos/${photo._id}/image`,
+            { isClientRoute: true, suppressGlobalError: true }
           );
+          return [photo._id, URL.createObjectURL(blob)] as const;
+        } catch {
+          return [photo._id, ""] as const;
+        }
+      })
+    );
 
-        const data =
-          await response.json();
-
-        const list: Photo[] =
-          data.photos || [];
-
-        setPhotos(list);
-
-        clearUrls();
-
-        const next: Record<
-          string,
-          string
-        > = {};
-
-        await Promise.all(
-          list
-            .slice(0, 12)
-            .map(
-              async (
-                photo
-              ) => {
-                const image =
-                  await fetch(
-                    `${API}/client-portal/progress-photos/${photo._id}/image`,
-                    {
-                      headers: {
-                        Authorization:
-                          `Bearer ${auth}`,
-                      },
-                    }
-                  );
-
-                if (!image.ok) {
-                  return;
-                }
-
-                const blob =
-                  await image.blob();
-
-                next[
-                  photo._id
-                ] =
-                  URL.createObjectURL(
-                    blob
-                  );
-              }
-            )
-        );
-
-        setUrls(next);
-      } catch {
-      }
-    }, [clearUrls]);
+    setUrls(Object.fromEntries(pairs.filter(([, url]) => Boolean(url))));
+  } catch {
+    // The shared API layer already surfaces the failure to the user.
+  }
+}, [clearUrls]);
 
   useEffect(() => {
     void load();
@@ -253,128 +202,56 @@ export function ProgressPhotos() {
           }.`;
     }, [photos]);
 
-  const submit = async (
-    e: React.FormEvent
-  ) => {
-    e.preventDefault();
+  const submit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!file) return;
 
-    if (!file) return;
+  if (!consent) {
+    setError("Please confirm the privacy acknowledgement.");
+    return;
+  }
 
-    if (!consent) {
-      setError(
-        "Please confirm the privacy acknowledgement."
-      );
+  setSaving(true);
+  setError("");
 
-      return;
-    }
+  try {
+    const blob = await prepareImage(file);
+    const form = new FormData();
+    form.append("photo", blob, "progress-photo.jpg");
+    form.append("angle", angle);
+    form.append("note", note);
 
-    setSaving(true);
-    setError("");
-
-    try {
-      const auth = token();
-
-      if (!auth) {
-        throw new Error(
-          "Your session has expired."
-        );
-      }
-
-      const blob =
-        await prepareImage(file);
-
-      const form =
-        new FormData();
-
-      form.append(
-        "photo",
-        blob,
-        "progress-photo.jpg"
-      );
-
-      form.append(
-        "angle",
-        angle
-      );
-
-      form.append(
-        "note",
-        note
-      );
-
-      const response =
-        await fetch(
-          `${API}/client-portal/progress-photos`,
-          {
-            method: "POST",
-            headers: {
-              Authorization:
-                `Bearer ${auth}`,
-            },
-            body: form,
-          }
-        );
-
-      const data =
-        await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data.message ||
-            "Could not upload photo."
-        );
-      }
-
-      setFile(null);
-      setNote("");
-      setConsent(false);
-
-      await load();
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Could not upload photo."
-      );
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const remove = async (
-    id: string
-  ) => {
-    if (
-      !window.confirm(
-        "Delete this progress photo?"
-      )
-    ) {
-      return;
-    }
-
-    const auth = token();
-
-    await fetch(
-      `${API}/client-portal/progress-photos/${id}`,
+    await api.post(
+      "/client-portal/progress-photos",
+      form,
       {
-        method: "DELETE",
-        headers: {
-          Authorization:
-            `Bearer ${auth}`,
-        },
+        isClientRoute: true,
+        suppressGlobalError: true,
       }
     );
 
-    setCompare(
-      (current) =>
-        current.filter(
-          (value) =>
-            value !== id
-        )
-    );
-
+    setFile(null);
+    setNote("");
+    setConsent(false);
     await load();
-  };
+  } catch (err) {
+    setError(err instanceof Error ? err.message : "Could not upload photo.");
+  } finally {
+    setSaving(false);
+  }
+};
+
+  const remove = async (id: string) => {
+  if (!window.confirm("Delete this progress photo?")) return;
+
+  await api.del(
+    `/client-portal/progress-photos/${id}`,
+    { isClientRoute: true }
+  );
+
+  setCompare((current) => current.filter((value) => value !== id));
+  await load();
+};
 
   const toggleCompare = (
     id: string
