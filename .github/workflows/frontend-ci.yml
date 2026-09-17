@@ -28,6 +28,19 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Reject direct application fetch calls
+        shell: bash
+        run: |
+          matches=$(grep -RInE --include='*.ts' --include='*.tsx' '(^|[^A-Za-z])fetch\(' src \
+            | grep -v '^src/lib/api.ts:' \
+            | grep -v '\.test\.tsx\?:' \
+            || true)
+          if [ -n "$matches" ]; then
+            echo "Application API calls must go through src/lib/api.ts so cookie auth and global error handling stay consistent."
+            echo "$matches"
+            exit 1
+          fi
+
       - name: Unit and integration tests with coverage
         run: npm run test:coverage
 
