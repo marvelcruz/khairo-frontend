@@ -23,7 +23,7 @@ export default function AppError({
   return (
     <main className="grid min-h-[60vh] place-items-center bg-[var(--theme-page)] px-4 py-12">
       <section className="w-full max-w-md rounded-2xl border border-[var(--theme-border)] bg-[var(--theme-surface)] p-6 text-center shadow-xl">
-        <p className="text-base font-semibold text-[var(--theme-text-primary)]">
+        <p className="text-base font-semibold text-[var(--theme-text)]">
           We couldn’t load this page
         </p>
         <p className="mt-2 text-sm leading-6 text-[var(--theme-text-secondary)]">
