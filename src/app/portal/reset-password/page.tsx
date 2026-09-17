@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "/api";
+import { api } from "@/lib/api";
 
 export default function ClientResetPasswordPage() {
   const [token, setToken] = useState("");
@@ -37,14 +37,15 @@ export default function ClientResetPasswordPage() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${API}/client-auth/reset-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, newPassword: password }),
-        credentials: "include",
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || "Could not reset your password.");
+      await api.post(
+        "/client-auth/reset-password",
+        { token, newPassword: password },
+        {
+          isClientRoute: true,
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        }
+      );
       setSuccess(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not reset your password.");
