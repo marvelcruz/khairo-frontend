@@ -1,0 +1,322 @@
+name: Migrate Direct API Calls
+
+on:
+  push:
+    branches:
+      - fix/global-error-handling-20260917
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/global-error-handling-20260917
+      - name: Migrate direct fetch calls to shared API
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          def replace_between(path, start, end, replacement):
+              p = Path(path)
+              text = p.read_text()
+              i = text.find(start)
+              if i < 0:
+                  return False
+              j = text.find(end, i)
+              if j < 0:
+                  raise SystemExit(f"end marker not found in {path}")
+              p.write_text(text[:i] + replacement + text[j:])
+              return True
+
+          # Dashboard goal save: remove browser-readable JWT/Bearer path.
+          replace_between(
+              "src/app/dashboard/page.tsx",
+              "  const saveGoal = async () => {",
+              "\n\n  const totalTasksToday =",
+              '''  const saveGoal = async () => {
+            const t = Number(goalInput);
+            if (!t || t <= 0) return;
+            setGoalSaving(true);
+            try {
+              await api.post(
+                "/reports/goal",
+                { target: t },
+                { suppressGlobalError: true }
+              );
+              setGoal(t);
+              setEditingGoal(false);
+            } catch (err) {
+              alert("Could not save goal: " + (err instanceof Error ? err.message : "Please try again."));
+            } finally {
+              setGoalSaving(false);
+            }
+          };'''
+          )
+
+          # Client CSV import/export: cookie auth through shared API.
+          replace_between(
+              "src/app/dashboard/clients/page.tsx",
+              "  const exportCSV = async () => {",
+              "\n\n  const [error, setError]",
+              '''  const exportCSV = async () => {
+            try {
+              const { blob } = await api.download("/clients/export", {
+                suppressGlobalError: true,
+              });
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `khairo-clients-${new Date().toISOString().slice(0, 10)}.csv`;
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              window.URL.revokeObjectURL(url);
+            } catch {
+              alert("Could not export CSV.");
+            }
+          };
+
+          const importCSV = async (e: React.ChangeEvent<HTMLInputElement>) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            setImporting(true);
+            try {
+              const formData = new FormData();
+              formData.append("file", file);
+              const data = await api.post<{
+                success?: boolean;
+                created?: number;
+                skipped?: number;
+                errors?: string[];
+                message?: string;
+              }>("/clients/import", formData, { suppressGlobalError: true });
+
+              if (data.success) {
+                const errors = data.errors || [];
+                alert(`Imported: ${data.created || 0} created, ${data.skipped || 0} skipped${errors.length ? ". Errors: " + errors.join(", ") : ""}`);
+                fetchClients();
+              } else {
+                alert(data.message || "Import failed");
+              }
+            } catch {
+              alert("Could not import CSV.");
+            } finally {
+              setImporting(false);
+            }
+          };'''
+          )
+
+          # Report export: shared cookie-auth download helper.
+          reports = Path("src/app/dashboard/reports/page.tsx")
+          text = reports.read_text()
+          text = text.replace('const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";\n\n', '')
+          reports.write_text(text)
+          replace_between(
+              "src/app/dashboard/reports/page.tsx",
+              "  const handleExport = async () => {",
+              "\n\n\n\n  const nameList =",
+              '''  const handleExport = async () => {
+            setExporting(true);
+            try {
+              const { blob } = await api.download("/reports/export", {
+                params: {
+                  type: reportType,
+                  range: reportRange,
+                  format: reportFormat,
+                },
+                suppressGlobalError: true,
+              });
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `khairo-${reportType}-${new Date().toISOString().slice(0, 10)}.${reportFormat}`;
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              window.URL.revokeObjectURL(url);
+            } catch (error) {
+              alert(error instanceof Error ? error.message : "Could not export report.");
+            } finally {
+              setExporting(false);
+            }
+          };'''
+          )
+
+          # Progress photos: remove legacy client JWT and use cookie-auth API helpers.
+          photos = Path("src/components/portal/ProgressPhotos.tsx")
+          text = photos.read_text()
+          if 'import { api } from "@/lib/api";' not in text:
+              text = text.replace(
+                  'import {\n  Camera,\n  Trash2,\n  Upload,\n} from "lucide-react";\n',
+                  'import {\n  Camera,\n  Trash2,\n  Upload,\n} from "lucide-react";\n\nimport { api } from "@/lib/api";\n'
+              )
+          start = text.find('const API =\n  process.env.NEXT_PUBLIC_API_URL ||\n  "http://localhost:5000/api";')
+          if start >= 0:
+              end = text.find('\n\nasync function prepareImage', start)
+              if end < 0:
+                  raise SystemExit('progress photo API/token end marker not found')
+              text = text[:start] + text[end+2:]
+          photos.write_text(text)
+
+          replace_between(
+              "src/components/portal/ProgressPhotos.tsx",
+              "  const load =\n    useCallback(async () => {",
+              "\n\n  useEffect(() => {",
+              '''  const load = useCallback(async () => {
+            try {
+              const data = await api.get<{ photos?: Photo[] }>(
+                "/client-portal/progress-photos",
+                { isClientRoute: true }
+              );
+              const list = data.photos || [];
+              setPhotos(list);
+              clearUrls();
+
+              const pairs = await Promise.all(
+                list.slice(0, 12).map(async (photo) => {
+                  try {
+                    const { blob } = await api.download(
+                      `/client-portal/progress-photos/${photo._id}/image`,
+                      { isClientRoute: true, suppressGlobalError: true }
+                    );
+                    return [photo._id, URL.createObjectURL(blob)] as const;
+                  } catch {
+                    return [photo._id, ""] as const;
+                  }
+                })
+              );
+
+              setUrls(Object.fromEntries(pairs.filter(([, url]) => Boolean(url))));
+            } catch {
+              // The shared API layer already surfaces the failure to the user.
+            }
+          }, [clearUrls]);'''
+          )
+
+          replace_between(
+              "src/components/portal/ProgressPhotos.tsx",
+              "  const submit = async (\n    e: React.FormEvent\n  ) => {",
+              "\n\n  const remove = async (",
+              '''  const submit = async (e: React.FormEvent) => {
+            e.preventDefault();
+            if (!file) return;
+
+            if (!consent) {
+              setError("Please confirm the privacy acknowledgement.");
+              return;
+            }
+
+            setSaving(true);
+            setError("");
+
+            try {
+              const blob = await prepareImage(file);
+              const form = new FormData();
+              form.append("photo", blob, "progress-photo.jpg");
+              form.append("angle", angle);
+              form.append("note", note);
+
+              await api.post(
+                "/client-portal/progress-photos",
+                form,
+                {
+                  isClientRoute: true,
+                  suppressGlobalError: true,
+                }
+              );
+
+              setFile(null);
+              setNote("");
+              setConsent(false);
+              await load();
+            } catch (err) {
+              setError(err instanceof Error ? err.message : "Could not upload photo.");
+            } finally {
+              setSaving(false);
+            }
+          };'''
+          )
+
+          replace_between(
+              "src/components/portal/ProgressPhotos.tsx",
+              "  const remove = async (",
+              "\n\n  const toggleCompare = (",
+              '''  const remove = async (id: string) => {
+            if (!window.confirm("Delete this progress photo?")) return;
+
+            await api.del(
+              `/client-portal/progress-photos/${id}`,
+              { isClientRoute: true }
+            );
+
+            setCompare((current) => current.filter((value) => value !== id));
+            await load();
+          };'''
+          )
+
+          # Care-team photo blobs: cookie-auth download helper, no staff JWT in JS.
+          care = Path("src/components/care-team/CareTeamPanel.tsx")
+          text = care.read_text().replace(
+              'const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api";\n\n',
+              ''
+          )
+          care.write_text(text)
+          replace_between(
+              "src/components/care-team/CareTeamPanel.tsx",
+              "  useEffect(() => {\n    const photos = snapshot?.progressPhotos?.slice(0, 4) || [];",
+              "\n\n  const latestMeasurement =",
+              '''  useEffect(() => {
+            const photos = snapshot?.progressPhotos?.slice(0, 4) || [];
+            if (!photos.length) {
+              setPhotoUrls({});
+              return;
+            }
+
+            let cancelled = false;
+            const created: string[] = [];
+
+            Promise.all(
+              photos.map(async (photo) => {
+                try {
+                  const { blob } = await api.download(
+                    `/care-team/clients/${clientId}/progress-photos/${photo._id}/image`,
+                    { suppressGlobalError: true }
+                  );
+                  const url = URL.createObjectURL(blob);
+                  created.push(url);
+                  return [photo._id, url] as const;
+                } catch {
+                  return [photo._id, ""] as const;
+                }
+              })
+            ).then((pairs) => {
+              if (!cancelled) {
+                setPhotoUrls(Object.fromEntries(pairs.filter(([, url]) => Boolean(url))));
+              }
+            });
+
+            return () => {
+              cancelled = true;
+              created.forEach((url) => URL.revokeObjectURL(url));
+            };
+          }, [snapshot?.progressPhotos, clientId]);'''
+          )
+          PY
+
+      - name: Commit migration
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No migration changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src
+          git commit -m "refactor: route remaining frontend API calls through shared client"
+          git push origin HEAD:fix/global-error-handling-20260917
