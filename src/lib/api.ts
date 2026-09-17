@@ -1,3 +1,10 @@
+import {
+  apiErrorDetail,
+  dispatchAppError,
+  networkErrorDetail,
+  timeoutErrorDetail,
+} from "./appErrors";
+
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
   "https://khairo-backend.onrender.com/api";
@@ -7,18 +14,30 @@ type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 type QueryValue = string | number | boolean | null | undefined;
 type QueryParams = Record<string, QueryValue>;
 
-type RequestOptions = {
-  method?: HttpMethod;
-  body?: unknown;
+type ErrorHandlingOptions = {
   isClientRoute?: boolean;
-  params?: QueryParams;
   timeoutMs?: number;
+  suppressGlobalError?: boolean;
+  suppressAuthExpired?: boolean;
 };
 
-type GetOptions = {
-  isClientRoute?: boolean;
+type RequestOptions = ErrorHandlingOptions & {
+  method?: HttpMethod;
+  body?: unknown;
   params?: QueryParams;
-  timeoutMs?: number;
+};
+
+type GetOptions = ErrorHandlingOptions & {
+  params?: QueryParams;
+};
+
+type MutationOptions = ErrorHandlingOptions;
+
+type DownloadOptions = Pick<
+  ErrorHandlingOptions,
+  "isClientRoute" | "suppressGlobalError" | "suppressAuthExpired"
+> & {
+  params?: QueryParams;
 };
 
 class ApiError extends Error {
@@ -74,6 +93,53 @@ function getErrorMessage(data: unknown): string {
   return "Something went wrong.";
 }
 
+function normalizeMutationOptions(
+  optionsOrClientRoute: boolean | MutationOptions = false
+): MutationOptions {
+  return typeof optionsOrClientRoute === "boolean"
+    ? { isClientRoute: optionsOrClientRoute }
+    : optionsOrClientRoute;
+}
+
+function dispatchAuthExpired(isClientRoute: boolean) {
+  if (typeof window === "undefined") return;
+
+  window.dispatchEvent(
+    new CustomEvent(
+      isClientRoute ? "client-auth:expired" : "staff-auth:expired"
+    )
+  );
+}
+
+function reportTransportError({
+  error,
+  source,
+  suppressGlobalError,
+}: {
+  error: unknown;
+  source: string;
+  suppressGlobalError: boolean;
+}) {
+  const timedOut =
+    error instanceof DOMException && error.name === "AbortError";
+
+  const apiError = new ApiError(
+    timedOut ? "Request timed out." : "Unable to reach the server.",
+    0,
+    {
+      code: timedOut ? "REQUEST_TIMEOUT" : "NETWORK_ERROR",
+    }
+  );
+
+  if (!suppressGlobalError) {
+    dispatchAppError(
+      timedOut ? timeoutErrorDetail(source) : networkErrorDetail(source)
+    );
+  }
+
+  return apiError;
+}
+
 async function request<T>(
   path: string,
   options: RequestOptions = {}
@@ -84,22 +150,21 @@ async function request<T>(
     isClientRoute = false,
     params,
     timeoutMs,
+    suppressGlobalError = false,
+    suppressAuthExpired = false,
   } = options;
 
   const requestPath = addQueryParams(path, params);
 
   const controller =
-    timeoutMs && timeoutMs > 0
-      ? new AbortController()
-      : null;
+    timeoutMs && timeoutMs > 0 ? new AbortController() : null;
 
   const timeoutId = controller
-    ? window.setTimeout(() => controller.abort(), timeoutMs)
+    ? globalThis.setTimeout(() => controller.abort(), timeoutMs)
     : null;
 
   const isFormData =
-    typeof FormData !== "undefined" &&
-    body instanceof FormData;
+    typeof FormData !== "undefined" && body instanceof FormData;
 
   let res: Response;
 
@@ -120,35 +185,41 @@ async function request<T>(
           : undefined,
       signal: controller?.signal,
     });
+  } catch (error) {
+    throw reportTransportError({
+      error,
+      source: `${method} ${path}`,
+      suppressGlobalError,
+    });
   } finally {
     if (timeoutId !== null) {
-      window.clearTimeout(timeoutId);
+      globalThis.clearTimeout(timeoutId);
     }
   }
 
   const data: unknown = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    if (res.status === 401 && typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent(
-          isClientRoute
-            ? "client-auth:expired"
-            : "staff-auth:expired"
-        )
+    const error = new ApiError(getErrorMessage(data), res.status, data);
+
+    if (res.status === 401) {
+      if (!suppressAuthExpired) dispatchAuthExpired(isClientRoute);
+    } else if (!suppressGlobalError) {
+      dispatchAppError(
+        apiErrorDetail({
+          status: res.status,
+          message: error.message,
+          code: error.code,
+          source: `${method} ${path}`,
+        })
       );
     }
 
-    throw new ApiError(getErrorMessage(data), res.status, data);
+    throw error;
   }
 
   return data as T;
 }
-
-type DownloadOptions = {
-  isClientRoute?: boolean;
-  params?: QueryParams;
-};
 
 async function downloadRequest(
   path: string,
@@ -157,33 +228,45 @@ async function downloadRequest(
   const {
     isClientRoute = false,
     params,
+    suppressGlobalError = false,
+    suppressAuthExpired = false,
   } = options;
 
   const requestPath = addQueryParams(path, params);
 
-  const res = await fetch(`${API_BASE_URL}${requestPath}`, {
-    method: "GET",
-    credentials: "include",
-  });
+  let res: Response;
+
+  try {
+    res = await fetch(`${API_BASE_URL}${requestPath}`, {
+      method: "GET",
+      credentials: "include",
+    });
+  } catch (error) {
+    throw reportTransportError({
+      error,
+      source: `DOWNLOAD ${path}`,
+      suppressGlobalError,
+    });
+  }
 
   if (!res.ok) {
     const data: unknown = await res.json().catch(() => ({}));
+    const error = new ApiError(getErrorMessage(data), res.status, data);
 
-    if (res.status === 401 && typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent(
-          isClientRoute
-            ? "client-auth:expired"
-            : "staff-auth:expired"
-        )
+    if (res.status === 401) {
+      if (!suppressAuthExpired) dispatchAuthExpired(isClientRoute);
+    } else if (!suppressGlobalError) {
+      dispatchAppError(
+        apiErrorDetail({
+          status: res.status,
+          message: error.message,
+          code: error.code,
+          source: `DOWNLOAD ${path}`,
+        })
       );
     }
 
-    throw new ApiError(
-      getErrorMessage(data),
-      res.status,
-      data
-    );
+    throw error;
   }
 
   const disposition = res.headers.get("content-disposition") || "";
@@ -214,43 +297,43 @@ export const api = {
   post: <T>(
     path: string,
     body?: unknown,
-    isClientRoute = false
+    optionsOrClientRoute: boolean | MutationOptions = false
   ) =>
     request<T>(path, {
       method: "POST",
       body,
-      isClientRoute,
+      ...normalizeMutationOptions(optionsOrClientRoute),
     }),
 
   put: <T>(
     path: string,
     body?: unknown,
-    isClientRoute = false
+    optionsOrClientRoute: boolean | MutationOptions = false
   ) =>
     request<T>(path, {
       method: "PUT",
       body,
-      isClientRoute,
+      ...normalizeMutationOptions(optionsOrClientRoute),
     }),
 
   patch: <T>(
     path: string,
     body?: unknown,
-    isClientRoute = false
+    optionsOrClientRoute: boolean | MutationOptions = false
   ) =>
     request<T>(path, {
       method: "PATCH",
       body,
-      isClientRoute,
+      ...normalizeMutationOptions(optionsOrClientRoute),
     }),
 
   del: <T>(
     path: string,
-    isClientRoute = false
+    optionsOrClientRoute: boolean | MutationOptions = false
   ) =>
     request<T>(path, {
       method: "DELETE",
-      isClientRoute,
+      ...normalizeMutationOptions(optionsOrClientRoute),
     }),
 
   download: (
