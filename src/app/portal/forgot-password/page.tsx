@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "/api";
+import { api } from "@/lib/api";
 
 export default function ClientForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -18,14 +18,15 @@ export default function ClientForgotPasswordPage() {
     setError("");
 
     try {
-      const response = await fetch(`${API}/client-auth/forgot-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-        credentials: "include",
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || "Could not request a reset link.");
+      const data = await api.post<{ message?: string }>(
+        "/client-auth/forgot-password",
+        { email },
+        {
+          isClientRoute: true,
+          suppressAuthExpired: true,
+          suppressGlobalError: true,
+        }
+      );
       setMessage(data.message || "If an account exists, a secure reset link will be sent shortly.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not request a reset link.");
