@@ -75,7 +75,6 @@ export function AppErrorProvider({ children }: { children: ReactNode }) {
     };
 
     const handleExpired = () => notify(SESSION_NOTICE);
-
     const handleWindowError = () => notify(UNEXPECTED_NOTICE);
     const handleUnhandledRejection = () => notify(UNEXPECTED_NOTICE);
 
@@ -111,7 +110,7 @@ export function AppErrorProvider({ children }: { children: ReactNode }) {
           >
             <div className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-[var(--theme-text-primary)]">
+                <p className="text-sm font-semibold text-[var(--theme-text)]">
                   {notice.title}
                 </p>
                 <p className="mt-1 text-sm leading-5 text-[var(--theme-text-secondary)]">
@@ -122,7 +121,7 @@ export function AppErrorProvider({ children }: { children: ReactNode }) {
               <button
                 type="button"
                 onClick={() => dismiss(notice.id)}
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-[var(--theme-text-muted)] transition hover:bg-[var(--theme-surface-hover)] hover:text-[var(--theme-text-primary)]"
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-[var(--theme-text-muted)] transition hover:bg-[var(--theme-surface-hover)] hover:text-[var(--theme-text)]"
                 aria-label="Dismiss message"
               >
                 <X size={15} />
