@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { APP_ERROR_EVENT, type AppErrorDetail } from "./appErrors";
 import { ApiError, api } from "./api";
 
 const jsonResponse = (
@@ -85,6 +86,25 @@ describe("api client", () => {
     expect(fetchMock.mock.calls[3][1]?.headers).toEqual({});
   });
 
+  it("accepts structured mutation error-handling options", async () => {
+    fetchMock.mockResolvedValueOnce(jsonResponse({ success: true }));
+
+    await api.post(
+      "/client-auth/logout",
+      undefined,
+      {
+        isClientRoute: true,
+        suppressAuthExpired: true,
+        suppressGlobalError: true,
+      }
+    );
+
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({
+      method: "POST",
+      credentials: "include",
+    });
+  });
+
   it("does not set JSON headers or stringify FormData", async () => {
     fetchMock.mockResolvedValueOnce(jsonResponse({ success: true }));
     const formData = new FormData();
@@ -129,7 +149,45 @@ describe("api client", () => {
     });
   });
 
-  it("falls back to a generic error message when the response has none", async () => {
+  it("dispatches a safe global error event for non-401 API failures", async () => {
+    fetchMock.mockResolvedValueOnce(
+      jsonResponse({ message: "Database internals should not be shown" }, 500)
+    );
+    const listener = vi.fn<(event: Event) => void>();
+    window.addEventListener(APP_ERROR_EVENT, listener);
+
+    await expect(api.get("/reports")).rejects.toBeInstanceOf(ApiError);
+
+    expect(listener).toHaveBeenCalledTimes(1);
+    const event = listener.mock.calls[0][0] as CustomEvent<AppErrorDetail>;
+    expect(event.detail).toMatchObject({
+      kind: "api",
+      status: 500,
+      title: "Something went wrong",
+      message: "KhairoDietClinic couldn’t complete that request. Please try again.",
+    });
+
+    window.removeEventListener(APP_ERROR_EVENT, listener);
+  });
+
+  it("can suppress the global error surface when a page handles the error locally", async () => {
+    fetchMock.mockResolvedValueOnce(jsonResponse({ message: "Incorrect password" }, 400));
+    const listener = vi.fn();
+    window.addEventListener(APP_ERROR_EVENT, listener);
+
+    await expect(
+      api.post(
+        "/auth/login",
+        { email: "test@example.com", password: "wrong" },
+        { suppressGlobalError: true, suppressAuthExpired: true }
+      )
+    ).rejects.toBeInstanceOf(ApiError);
+
+    expect(listener).not.toHaveBeenCalled();
+    window.removeEventListener(APP_ERROR_EVENT, listener);
+  });
+
+  it("falls back to a generic API error message when the response has none", async () => {
     fetchMock.mockResolvedValueOnce(jsonResponse({}, 500));
 
     await expect(api.get("/broken")).rejects.toMatchObject({
@@ -145,9 +203,24 @@ describe("api client", () => {
     const listener = vi.fn();
     window.addEventListener("staff-auth:expired", listener);
 
-    await expect(api.get("/auth/me")).rejects.toBeInstanceOf(ApiError);
+    await expect(api.get("/clients")).rejects.toBeInstanceOf(ApiError);
 
     expect(listener).toHaveBeenCalledTimes(1);
+    window.removeEventListener("staff-auth:expired", listener);
+  });
+
+  it("can suppress auth-expired events for silent session probes", async () => {
+    fetchMock.mockResolvedValueOnce(
+      jsonResponse({ message: "Not signed in." }, 401)
+    );
+    const listener = vi.fn();
+    window.addEventListener("staff-auth:expired", listener);
+
+    await expect(
+      api.get("/auth/me", { suppressAuthExpired: true, suppressGlobalError: true })
+    ).rejects.toBeInstanceOf(ApiError);
+
+    expect(listener).not.toHaveBeenCalled();
     window.removeEventListener("staff-auth:expired", listener);
   });
 
@@ -158,7 +231,7 @@ describe("api client", () => {
     const listener = vi.fn();
     window.addEventListener("client-auth:expired", listener);
 
-    await expect(api.get("/client-auth/me", true)).rejects.toBeInstanceOf(
+    await expect(api.get("/client-portal/today", true)).rejects.toBeInstanceOf(
       ApiError
     );
 
@@ -217,7 +290,24 @@ describe("api client", () => {
     window.removeEventListener("client-auth:expired", listener);
   });
 
-  it("aborts requests when the configured timeout expires", async () => {
+  it("turns network failures into a consistent ApiError and global notice", async () => {
+    fetchMock.mockRejectedValueOnce(new TypeError("Failed to fetch"));
+    const listener = vi.fn<(event: Event) => void>();
+    window.addEventListener(APP_ERROR_EVENT, listener);
+
+    await expect(api.get("/clients")).rejects.toMatchObject({
+      name: "ApiError",
+      status: 0,
+      code: "NETWORK_ERROR",
+      message: "Unable to reach the server.",
+    });
+
+    const event = listener.mock.calls[0][0] as CustomEvent<AppErrorDetail>;
+    expect(event.detail.kind).toBe("network");
+    window.removeEventListener(APP_ERROR_EVENT, listener);
+  });
+
+  it("turns request timeouts into a consistent ApiError", async () => {
     vi.useFakeTimers();
 
     fetchMock.mockImplementationOnce((_url, init) => {
@@ -228,12 +318,14 @@ describe("api client", () => {
       });
     });
 
-    // Attach the rejection assertion before advancing fake timers so the abort
-    // rejection is observed immediately rather than surfacing as an unhandled
-    // promise rejection in Vitest/CI.
     const rejection = expect(
-      api.get("/slow", { timeoutMs: 25 })
-    ).rejects.toMatchObject({ name: "AbortError" });
+      api.get("/slow", { timeoutMs: 25, suppressGlobalError: true })
+    ).rejects.toMatchObject({
+      name: "ApiError",
+      status: 0,
+      code: "REQUEST_TIMEOUT",
+      message: "Request timed out.",
+    });
 
     await vi.advanceTimersByTimeAsync(25);
     await rejection;
