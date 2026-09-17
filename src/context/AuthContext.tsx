@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  ReactNode,
+} from "react";
 import { api, ApiError } from "../lib/api";
 
 type Staff = {
@@ -30,15 +37,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState("");
 
   const refreshUser = useCallback(async () => {
-    const token = localStorage.getItem("khairo_staff_token");
-
-    if (!token) {
-      setUser(null);
-      setError("");
-      setLoading(false);
-      return;
-    }
-
     setLoading(true);
     setError("");
 
@@ -50,7 +48,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(user);
     } catch (err) {
       if (err instanceof ApiError && err.status === 401) {
-        localStorage.removeItem("khairo_staff_token");
         setUser(null);
         setError("");
       } else {
@@ -65,22 +62,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    refreshUser();
+    // One-time migration cleanup. Staff authentication is now cookie-only and
+    // the JWT is never exposed to browser JavaScript.
+    localStorage.removeItem("khairo_staff_token");
+    void refreshUser();
   }, [refreshUser]);
 
   useEffect(() => {
     const handleExpired = () => {
-      localStorage.removeItem("khairo_staff_token");
       setUser(null);
       setError("");
+      setLoading(false);
     };
+
     window.addEventListener("staff-auth:expired", handleExpired);
     return () => window.removeEventListener("staff-auth:expired", handleExpired);
   }, []);
 
   const login = async (email: string, password: string) => {
-    const data = await api.post<{ token: string; user: Staff }>("/auth/login", { email, password });
-    localStorage.setItem("khairo_staff_token", data.token);
+    const data = await api.post<{ user: Staff }>("/auth/login", {
+      email,
+      password,
+    });
+
     setUser(data.user);
     setError("");
     return data.user;
@@ -92,7 +96,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       // Local sign-out must still succeed if the API is unavailable.
     } finally {
-      localStorage.removeItem("khairo_staff_token");
       setUser(null);
       setError("");
     }
@@ -116,7 +119,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <AuthContext.Provider value={{ user, loading, error, refresh: refreshUser, login, logout, hasRole, hasPermission }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        error,
+        refresh: refreshUser,
+        login,
+        logout,
+        hasRole,
+        hasPermission,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
