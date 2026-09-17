@@ -1,22 +1,27 @@
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+import { api } from "./api";
 
 export type PublicWebsiteContent = Record<string, unknown>;
+
+type WebsiteContentResponse = {
+  values?: PublicWebsiteContent;
+};
 
 export async function getPublicWebsiteContent(
   pageKey: string
 ): Promise<PublicWebsiteContent> {
   try {
-    const response = await fetch(
-      `${API_BASE_URL}/public/website/content/${encodeURIComponent(pageKey)}`,
-      { cache: "no-store" }
+    const data = await api.get<WebsiteContentResponse>(
+      `/public/website/content/${encodeURIComponent(pageKey)}`,
+      {
+        suppressGlobalError: true,
+        suppressAuthExpired: true,
+      }
     );
 
-    if (!response.ok) return {};
-
-    const data = await response.json();
     return data?.values || {};
   } catch {
+    // Marketing pages have built-in static fallbacks, so CMS outages are safe
+    // to degrade silently instead of interrupting visitors with an error toast.
     return {};
   }
 }
