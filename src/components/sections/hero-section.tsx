@@ -97,7 +97,7 @@ export function HeroSection() {
                 <span className="h-px w-9 bg-[#6ee7c7]" aria-hidden="true" />
                 {active.eyebrow}
               </p>
-              <h1 className="max-w-[660px] font-display text-[clamp(3.1rem,8vw,6.8rem)] leading-[.9] tracking-[-.035em] text-white [text-wrap:balance]">
+              <h1 className="max-w-[660px] font-display text-[clamp(3.1rem,8vw,6.8rem)] leading-[.9] tracking-[-.035em] !text-white [text-wrap:balance]">
                 {active.title}
               </h1>
               <p className="mt-5 max-w-[540px] text-base leading-7 text-white/78 sm:text-lg sm:leading-8">
